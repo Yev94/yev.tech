@@ -18,11 +18,11 @@
         <script src="https://gist.github.com/Yev94/d0a057c9173e3ac7e30dac726f8141c9.js"></script>
         <p>Multiplicamos por el máximo porque si el random nos da como max < 1, el maximo de 1*max < max, y el mínimo 0*max = 0.</p>
         <div class="imagenes">
-            <img src="../img/2021-12-07 05-23-44.png" alt="visualización conjunto min max multiplicado">
+            <img src="../img/2021-12-07 04-40-19.png" alt="visualización conjunto min max multiplicado">
         </div>
         <p>Y sumamos el minimo para desplazar el conjunto de 0 al minimo, pero entonces el máximo tambien se desplaza por lo que se lo restamos en la multiplicación.</p>
         <div class="imagenes">
-            <img src="../img/2021-12-07 05-23-55.png" alt="visualización conjunto desplazado">
+            <img src="../img/2021-12-07 04-43-40.png" alt="visualización conjunto desplazado">
         </div>
         <p>Al redondear con round y con ceil, como en los numeros cercanos a 1 (ej. 0'99) el redondeo dará el max se usa la formula tal como está (si queremos incluir el máximo).</p>
         <p>En cambio, como floor siempre baja el redondeo al menor, si restamos el mínimo, nos dará 1 punto más abajo del máximo, por lo que siempre debemos añadir ese punto en la multiplicación.</p>
