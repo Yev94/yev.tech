@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Números aleatorios entre rangos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous">
     <link rel="stylesheet" href="../style/main.css">
 </head>
+
 <body>
     <div class="container justify-content-center my-3">
         <header class="text-center">
             <h1 class="">Cómo escribir un número aleatorio entre un rango de números?</h1>
             <h2>En Java Script</h2>
         </header>
-        <script src="https://gist.github.com/Yev94/d0a057c9173e3ac7e30dac726f8141c9.js"></script>
-        <p>Multiplicamos por el máximo porque si el random nos da como max < 1, el maximo de 1*max < max, y el mínimo 0*max = 0.</p>
+        <main>
+            <script src="https://gist.github.com/Yev94/d0a057c9173e3ac7e30dac726f8141c9.js"></script>
+            <img src="../img/2021-12-07 04-40-19.png" alt="visualización conjunto min max multiplicado">
+            <p>Multiplicamos por el máximo porque si el random nos da como max < 1, el máximo de 1*max < max, y el
+                mínimo 0*max=0.</p>
+                    <img src="../img/2021-12-08 03-01-51.png" alt="visualización conjunto desplazado">
+                    <p>Y sumamos el mínimo para desplazar el conjunto de 0 al mínimo, pero entonces el máximo también se
+                        desplaza por lo que se lo restamos en la multiplicación.</p>
 
-        <img src="../img/2021-12-07 04-40-19.png" alt="visualización conjunto min max multiplicado">
+                    <h3>Con ceil</h3>
+                    <img src="../img/2021-12-29 01-07-42.png" alt="">
+                    <p>Como ceil redondea para arriba el conjunto se ve estrechado por la izquierda en 1pto</p>
+                    <img src="../img/2021-12-29 01-12-31.png" alt="">
+                    <p>Por eso volvemos a ampliar el conjunto sumándole al múltiplo el punto estrechado, pero ahora vemos como el conjunto se ha visto desplazado a la derecha</p>
+                    <img src="../img/2021-12-29 01-14-54.png" alt="">
+                    <p>Por lo que tendremos que volver a desplazar el conjunto a la izquierda restando el punto desplazado al conjunto</p>
 
-        <p>Y sumamos el minimo para desplazar el conjunto de 0 al minimo, pero entonces el máximo tambien se desplaza por lo que se lo restamos en la multiplicación.</p>
+                    <h3>Con floor</h3>
+                    <img src="../img/2021-12-29 01-19-36.png" alt="">
+                    <p>Con floor, redondea hacia abajo, por lo que el conjunto se ve estrechado por la derecha 1pto</p>
+                    <p>Por lo que solo tenemos que volver a ampliar el conjunto por la derecha sumando 1pto al múltiplo del conjunto</p>
 
-        <img src="../img/2021-12-08 03-01-51.png" alt="visualización conjunto desplazado">
+                    <h3>Recomendaciones</h3>
+                    <p>Según el MDN recomiendan no usar el round para redondear ya que dará una distribución no uniforme</p>
+                    <h4>Qué es un distribución uniforme?</h4>
+                    <img src="../img/2021-12-29 01-29-33.png" alt="">
+                    <p>Es cuando entre un punto a y un punto b la probabilidad de que ocurra es 1/(b-a), es decir, la misma para todo el conjunto</p>
+                    <img src="../img/2021-12-29 01-55-13.png">
+        </main>
 
-        <p>Al redondear con round y con ceil, como en los numeros cercanos a 1 (ej. 0'99) el redondeo dará el max se usa la formula tal como está (si queremos incluir el máximo).</p>
-        <p>En cambio, como floor siempre baja el redondeo al menor, si restamos el mínimo, nos dará 1 punto más abajo del máximo, por lo que siempre debemos añadir ese punto en la multiplicación.</p>
-        
     </div>
 
 </body>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
 </html>
