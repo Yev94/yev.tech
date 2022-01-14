@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="RsHKvY9ihVBDJwIDH-hp" name="Codificar">
-        <mxGraphModel dx="990" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1322" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -76,7 +76,7 @@
                 <mxCell id="13" value="Crear mi propia lógica = (Reconocer(Output, Input)Necesarios + Crear Lógica + Escritura) * EliminarErroresLógicos(Test + LineByLine)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;" parent="1" vertex="1">
                     <mxGeometry x="210" y="390" width="470" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" parent="1" source="20" target="22" edge="1">
+                <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" parent="1" source="20" target="145" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="104" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;endFill=1;" parent="1" source="20" target="103" edge="1">
@@ -85,8 +85,14 @@
                 <mxCell id="20" value="Entendimiento" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="710" y="435" width="120" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;ol&gt;&lt;li&gt;&lt;span&gt;&amp;nbsp;Reconocer(Inputs, Outputs) (YouTube y foros)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;Descomponer cada apartado necesario (Propiedades y transformaciones) (Documentación)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;Saber como usar las propiedades y metodos para conseguir Outputs deseados mediante:&lt;/span&gt;&lt;/li&gt;&lt;ol&gt;&lt;li&gt;&lt;span&gt;Asociación&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;Causalidad (Experimentación y práctica)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;Metafóiricamente&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" parent="1" vertex="1">
-                    <mxGeometry x="890" y="370" width="460" height="180" as="geometry"/>
+                <mxCell id="158" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="22" target="155">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="159" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="22" target="154">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;ol&gt;&lt;li&gt;Conocer los Inputs&lt;/li&gt;&lt;li&gt;Aprender los apartados que se asocian (Propiedades y transfomaciones)&lt;/li&gt;&lt;ol&gt;&lt;li&gt;Asociación&lt;/li&gt;&lt;li&gt;Causalidad (Experimentación y práctica)&lt;/li&gt;&lt;li&gt;Metafóricamente&lt;/li&gt;&lt;/ol&gt;&lt;li&gt;Conocer las secuencias en las que se dan&lt;/li&gt;&lt;li&gt;Concer los Outputs&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="970" y="510" width="460" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" parent="1" source="27" target="30" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -108,11 +114,11 @@
                 </mxCell>
                 <mxCell id="83" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="110" target="34" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="1050" y="615" as="targetPoint"/>
+                        <mxPoint x="1050" y="770" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="34" value="Repetición espaciada (con trigger en el Output)&amp;nbsp;de las propiedades y transformaciones de modelo&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" parent="1" vertex="1">
-                    <mxGeometry x="1060" y="575" width="230" height="80" as="geometry"/>
+                    <mxGeometry x="1060" y="730" width="230" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="Modelo Lógico Prefabricado" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="620" y="255" width="210" height="50" as="geometry"/>
@@ -186,7 +192,7 @@
                 </mxCell>
                 <mxCell id="107" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="105" target="110" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="880" y="615" as="targetPoint"/>
+                        <mxPoint x="880" y="770" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="103" value="Creación del modelo mental" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" parent="1" vertex="1">
@@ -196,10 +202,10 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="105" value="Guardado y creación de puerta de acceso" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" parent="1" vertex="1">
-                    <mxGeometry x="710" y="590" width="120" height="50" as="geometry"/>
+                    <mxGeometry x="710" y="745" width="120" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="110" value="Mental" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" parent="1" vertex="1">
-                    <mxGeometry x="880" y="590" width="120" height="50" as="geometry"/>
+                    <mxGeometry x="880" y="745" width="120" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="114" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;endFill=1;" parent="1" source="111" target="110" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -211,36 +217,68 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="111" value="Físico" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" parent="1" vertex="1">
-                    <mxGeometry x="880" y="760" width="120" height="50" as="geometry"/>
+                    <mxGeometry x="880" y="915" width="120" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="120" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" parent="1" source="115" target="119" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="115" value="Creación de sitemas lógicos de clasificación y guardado" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" parent="1" vertex="1">
-                    <mxGeometry x="1060" y="720" width="230" height="50" as="geometry"/>
+                    <mxGeometry x="1060" y="875" width="230" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="121" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" parent="1" source="116" target="119" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="116" value="Creación de sitemas de puertas de acceso directo (para reducir la fricción)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" parent="1" vertex="1">
-                    <mxGeometry x="1060" y="790" width="230" height="60" as="geometry"/>
+                    <mxGeometry x="1060" y="945" width="230" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="119" value="+ Revisión periódica" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" parent="1" vertex="1">
-                    <mxGeometry x="1330" y="760" width="150" height="50" as="geometry"/>
+                    <mxGeometry x="1330" y="915" width="150" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="123" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;endFill=0;" parent="1" source="122" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="940" y="690" as="targetPoint"/>
+                        <mxPoint x="940" y="845" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="144" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="122" target="142">
-                    <mxGeometry relative="1" as="geometry"/>
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="610" y="845" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="122" value="Cuándo pasar el modelo físico al mental?" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" parent="1" vertex="1">
-                    <mxGeometry x="665" y="655" width="120" height="70" as="geometry"/>
+                    <mxGeometry x="665" y="810" width="120" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="142" value="Cuando se tenga la creencia de que se va a tener que volver a usar rápidamente y/o sin tener acceso al modelo físico" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" vertex="1" parent="1">
-                    <mxGeometry x="460" y="622.5" width="150" height="135" as="geometry"/>
+                    <mxGeometry x="460" y="777.5" width="150" height="135" as="geometry"/>
+                </mxCell>
+                <mxCell id="152" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="145" target="146">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="153" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="22">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="950" y="460"/>
+                            <mxPoint x="950" y="600"/>
+                        </Array>
+                        <mxPoint x="930" y="460" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="145" value="2 maneras de abordarlo" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="850" y="435" width="80" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="151" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="146" target="149">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="146" value="1. Conocer los Inputs/Outputs (YouTube y foros)&lt;br&gt;2. Crear una hipótesis de los apartados que se asocian (Propiedades, y transformaciones) y sus secuencias&lt;br&gt;3. Contrastar hipótesis (Documentación)&lt;br&gt;&lt;div&gt;&lt;span&gt;4. Ajustar hipótesis&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;Asociación&lt;/li&gt;&lt;li&gt;Causalidad (Experimentación y práctica)&lt;/li&gt;&lt;li&gt;Metafóricamente&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;align=left;spacingLeft=52;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="970" y="335" width="490" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="149" value="Al lanzar una hipótesis se asocia el contenido de la memoria a l/p con la memoria de trajo" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" vertex="1" parent="1">
+                    <mxGeometry x="1490" y="360" width="150" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="154" value="Usando la memoria de trabajo para posteriormente pasar a la memoria a l/p" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" vertex="1" parent="1">
+                    <mxGeometry x="1480" y="565" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="155" value="Útil para &lt;br&gt;&lt;ol&gt;&lt;li&gt;Gente con alta capacidad de memoria de trabajo&lt;/li&gt;&lt;li&gt;Gente con conocimientos de modelos asociativos o abstractos del modelo estudiado&lt;/li&gt;&lt;/ol&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;align=left;spacingLeft=24;" vertex="1" parent="1">
+                    <mxGeometry x="1310" y="720" width="260" height="170" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
