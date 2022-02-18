@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración avanzada de WordPress</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/main.css">
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container justify-content-center my-3">
+        <header class="text-center">
+            <h1 class="">Configuración avanzada de WordPress</h1>
+        </header>
+        <main>
+            <section>
+                <h2>Desactivar mensajes de errores</h2>
+                <p>Una forma de desactivar los errores es en el archivo de wp-config añadiendo las siguientes líneas:</p>
+                <ul>
+                    <li>define( 'WP_DEBUG', false );</li>
+                    <li>ini_set( 'display_errors', 0 );</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Cambiar contenido en WordPress</h2>
+                <p>Si bien es posible cambiar cierto contenido en WordPress con plugins como Loco translate podemos hacer este sencillo cambio bien sin plugins o bien con un plugin llamado Code Snippets que permite insertar trozos de código personalizado desde el entorno de WordPress.</p>
+                <p>Para este caso solo haría falta reproducir adecuadamente el siguiente trozo de código que permite cambiar esos textos que son difíciles de encontrar cuando nos encontramos con ciertos temas o plugins.</p>
+                <script src="https://gist.github.com/Yev94/097fdc86bb7e31eedeb2e21427f63e48.js"></script>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
