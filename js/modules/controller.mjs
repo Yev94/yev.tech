@@ -9,8 +9,8 @@ export let controller = (directory) => {
     //Creamos una función que se auto-ejecuta para que sea asíncrona y espere a que termine de ejecutarse las funciones a las que llama
     ; (async () => {
         appendScriptHighlight(headHTML);
-        await append('/html/head.html', headHTML);
-        await append('/html/menu.html', headerHTML);
+        await append('./html/head.html', headHTML);
+        await append('./html/menu.html', headerHTML);
         await append(directory, mainHTML);
         await appendActivateHighlight(headHTML);
         let h1 = document.getElementsByTagName('h1')[0];
