@@ -1,0 +1,38 @@
+<h1 class="text-center">Números aleatorios entre rangos</h1>
+<main>
+    <script src="https://gist.github.com/Yev94/d0a057c9173e3ac7e30dac726f8141c9.js"></script>
+    <img src="./img/2021-12-07 04-40-19.png" alt="visualización conjunto min max multiplicado">
+    <p>Multiplicamos por el máximo porque si el random nos da como max < 1, el máximo de 1*max < max, y el mínimo
+            0*max=0.</p>
+            <img src="./img/2021-12-08 03-01-51.png" alt="visualización conjunto desplazado">
+            <p>Y sumamos el mínimo para desplazar el conjunto de 0 al mínimo, pero entonces el máximo también se
+                desplaza por lo que se lo restamos en la multiplicación.</p>
+
+            <h3>Con ceil</h3>
+            <img src="./img/2021-12-29 01-07-42.png" alt="">
+            <p>Como ceil redondea para arriba el conjunto se ve estrechado por la izquierda en 1pto</p>
+            <img src="./img/2021-12-29 01-12-31.png" alt="">
+            <p>Por eso volvemos a ampliar el conjunto sumándole al múltiplo el punto estrechado, pero ahora
+                vemos como
+                el conjunto se ha visto desplazado a la derecha</p>
+            <img src="./img/2021-12-29 01-14-54.png" alt="">
+            <p>Por lo que tendremos que volver a desplazar el conjunto a la izquierda restando el punto
+                desplazado al
+                conjunto</p>
+
+            <h3>Con floor</h3>
+            <img src="./img/2021-12-29 01-19-36.png" alt="">
+            <p>Con floor, redondea hacia abajo, por lo que el conjunto se ve estrechado por la derecha 1pto</p>
+            <p>Por lo que solo tenemos que volver a ampliar el conjunto por la derecha sumando 1pto al múltiplo
+                del
+                conjunto</p>
+
+            <h3>Recomendaciones</h3>
+            <p>Según el MDN recomiendan no usar el round para redondear ya que dará una distribución no uniforme
+            </p>
+            <h4>Qué es un distribución uniforme?</h4>
+            <img src="./img/2021-12-29 01-29-33.png" alt="">
+            <p>Es cuando entre un punto a y un punto b la probabilidad de que ocurra es 1/(b-a), es decir, la
+                misma para
+                todo el conjunto</p>
+            <img src="./img/2021-12-29 01-55-13.png">
