@@ -1,4 +1,4 @@
-// TODO: Cuando haga la conexión con la API rest será el controlador el que se encargue de hacer las insercciones del HTML, en la conexión solo pasará el resultado
+// TODO: Cuando haga la conexión con la API rest será el controlador el que se encargue de hacer las insercciones del HTML, en la conexión solo pasará el resultado.
 export let connectHTML = (url, html) => {
     //Creamos una promesa para que tenga que resolver algo, y así al terminar de resolver sea cuando se ejecute el código que lo llama
     return new Promise((resolve, reject) => {
