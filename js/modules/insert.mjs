@@ -10,7 +10,7 @@ export let appendTitle = (titulo, headHTML) => {
 
 export let appendScriptHighlight = async (headHTML) => {
     let script = document.createElement('script');
-    script.setAttribute('src', './highlight/highlight.min.js');
+    script.setAttribute('src', '/highlight/highlight.min.js');
     headHTML.appendChild(script);
 }
 
