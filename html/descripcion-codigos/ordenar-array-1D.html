@@ -1,11 +1,11 @@
-<h1 class="text-center">Cómo ordenar un array de 1D? (Mi 1ª solución)</h1>
+<h1>Cómo ordenar un array de 1D? (Mi 1ª solución)</h1>
 <h2>En Java Script</h2>
 <div class="code">
     <pre>
         <code class="language-javascript">
 var arr = [];
 let l = 200000;
-for(let i = 0; i < l; i++){
+for(let i = 0; i &lt l; i++){
     arr.push(Math.floor(Math.random()*l));
 }
 
@@ -14,7 +14,7 @@ function ordenar(arr){
     let min = 0;
     let indice = 0;
     // Empezamos a recorrer el array
-    for(let i = 0; i < arr.length; i++){
+    for(let i = 0; i &lt arr.length; i++){
         min = arr.length -i; //El minimo del indice ser a partir del final e ira moviendose a la izquiera a medida que vamos recorriendo el array principal
         max = arr.length; // El maximo sera el ultimo indice del array
 
@@ -24,15 +24,15 @@ function ordenar(arr){
 
             // Si el numero que nos pasan es mayor o igual al que encuentra en la mitad pondremos el minimo = al indice para que en la siguiente vuelta busque por arriba de esta mitad
             //En caso contrario pondremos el el maximo como indice para que en la siguiente vuelva busque entre el minimo anterior y el maximo de ahora, es decir, que buscará debajo de la mitad
-            if(arr[0] >= arr[indice]) {
+            if(arr[0] &gt= arr[indice]) {
                 min = indice;
             }
             else max = indice;
         //Todo esto hasta que estemos entre los 2 indices mayores y menores al numero entre nuestro conjunto posicionado
-        }while((max - min) > 1)
+        }while((max - min) &gt 1)
 
         //Si el numero a evaluar es mayor al indice, lo posicionamos por encima y, si es menor al del indice lo posiconamos por debajo de nuestro conjunto
-        if(arr[0] >= arr[min]) {
+        if(arr[0] &gt= arr[min]) {
             arr.splice(min +1, 0, arr[0]);
         }
         else arr.splice(min, 0, arr[0]);
@@ -43,7 +43,7 @@ function ordenar(arr){
 }
 
 //Imprimimos el array
-document.write(ordenar(arr) + "</br>");
+document.write(ordenar(arr) + "");
         </code>
     </pre>
 </div>

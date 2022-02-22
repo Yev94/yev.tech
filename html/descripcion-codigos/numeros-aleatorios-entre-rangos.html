@@ -1,4 +1,4 @@
-<h1 class="text-center">Números aleatorios entre rangos</h1>
+<h1>Números aleatorios entre rangos</h1>
 <main>
     <div class="code">
         <pre>
@@ -10,17 +10,17 @@ let max = 20; //Inclusive
 
 // Math random con Round (redondea al más cercano)
 rand = Math.round(Math.random()*(max - min) + min);
-document.write(`${rand}</br>`);
+document.write(`${rand}`);
 
 // Math random con Ceil (redondea siempre para arriba)
 // Como ceil me estrecha en 1 el conjunto por la izquierda, aumentamos el rango en 1 por la derecha y lo desplazamos en 1 a la izquierda
 rand = Math.ceil(Math.random()*(max - min + 1)) + min - 1;
-document.write(`${rand}</br>`);
+document.write(`${rand}`);
 
 // Math random con Floor (redondea siempre para abajo)
 //Como floor me estrecha en 1 el conjunto por la derecha, solo aumentamos el rango en 1 hacia la derecha
 rand = Math.floor(Math.random()*(max - min + 1)) + min;
-document.write(`${rand}</br>`);
+document.write(`${rand}`);
             </code>
         </pre>
     </div>

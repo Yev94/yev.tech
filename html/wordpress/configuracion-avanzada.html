@@ -1,4 +1,4 @@
-<h1 class="text-center">Configuración avanzada de WordPress</h1>
+<h1>Configuración avanzada de WordPress</h1>
 <section>
     <h2>Desactivar mensajes de errores</h2>
     <p>Una forma de desactivar los errores es en el archivo de wp-config añadiendo las siguientes líneas:</p>
@@ -11,7 +11,7 @@ ini_set( 'display_errors', 0 );
         </pre>
     </div>
 
-    
+
 </section>
 <section>
     <h2>Cambiar contenido en WordPress</h2>
@@ -20,8 +20,8 @@ ini_set( 'display_errors', 0 );
         trozos de código personalizado desde el entorno de WordPress.</p>
     <p>Para este caso solo haría falta reproducir adecuadamente el siguiente trozo de código que permite cambiar
         esos textos que son difíciles de encontrar cuando nos encontramos con ciertos temas o plugins.</p>
-        <div class="code">
-            <pre>
+    <div class="code">
+        <pre>
                 <code class="language-php">
 // Change text en WooCommerce/WordPress
 // @link http://codex.wordpress.org/Plugin_API/Filter_Reference/gettext
@@ -42,5 +42,5 @@ function my_text_strings( $translated_text) {
 add_filter( 'gettext', 'my_text_strings', 20, 3 );
                 </code>
             </pre>
-        </div>
+    </div>
 </section>
