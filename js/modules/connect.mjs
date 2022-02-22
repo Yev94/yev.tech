@@ -7,8 +7,7 @@ export let connectHTML = (url, html) => {
         xhr.addEventListener('readystatechange', function () {
             if (this.readyState !== 4) return;
             if (this.status >= 200 && this.status < 300) {
-                html.innerHTML = null;
-                resolve(html.insertAdjacentHTML('beforeend', this.responseText));
+                resolve(this.responseText);
             }
         });
         xhr.open('GET', url, true);

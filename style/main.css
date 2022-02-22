@@ -13,9 +13,15 @@ code {
 }
 
 img:not([src$='.svg']) {
-  width: 70vw;
-  max-width: 600px;
+  max-width: 90vw;
   border-radius: 10px;
+  margin: 0px ;
+}
+
+@media screen and (min-width: 900px) {
+  img:not([src$='.svg']) {
+    max-width: 50%;
+  }
 }
 
 img{
