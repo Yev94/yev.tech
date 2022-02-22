@@ -1,6 +1,52 @@
 <h1 class="text-center">Cómo ordenar un array de 1D? (Mi 1ª solución)</h1>
 <h2>En Java Script</h2>
-<script src="https://gist.github.com/Yev94/e43dda29c08216f0e5f21197138dee71.js"></script>
+<div class="code">
+    <pre>
+        <code class="language-javascript">
+var arr = [];
+let l = 200000;
+for(let i = 0; i < l; i++){
+    arr.push(Math.floor(Math.random()*l));
+}
+
+function ordenar(arr){
+    let max = 0;
+    let min = 0;
+    let indice = 0;
+    // Empezamos a recorrer el array
+    for(let i = 0; i < arr.length; i++){
+        min = arr.length -i; //El minimo del indice ser a partir del final e ira moviendose a la izquiera a medida que vamos recorriendo el array principal
+        max = arr.length; // El maximo sera el ultimo indice del array
+
+        do{
+            //calculamos y nos posicionamos en la mitad entre el inidice maximo y el minimo
+            indice = min + Math.ceil((max - min) / 2);
+
+            // Si el numero que nos pasan es mayor o igual al que encuentra en la mitad pondremos el minimo = al indice para que en la siguiente vuelta busque por arriba de esta mitad
+            //En caso contrario pondremos el el maximo como indice para que en la siguiente vuelva busque entre el minimo anterior y el maximo de ahora, es decir, que buscará debajo de la mitad
+            if(arr[0] >= arr[indice]) {
+                min = indice;
+            }
+            else max = indice;
+        //Todo esto hasta que estemos entre los 2 indices mayores y menores al numero entre nuestro conjunto posicionado
+        }while((max - min) > 1)
+
+        //Si el numero a evaluar es mayor al indice, lo posicionamos por encima y, si es menor al del indice lo posiconamos por debajo de nuestro conjunto
+        if(arr[0] >= arr[min]) {
+            arr.splice(min +1, 0, arr[0]);
+        }
+        else arr.splice(min, 0, arr[0]);
+        arr.shift();
+        
+    }
+    return arr;
+}
+
+//Imprimimos el array
+document.write(ordenar(arr) + "</br>");
+        </code>
+    </pre>
+</div>
 <h3>Búsqueda</h3>
 <img src="./img/2021-12-12 04-09-30.png" alt="Busqueda por mitades">
 <p>La búsqueda se realiza por mitades buscando en cada vuelta si el numero de la mitad es mayor o menor.</p>

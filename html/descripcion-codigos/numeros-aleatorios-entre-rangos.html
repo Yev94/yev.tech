@@ -1,6 +1,29 @@
 <h1 class="text-center">Números aleatorios entre rangos</h1>
 <main>
-    <script src="https://gist.github.com/Yev94/d0a057c9173e3ac7e30dac726f8141c9.js"></script>
+    <div class="code">
+        <pre>
+            <code class="language-javascript">
+// Math.random() = [0, 1)
+let rand;
+let min = 2;
+let max = 20; //Inclusive
+
+// Math random con Round (redondea al más cercano)
+rand = Math.round(Math.random()*(max - min) + min);
+document.write(`${rand}</br>`);
+
+// Math random con Ceil (redondea siempre para arriba)
+// Como ceil me estrecha en 1 el conjunto por la izquierda, aumentamos el rango en 1 por la derecha y lo desplazamos en 1 a la izquierda
+rand = Math.ceil(Math.random()*(max - min + 1)) + min - 1;
+document.write(`${rand}</br>`);
+
+// Math random con Floor (redondea siempre para abajo)
+//Como floor me estrecha en 1 el conjunto por la derecha, solo aumentamos el rango en 1 hacia la derecha
+rand = Math.floor(Math.random()*(max - min + 1)) + min;
+document.write(`${rand}</br>`);
+            </code>
+        </pre>
+    </div>
     <img src="./img/2021-12-07 04-40-19.png" alt="visualización conjunto min max multiplicado">
     <p>Multiplicamos por el máximo porque si el random nos da como max < 1, el máximo de 1*max < max, y el mínimo
             0*max=0.</p>
