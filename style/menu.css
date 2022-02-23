@@ -1,28 +1,3 @@
-/* #primary_nav_wrap ul li {
-    position: relative;
-    background-color: #282936;
-    margin: 0;
-    padding-top: 15px;
-}
-
-#primary_nav_wrap ul li ul * {
-    background-color: #2f3147;
-}
-
-#primary_nav_wrap ul li:hover,
-#primary_nav_wrap ul li ul *:hover {
-    background: #037e8b;
-}
-
-#primary_nav_wrap ul li.current-menu-item {
-    background: #39aab99d;
-}
-
-#primary_nav_wrap ul li:active,
-#primary_nav_wrap ul li ul *:active {
-    background: #039aab;
-} */
-
 /* NEW MENU CSS Document */
 #container {
     margin: 0 auto;
@@ -63,6 +38,7 @@ nav:after {
 nav ul {
     float: right;
     padding: 0;
+    padding-right: 40px;
     margin: 0;
     list-style: none;
     position: relative;
@@ -71,7 +47,7 @@ nav ul {
 /* Positioning the navigation items inline */
 nav ul li {
     margin: 0px;
-    display: inline-block;
+    /* display: inline-block; */
     float: left;
     background-color: #282936;
 }
@@ -87,6 +63,10 @@ nav a {
 
 nav ul li ul li:hover {
     background: #037e8b;
+}
+
+nav ul li ul > *{
+    background-color:#2f3147;
 }
 
 /* Background color change on Hover */
@@ -109,17 +89,16 @@ nav ul ul {
     display: none;
     position: absolute;
     /* has to be the same number as the "line-height" of "nav a" */
-    top: 60px;
+    top: 50px;
 }
 
 /* Display Dropdowns on Hover */
 nav ul li:hover > ul {
-    display: inherit;
+    display: block;
 }
 
 /* Fisrt Tier Dropdown */
 nav ul ul li {
-    width: 170px;
     float: none;
     display: list-item;
     position: relative;
@@ -131,9 +110,9 @@ nav ul ul li {
 */
 nav ul ul ul li {
     position: relative;
-    top: -60px;
+    top: -50px;
     /* has to be the same number as the "width" of "nav ul ul li" */
-    left: 170px;
+    left: -100%;
 }
 
 /*TODO: Añadir dropdown symbol */
@@ -168,7 +147,7 @@ li > a:only-child:after {
         display: none;
     }
 
-    /* Stylinf the toggle lable */
+    /* Stylinf the toggle label */
     .toggle {
         display: block;
         background-color: #282936;
@@ -186,6 +165,10 @@ li > a:only-child:after {
     /* Display Dropdown when clicked on Parent Lable */
     [id^="drop"]:checked + ul {
         display: block;
+    }
+
+    nav ul {
+        padding: 0;
     }
 
     /* Change menu item's width to 100% */
@@ -219,7 +202,6 @@ li > a:only-child:after {
     nav ul li ul li .toggle,
     nav ul ul a {
         margin-left: 30px;
-        background-color: #282936;
     }
 
     /* Hide Dropdowns by Default */
