@@ -1,4 +1,4 @@
-import { controller } from './controller.mjs';
+import { constructor } from './constructor.mjs';
 
 // TODO: Pasar a un JSON el objeto cuando aprenda a usar la API rest para hacer las conexiones usando: var arrDatos = JSON.parse(element.responseText); Para convertir el JSON a un objeto
 let pages = {
@@ -48,5 +48,5 @@ let pages = {
 
 export let router = () => {
     let { hash } = window.location;
-    controller(pages[hash]);
+    constructor(pages[hash]);
 }

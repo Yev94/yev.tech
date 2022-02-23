@@ -1,7 +1,6 @@
 import { append, appendTitle } from './insert.mjs'
 
-export let controller = (directory) => {
-    let headHTML = document.getElementsByTagName('head')[0];
+export let constructor = (directory) => {
     let mainHTML = document.getElementsByTagName('main')[0];
     let titleHTML = document.getElementsByTagName('title')[0];
     let menuToggle = document.getElementById('drop');
