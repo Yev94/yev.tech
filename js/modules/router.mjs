@@ -13,6 +13,9 @@ let pages = {
     '#/descripcion-codigos/expresiones-regulares':
         './html/descripcion-codigos/expresiones-regulares.html',
 
+    '#/descripcion-codigos/extensiones-chrome':
+        './html/descripcion-codigos/extensiones-chrome.html',
+
     '#/descripcion-codigos/numeros-aleatorios-entre-rangos':
         './html/descripcion-codigos/numeros-aleatorios-entre-rangos.html',
 

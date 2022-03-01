@@ -1,0 +1,96 @@
+<h1>Extensiones Chrome</h1>
+<section>
+    <h2>Creación Manifest</h2>
+    <p>Crear document manifest.js</p>
+    <p>Con los siguientes códigos dentro:</p>
+
+    <pre><code class="lenguage-json">
+{
+    "name": "Nombre Extensión",
+    "description": "Descripción breve",
+    "version": "1.0",
+    //Versión para chrome
+    "manifest_version": 3,
+    //Archivo que se ejecuta por detrás (sin acceso al DOM de la página)
+    "background": {
+        "service_worker": "background.js"
+    },
+    //Archivo que se ejecuta en la página, por eso necesita permisos para los distintos host
+    //También podemos excluir hosts que queramos
+    "content_scripts" : [{
+        //Si Creamos módulos también hemos de meterlos
+        "js" : ["content.js", "modulo1.js", "modulo2.js"],
+        "matches" : ["&lt all_url &gt"],
+        "exclude_matches" : ["https://www.youtube.com/*", "https://docs.google.com/*"]
+    }],
+    //Para crear la vista a la extensión hay que crear un archivo llamado popup
+    "action" : {
+        "default_popup" : "popup.html"
+    },
+    "permissions": [
+        "storage", 
+        "scripting", 
+        "tabs", 
+        "activeTab"
+    ],
+    "host_permissions": ["&lt all_url &gt"],
+    //Creamos permisos si queremos acceder a otros archivos creados para la extensión (Cómo los módulos)
+    "web_accessible_resources": [
+        {
+            "resources": [ "style.css", "modules/changePageTheme.js" ],
+            "matches": [ "&lt all_url &gt" ]
+        }
+    ]
+}   
+</code></pre>
+    <p>Creamos el background.js y el style.css</p>
+    <p>Creamos el popup.html y popup.js</p>
+</section>
+<section>
+    <h2>Códigos útiles</h2>
+    <h3>Objetos de Chrome</h3>
+    <pre><code class="lenguage-js">
+//Devuelve la URl en la que se encuentra el archivo al tener la extensión subida
+const src = chrome.runtime.getURL("/modules/changePageTheme.js");
+
+//Guarda la variable y el valor en el almacenamiento de Chrome, sincronizado a nivel de usuario
+chrome.storage.sync.set({velocidad: 2});
+
+//Devuelve el valor sincronizado en Chrome y ejecuta la función de dentro con la variable de devuelta
+//Con tabs.query ejecuta el content.js en cada tab abierta
+//Útil para background.js o popup.js
+chrome.storage.sync.get('velocidad', ((velocidad) => {
+    chrome.tabs.query({}, ((tabs) => {
+        tabs.forEach((tab) => {
+            chrome.scripting.executeScript({
+                target : {tabId: tab.id},
+                files : ['content.js']
+            })
+        })
+    }));
+}))
+        </code></pre>
+    <h3>Importación</h3>
+    <p>Útil para modularizar el código en content.js</p>
+    <p>El export se hace como siempre (Ej: con el comando export delante de loq que queremos exportar).</p>
+    <pre><code class="language-js">
+(async () => {
+    //Buscamos el módulo
+    const src = chrome.runtime.getURL("/modules/changeYTSpeed.js");
+    //Importamos el módulo
+    const changeYTSpeed = await import(src);
+
+    //Buscamos el valor del almacenamiento de chrome
+    chrome.storage.sync.get('velocidad', (async ({ velocidad }) => {
+        //Importamos la clase
+        let changeSpeed = new changeYTSpeed.ChangeYTSpeed();
+        //Usamos la función de la clase, pasándole el valor
+        changeSpeed.activate(velocidad);
+    }));
+})();
+        </code></pre>
+</section>
+<section>
+    <h2>Documentación</h2>
+    <a target="_blank" href="https://developer.chrome.com/docs/extensions/mv3/getstarted/">Developer Chrome</a>
+</section>

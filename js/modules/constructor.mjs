@@ -1,7 +1,6 @@
 import { append, appendTitle } from './insert.mjs'
 
 export let constructor = (directory) => {
-    //TODO: Pasar la búqueda de elementos objetos del tipo html.getID('');
     let mainHTML = document.getElementsByTagName('main')[0];
     let titleHTML = document.getElementsByTagName('title')[0];
     let menuToggle = document.getElementById('drop');
