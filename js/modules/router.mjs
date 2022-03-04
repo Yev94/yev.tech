@@ -2,10 +2,13 @@ import { constructor } from './constructor.mjs';
 
 // TODO: Pasar a un JSON el objeto cuando aprenda a usar la API rest para hacer las conexiones usando: var arrDatos = JSON.parse(element.responseText); Para convertir el JSON a un objeto
 let pages = {
+    
     '#/': "./html/home.html",
     '': "./html/home.html",
     '#/descripcion-codigos/encontrar-suma-num-array':
-        './html/descripcion-codigos/encontrar-suma-num-array.html',
+    './html/descripcion-codigos/encontrar-suma-num-array.html',
+
+    '#/admin/solicitud-prestacion-desempleo': './admin/solicitud-prestacion-desempleo.html',
 
     '#/descripcion-codigos/encriptacion':
         './html/descripcion-codigos/encriptacion.html',
