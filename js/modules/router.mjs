@@ -8,7 +8,7 @@ let pages = {
     '#/descripcion-codigos/encontrar-suma-num-array':
     './html/descripcion-codigos/encontrar-suma-num-array.html',
 
-    '#/admin/solicitud-prestacion-desempleo': './admin/solicitud-prestacion-desempleo.html',
+    '#/admin/solicitud-prestacion-desempleo': './html/admin/solicitud-prestacion-desempleo.html',
 
     '#/descripcion-codigos/encriptacion':
         './html/descripcion-codigos/encriptacion.html',
