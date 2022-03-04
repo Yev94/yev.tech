@@ -1,6 +1,9 @@
 
-table, aside, *:not(pre *) {
+
+*:not(pre *) {
     color: #e9e9f4 !important;
+}
+*:not(pre *, nav *) {
     background-color: #282936;
 }
 
