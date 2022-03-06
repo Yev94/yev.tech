@@ -45,11 +45,11 @@ let pages = {
     '#/vs-code/snippets': './html/vs-code/snippets.html',
     '#/vs-code/testing': './html/vs-code/testing.html',
 
-    '#/wordpress': './html/wordpress',
-    '#/wordpress/configuracion-avanzada': './html/wordpress/configuracion-avanzada.html',
-    '#/wordpress/instalar-wordpress-local': './html/wordpress/instalar-wordpress-local.html',
-    '#/wordpress/primeros-pasos-en-wordpress': './html/wordpress/primeros-pasos-en-wordpress.html',
-    '#/wordpress/temas/avada': './html/wordpress/temas/avada.html',
+    '#/cms/wordpress': './html/cms/wordpress',
+    '#/cms/wordpress/configuracion-avanzada': './html/cms/wordpress/configuracion-avanzada.html',
+    '#/cms/wordpress/instalar-wordpress-local': './html/cms/wordpress/instalar-wordpress-local.html',
+    '#/cms/wordpress/primeros-pasos-en-wordpress': './html/cms/wordpress/primeros-pasos-en-wordpress.html',
+    '#/cms/wordpress/temas/avada': './html/cms/wordpress/temas/avada.html',
 }
 
 export let router = () => {
