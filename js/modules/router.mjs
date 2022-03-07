@@ -45,6 +45,11 @@ let pages = {
     '#/vs-code/snippets': './html/vs-code/snippets.html',
     '#/vs-code/testing': './html/vs-code/testing.html',
 
+    '#/cms/prestashop': './html/cms/prestashop',
+    '#/cms/prestashop/configuracion-avanzada': './html/cms/prestashop/configuracion-avanzada.html',
+    '#/cms/prestashop/instalar-prestashop-local': './html/cms/prestashop/instalar-prestashop-local.html',
+    '#/cms/prestashop/primeros-pasos-en-prestashop': './html/cms/prestashop/primeros-pasos-en-prestashop.html',
+
     '#/cms/wordpress': './html/cms/wordpress',
     '#/cms/wordpress/configuracion-avanzada': './html/cms/wordpress/configuracion-avanzada.html',
     '#/cms/wordpress/instalar-wordpress-local': './html/cms/wordpress/instalar-wordpress-local.html',
