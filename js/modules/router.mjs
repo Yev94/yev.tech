@@ -35,10 +35,12 @@ let pages = {
     '#/frameworks': './html/frameworks',
     '#/frameworks/laravel': './html/frameworks/laravel.html',
     '#/herramientas': './html/herramientas',
-    
-    '#/linux/dns': './html/linux/dns.html',
-    '#/linux/mime': './html/linux/mime.html',
-    '#/linux/vsftp': './html/linux/vsftp.html',
+
+    '#/os/linux/dns': './html/os/linux/dns.html',
+    '#/os/linux/mime': './html/os/linux/mime.html',
+    '#/os/linux/vsftp': './html/os/linux/vsftp.html',
+
+    '#/os/macos': './html/os/macos',
     
     '#/vs-code/configuracion': './html/vs-code/configuracion.html',
     '#/vs-code/extensiones': './html/vs-code/extensiones.html',
