@@ -57,6 +57,7 @@ let pages = {
     '#/cms/wordpress/instalar-wordpress-local': './html/cms/wordpress/instalar-wordpress-local.html',
     '#/cms/wordpress/primeros-pasos-en-wordpress': './html/cms/wordpress/primeros-pasos-en-wordpress.html',
     '#/cms/wordpress/temas/avada': './html/cms/wordpress/temas/avada.html',
+    '#/cms/wordpress/temas/divi': './html/cms/wordpress/temas/divi.html',
 }
 
 export let router = () => {
