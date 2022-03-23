@@ -1,0 +1,56 @@
+<h1>Conexión a la Base de Datos</h1>
+<section>
+    <h2>En PHP</h2>
+    <h3>Con MySQLI mediante procedimientos (funciones)</h3>
+    <div class="code">
+        <pre>
+            <code class="language-javascript">
+//Creamos un array con los datos necesarios para la conexión
+$ddbbLog = [
+    'host' => 'localhost', 
+    'user' => 'root', 
+    'password' => '', 
+    'ddbb' => 'niveldecalidad', 
+
+];
+
+//Introducimos los datos necesarios para la conexión
+//El @ lo escribimos para que en caso de error no lo muestre
+//Podemos no seleccionar de momento la BBDD y hacerlo luego
+$connection = @mysqli_connect(
+    $ddbbLog['host'], 
+    $ddbbLog['user'], 
+    $ddbbLog['password']
+);
+
+//Si da error lanzamos un mensaje personalizado 
+if (!$connection) die("Error:" . mysqli_connect_error());
+
+//Aquí es donde podemos seleccionar otra BBDD
+mysqli_select_db($connection, $ddbbLog['ddbb']) or die ("No existe BBDD");
+
+//Ponemos el juego de caracteres que vamos a usar para que no hayan errores
+mysqli_set_charset($connection, 'utf8');
+
+//Creamos la sentencia SQL que vamos a usar
+$query = "show tables";
+
+//La pasamos para que realice la consulta
+$rd = mysqli_query($connection, $query);
+
+//Cerramos la conexión
+mysqli_close($connection);
+
+//Si queremos solo el primer resultado
+$row = mysqli_fetch_row($rdo);
+
+//Si queremos todos los resultados
+//Si queremos todos los resultados en un array normal no ponemos nada en el segundo parámetro
+//Si queremos que salga el campo al que pertenece el rdo ponemos MYSQLI_ASSOC
+while(($row = mysqli_fetch_array($rd, MYSQLI_ASSOC))){
+    ?> &lt pre &gt &lt ?php print_r($row); ? &gt &lt /pre &gt &lt ?php
+}
+            </code>
+        </pre>
+    </div>
+</section>

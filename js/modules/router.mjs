@@ -5,10 +5,16 @@ let pages = {
     
     '#/': "./html/home.html",
     '': "./html/home.html",
+
+    '#/admin/solicitud-prestacion-desempleo': './html/admin/solicitud-prestacion-desempleo.html',
+
+
+    '#/descripcion-codigos/conexion-bbdd':
+    './html/descripcion-codigos/conexion-bbdd.html',
+
     '#/descripcion-codigos/encontrar-suma-num-array':
     './html/descripcion-codigos/encontrar-suma-num-array.html',
 
-    '#/admin/solicitud-prestacion-desempleo': './html/admin/solicitud-prestacion-desempleo.html',
 
     '#/descripcion-codigos/encriptacion':
         './html/descripcion-codigos/encriptacion.html',
