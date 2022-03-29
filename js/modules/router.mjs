@@ -9,8 +9,11 @@ let pages = {
     '#/admin/solicitud-prestacion-desempleo': './html/admin/solicitud-prestacion-desempleo.html',
 
 
-    '#/descripcion-codigos/conexion-bbdd':
-    './html/descripcion-codigos/conexion-bbdd.html',
+    '#/descripcion-codigos/bbdd/conexion-bbdd':
+    './html/descripcion-codigos/bbdd/conexion-bbdd.html',
+
+    '#/descripcion-codigos/bbdd/evitar-inyeccion-sql':
+    './html/descripcion-codigos/bbdd/evitar-inyeccion-sql.html',
 
     '#/descripcion-codigos/encontrar-suma-num-array':
     './html/descripcion-codigos/encontrar-suma-num-array.html',

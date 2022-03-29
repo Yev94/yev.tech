@@ -1,0 +1,62 @@
+<h1>Evitar inyección SQL</h1>
+<section>
+    <h2>En PHP</h2>
+    <h3>Con MySQLI mediante procedimientos (funciones)</h3>
+    <p>Funciona tanto para seleccionar como para insertar registros</p>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+require("./ddbb_user.php");
+
+//Introducimos los datos necesarios para la conexión
+//El @ lo escribimos para que en caso de error no lo muestre
+//Podemos no seleccionar de momento la BBDD y hacerlo luego
+$connection = @mysqli_connect(
+    $ddbbLog['host'], 
+    $ddbbLog['user'], 
+    $ddbbLog['password']
+);
+
+//Si da error lanzamos un mensaje personalizado 
+if (!$connection) die("Error:" . mysqli_connect_error());
+
+//Aquí es donde podemos seleccionar otra BBDD
+mysqli_select_db($connection, $ddbbLog['ddbb']) or die ("No existe BBDD");
+
+//Ponemos el juego de caracteres que vamos a usar para que no hayan errores
+mysqli_set_charset($connection, 'utf8');
+
+//----------------------------------------------------------------------------------------------------------
+
+//A partir de haber creado la conexión y haber puesto el juego de caracteres:
+//Creamos la sentencia SQL que vamos a usar poniendo un interrogante en la consulta que vamos a filtrar
+$query = "SELECT campo1, campo2, campo3, capo4 FROM tabla WHERE campo1 = ? OR campo2 = ?";
+
+//La pasamos para que prepare la consulta
+$rd = mysqli_prepare($connection, $query);
+
+//Le decimos el tipo de caracteres que contendrá el campo del formulario que vamos a usar para realizar la consulta
+// "i" la variable correspondiente es de tipo entero
+// "d" la variable correspondiente es de tipo double
+// "s" la variable correspondiente es de tipo string
+// "b" la variable correspondiente es un blob y se envía en paquetes
+$ok = mysqli_stmt_bind_param($rd, "sd", $campo1, $campo2);
+
+$ok = mysqli_stmt_execute($rd);
+
+if (!$ok){
+    echo "Error al ejecutar la consulta";
+} else {
+    $ok = mysqli_stmt_bind_result($rd, $campo1, $campo2, $campo3, $campo4);
+    
+    while(mysqli_stmt_fetch($rd)){
+        ? &gt &lt pre &gt &lt ?php print_r($row); ? &gt &lt /pre &gt &lt ?php
+    }
+}
+
+//Cerramos la conexión
+mysqli_close($connection);
+            </code>
+        </pre>
+    </div>
+</section>
