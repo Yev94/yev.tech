@@ -1,19 +1,20 @@
 <h1>Conexión a la Base de Datos</h1>
+<h2>En PHP</h2>
+<p>MSQLI solo permite conectar con BBDD MySQL.</p>
+<p>PDO permite conectar con BBDD Oracle, MySQL, SQLServer y Access entre otros</p>
 <section>
-    <h2>En PHP</h2>
     <h3>Con MySQLI mediante procedimientos (funciones)</h3>
     <div class="code">
         <pre>
             <code class="language-php">
 //Creamos un array con los datos necesarios para la conexión
 $ddbbLog = [
-    'host' => 'localhost', 
-    'user' => 'root', 
-    'password' => '', 
-    'ddbb' => 'niveldecalidad', 
+    'host' = &gt 'localhost', 
+    'user' = &gt 'root', 
+    'password' = &gt '', 
+    'ddbb' = &gt 'nombreBBDD', 
 
 ];
-
 //Introducimos los datos necesarios para la conexión
 //El @ lo escribimos para que en caso de error no lo muestre
 //Podemos no seleccionar de momento la BBDD y hacerlo luego
@@ -50,6 +51,74 @@ $row = mysqli_fetch_row($rdo);
 while(($row = mysqli_fetch_array($rd, MYSQLI_ASSOC))){
     ?> &lt pre &gt &lt ?php print_r($row); ? &gt &lt /pre &gt &lt ?php
 }
+            </code>
+        </pre>
+    </div>
+</section>
+<section>
+    <h3>Con MySQLI mediante OOP (Objetos)</h3>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+//Creamos un array con los datos necesarios para la conexión
+$ddbbLog = [
+    'host' = &gt 'localhost', 
+    'user' = &gt 'root', 
+    'password' = &gt '', 
+    'ddbb' = &gt 'nombreBBDD', 
+
+];
+
+//Introducimos los datos necesarios para la conexión
+//El @ lo escribimos para que en caso de error no lo muestre
+$con = @new mysqli(
+    $ddbbLog['host'],
+    $ddbbLog['user'],
+    $ddbbLog['password'],
+    $ddbbLog['ddbb']
+);
+
+//Si da error lanzamos un mensaje personalizado
+if ($con- &gt connect_error) {
+    die("Fallo de conexión: " . $con->connect_error);
+}
+
+//Ponemos el juego de caracteres que vamos a usar para que no hayan errores
+$con- &gt set_charset("utf8");
+
+//Creamos la sentencia SQL que vamos a usar
+$sql = "show tables";
+
+//La pasamos para que realice la consulta
+$rdo = $con- &gt query($sql);
+
+//Cerramos la conexión
+$con- &gt close();
+
+if ($rdo) {
+    //Usamos un fetch assoc para que nos devuelva un array asociativo
+    while ($row = $rdo- &gt fetch_assoc()) {
+        echo $row['Tables_in_niveldecalidad'] . " &lt br &gt ";
+    }
+    
+    //Usamos un fetch array para que nos devuelva un array normal
+    while ($row = $rdo- &gt fetch_array()) {
+        echo $row[0] . " &lt br &gt ";
+    }
+
+} else {
+    echo "Error: " . $sql . " &lt br &gt " . $con->error;
+}
+            </code>
+        </pre>
+    </div>
+</section>
+<section>
+    <h3>Con PDO</h3>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+
             </code>
         </pre>
     </div>

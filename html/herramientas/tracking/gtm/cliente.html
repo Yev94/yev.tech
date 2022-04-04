@@ -1,0 +1,24 @@
+<h1>GTM cliente</h1>
+<section>
+    <h2>Insertar código personalizado de seguimiento</h2>
+    <ol>
+        <li>Crear el código a inyectar para recoger los datos</li>
+        <div class="code">
+            <pre>
+                <code class="language-javascript">  
+//Código a inyectar en el cliente que mandará la información al GTM
+&ltscript&gt
+    //urlform será la variable personalizada que crearemos en GTM para recoger la url de la página
+    dataLayer.push({urlform:window.location.href});
+&lt/script&gt
+                </code>
+            </pre>
+        </div>
+    <li>Ponemos el activador donde debe inyectar nuestro código.</li>
+    <li>Creamos la variable personalizada (quién recogerá el push) como Variable de capa de datos.</li>
+    <li>Comprobamos que en la sección de variables del debugger existe nuestra variable y que se manda en la acción elegida.</li>
+    <li>En el data-layer, comprobamos que se manda la información por el push.</li>
+    <li>Creamos una nueva etiqueta que se activará cuando la variable contenga la información que necesitamos en la variable creada.</li>
+    <li>Enviamos!! la nueva versión creada.</li>
+    </ol>
+</section>

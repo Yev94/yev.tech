@@ -43,7 +43,10 @@ let pages = {
     '#/estudio-anki': './html/estudio-anki',
     '#/frameworks': './html/frameworks',
     '#/frameworks/laravel': './html/frameworks/laravel.html',
+    
     '#/herramientas': './html/herramientas',
+    '#/herramientas/tracking/gtm': './html/herramientas/tracking/gtm',
+    '#/herramientas/tracking/gtm/cliente': './html/herramientas/tracking/gtm/cliente.html',
 
     '#/os/linux/dns': './html/os/linux/dns.html',
     '#/os/linux/mime': './html/os/linux/mime.html',
