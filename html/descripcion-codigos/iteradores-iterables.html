@@ -1,0 +1,44 @@
+<h1>Iteradores e iterables</h1>
+<section>
+    <h2>En JS</h2>
+    <p>Útiles cuando queremos controlar los bucles y cuando no sabemos el número de veces que se va a querer iterar.</p>
+    <div class="code">
+        <pre>
+            <code class="language-js">
+/Creamos un objeto iterable
+let iterable = [8, 2, 3, 4, 5];
+
+//Accedemos a la función iterador de un objeto iterable
+let iterator = iterable[Symbol.iterator]();
+
+//Guardamos en una variable la función iterador de un objeto iterable
+let next = iterator.next();
+
+//Ejecutamos la función iterador hasta que en el objeto nos diga que ya no hay más elementos
+//Si usamos iterator.return() será el último resultado que arroje y ya no seguirá iterando
+while (!next.done) {
+    console.log(next.value);
+    next = iterator.next();
+}
+
+//También se pueden ejecutar funciones iterables
+function* iterableFunction() {
+    yield "Heey";
+    yield 2;
+    yield 3;
+    yield 4;
+    yield 5;
+}
+
+//Al cual podemos acceder llamando a la función 
+for (let y of iterableFunction()) {
+    console.log(y);
+}
+
+//Podemos generar un array con todos los valores devueltos del iterable
+const arr = [...iterableFunction()];
+console.log(arr);
+            </code>
+        </pre>
+    </div>
+</section>

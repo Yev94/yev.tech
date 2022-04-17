@@ -12,6 +12,9 @@ export let pages = {
     '#/descripcion-codigos/bbdd/evitar-inyeccion-sql':
     './html/descripcion-codigos/bbdd/evitar-inyeccion-sql.html',
 
+    '#/descripcion-codigos/bbdd/imagenes':
+    './html/descripcion-codigos/bbdd/imagenes.html',
+
     '#/descripcion-codigos/bbdd/mvc':
     './html/descripcion-codigos/bbdd/mvc.html',
 
@@ -22,12 +25,21 @@ export let pages = {
     
     '#/descripcion-codigos/encriptacion':
     './html/descripcion-codigos/encriptacion.html',
+
+    '#/descripcion-codigos/enviar-mail':
+    './html/descripcion-codigos/enviar-mail.html',
     
     '#/descripcion-codigos/expresiones-regulares':
     './html/descripcion-codigos/expresiones-regulares.html',
     
     '#/descripcion-codigos/extensiones-chrome':
     './html/descripcion-codigos/extensiones-chrome.html',
+    
+    '#/descripcion-codigos/fibonnaci':
+    './html/descripcion-codigos/fibonnaci.html',
+    
+    '#/descripcion-codigos/iteradores-iterables':
+    './html/descripcion-codigos/iteradores-iterables.html',
     
     '#/descripcion-codigos/numeros-aleatorios-entre-rangos':
     './html/descripcion-codigos/numeros-aleatorios-entre-rangos.html',

@@ -1,0 +1,139 @@
+<h1>Guardar imágenes en la BBBD</h1>
+<section>
+    <h2>Guardando el nombre de la imagen en la BBDD y la imagen en un archivo del servidor</h2>
+    <h3>En PHP</h3>
+    <h4>Directorios</h4>
+    <ul>
+        <li>config.php</li>
+        <li>connect.php</li>
+        <li>datosImagen.php</li>
+        <li>index.php</li>
+        <li>model.php</li>
+    </ul>
+
+    <h5>En config.php</h5>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'tutologin');
+define('DB_CHARSET', 'utf8');
+            </code>
+        </pre>
+    </div>
+
+    <h5>En connect.php</h5>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+class Connect {
+
+    public static function connection(){
+        require_once 'config.php';
+        try {
+            $connection = new PDO(
+                'mysql:host='. DB_HOST.
+                ';dbname='. DB_NAME.
+                ';charset='. DB_CHARSET, 
+                DB_USER, 
+                DB_PASS
+            );
+            $connection-&gtsetAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $connection-&gtexec('SET CHARACTER SET ' . DB_CHARSET);
+            return $connection;
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e-&gtgetMessage() . '&ltbr&gt';
+            echo 'Line error: ' . $e-&gtgetLine() . '&ltbr&gt';
+        }
+    }
+}
+            </code>
+        </pre>
+    </div>
+
+    <h5>En datosImagen.php</h5>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+//Recibe datos imagen
+$nombre_imagen = $_FILES['imagen']['name'];
+$tipo_imagen = $_FILES['imagen']['type'];
+$tamano_imagen = $_FILES['imagen']['size'];
+
+$carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/imagenes/';
+
+if ($tamano_imagen &lt= 3000000) {
+    if ($tipo_imagen == 'image/jpeg' || $tipo_imagen == 'image/jpg' || $tipo_imagen == 'image/png' || $tipo_imagen == 'image/gif') {
+        //Movemos la imagen del directorio temporal al directorio escogido
+        if (move_uploaded_file($_FILES['imagen']['tmp_name'], $carpeta_destino . $nombre_imagen)) {
+            echo "El archivo ha sido movido exitosamente";
+            require_once 'model.php'; //Una vez guardada la imagen en el directorio, la asociamos al usuario en la BBDD
+        } else {
+            echo "Ocurrió un error al mover el archivo.";
+        }
+    } else {
+        echo "Solo se permiten imagenes con formato jpg, jpeg, png o gif";
+    }
+} else {
+    echo "El archivo es demasiado grande";
+}
+            </code>
+        </pre>
+    </div>
+
+    <h5>En index.php</h5>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+&lt!DOCTYPE html&gt
+&lthtml lang="en"&gt
+&lthead&gt
+    &ltmeta charset="UTF-8"&gt
+    &ltmeta http-equiv="X-UA-Compatible" content="IE=edge"&gt
+    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt
+    &lttitle&gtDocument&lt/title&gt
+&lt/head&gt
+&ltbody&gt
+    &ltform action="datosImagen.php" method="post" enctype="multipart/form-data"&gt
+        &ltinput type="file" name="imagen" id="imagen"&gt
+        &ltinput type="submit" value="Enviar"&gt
+    &lt/form&gt
+&lt/body&gt
+&lt/html&gt
+            </code>
+        </pre>
+    </div>
+
+    <h5>En model.php</h5>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+require_once 'connect.php';
+//Guardamos el nombre de la imagen en la base de datos asociada al usuario
+$db = Connect::connection();
+$sql = "UPDATE usuarios set ruta_img=:ruta_img WHERE id = 4";
+$query = $db-&gtprepare($sql);
+$query-&gtbindParam(':ruta_img', $nombre_imagen);
+$query-&gtexecute();
+
+//Mostramos la imagen guardada en la base de datos asociada al usuario
+$sql = "SELECT * FROM usuarios WHERE id = :id";
+$query = $db-&gtprepare($sql);
+$id = 4;
+$query-&gtbindParam(':id', $id);
+$query-&gtexecute();
+$row = $query-&gtfetchAll(PDO::FETCH_OBJ);
+$query-&gtcloseCursor();
+echo '&ltdiv&gt';
+echo '&ltimg style="width: 300px" src="/imagenes/'.$row[0]-&gtruta_img. '" class="img-responsive" alt="Responsive image"&gt';
+echo '&lt/div&gt';
+            </code>
+        </pre>
+    </div>
+</section>
+<section>
+    <h2>Guardando la imagen directamente en la BBDD como BLOB(Binary Large Object)</h2>
+    <a href="https://www.youtube.com/watch?v=chKOd-LKVs0&list=PLU8oAlHdN5BkinrODGXToK9oPAlnJxmW_&index=86">Ver vídeo</a>
+</section>
