@@ -12,6 +12,9 @@ export let pages = {
     '#/descripcion-codigos/bbdd-servidor/enviar-mail':
     './html/descripcion-codigos/bbdd-servidor/enviar-mail.html',
 
+    '#/descripcion-codigos/bbdd-servidor/estructura-archivos':
+    './html/descripcion-codigos/bbdd-servidor/estructura-archivos.html',
+
     '#/descripcion-codigos/bbdd-servidor/evitar-inyeccion-sql':
     './html/descripcion-codigos/bbdd-servidor/evitar-inyeccion-sql.html',
 
