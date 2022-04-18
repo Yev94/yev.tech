@@ -49,6 +49,9 @@ export let pages = {
     
     '#/descripcion-codigos/programando-en-batch':
     './html/descripcion-codigos/programando-en-batch.html',
+
+    '#/descripcion-codigos/proxies-js':
+    './html/descripcion-codigos/proxies-js.html',
     
     '#/descripcion-codigos/recursividad':
     './html/descripcion-codigos/recursividad.html',
