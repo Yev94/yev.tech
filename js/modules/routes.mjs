@@ -6,18 +6,24 @@ export let pages = {
     '#/admin/solicitud-prestacion-desempleo': './html/admin/solicitud-prestacion-desempleo.html',
 
 
-    '#/descripcion-codigos/bbdd/conexion-bbdd':
-    './html/descripcion-codigos/bbdd/conexion-bbdd.html',
+    '#/descripcion-codigos/bbdd-servidor/conexion-bbdd':
+    './html/descripcion-codigos/bbdd-servidor/conexion-bbdd.html',
 
-    '#/descripcion-codigos/bbdd/evitar-inyeccion-sql':
-    './html/descripcion-codigos/bbdd/evitar-inyeccion-sql.html',
+    '#/descripcion-codigos/bbdd-servidor/enviar-mail':
+    './html/descripcion-codigos/bbdd-servidor/enviar-mail.html',
 
-    '#/descripcion-codigos/bbdd/imagenes':
-    './html/descripcion-codigos/bbdd/imagenes.html',
+    '#/descripcion-codigos/bbdd-servidor/evitar-inyeccion-sql':
+    './html/descripcion-codigos/bbdd-servidor/evitar-inyeccion-sql.html',
 
-    '#/descripcion-codigos/bbdd/mvc':
-    './html/descripcion-codigos/bbdd/mvc.html',
+    '#/descripcion-codigos/bbdd-servidor/imagenes':
+    './html/descripcion-codigos/bbdd-servidor/imagenes.html',
 
+    '#/descripcion-codigos/bbdd-servidor/mvc':
+    './html/descripcion-codigos/bbdd-servidor/mvc.html',
+
+    '#/descripcion-codigos/bbdd-servidor/sistema-sesiones':
+    './html/descripcion-codigos/bbdd-servidor/sistema-sesiones.html',
+    
     
     '#/descripcion-codigos/encontrar-suma-num-array':
     './html/descripcion-codigos/encontrar-suma-num-array.html',
@@ -26,8 +32,6 @@ export let pages = {
     '#/descripcion-codigos/encriptacion':
     './html/descripcion-codigos/encriptacion.html',
 
-    '#/descripcion-codigos/enviar-mail':
-    './html/descripcion-codigos/enviar-mail.html',
     
     '#/descripcion-codigos/expresiones-regulares':
     './html/descripcion-codigos/expresiones-regulares.html',
@@ -56,8 +60,6 @@ export let pages = {
     '#/descripcion-codigos/recursividad':
     './html/descripcion-codigos/recursividad.html',
     
-    '#/descripcion-codigos/sistema-sesiones':
-    './html/descripcion-codigos/sistema-sesiones',
     
     '#/estudio-anki': './html/estudio-anki',
     '#/frameworks': './html/frameworks',
