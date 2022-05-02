@@ -5,9 +5,11 @@ export let pages = {
 
     '#/admin/solicitud-prestacion-desempleo': './html/admin/solicitud-prestacion-desempleo.html',
 
-
     '#/descripcion-codigos/bbdd-servidor/conexion-bbdd':
     './html/descripcion-codigos/bbdd-servidor/conexion-bbdd.html',
+
+    '#/descripcion-codigos/bbdd-servidor/conexion-get-post':
+    './html/descripcion-codigos/bbdd-servidor/conexion-get-post.html',
 
     '#/descripcion-codigos/bbdd-servidor/enviar-mail':
     './html/descripcion-codigos/bbdd-servidor/enviar-mail.html',
@@ -17,6 +19,9 @@ export let pages = {
 
     '#/descripcion-codigos/bbdd-servidor/evitar-inyeccion-sql':
     './html/descripcion-codigos/bbdd-servidor/evitar-inyeccion-sql.html',
+
+    '#/descripcion-codigos/bbdd-servidor/htaccess':
+    './html/descripcion-codigos/bbdd-servidor/htaccess.html',
 
     '#/descripcion-codigos/bbdd-servidor/imagenes':
     './html/descripcion-codigos/bbdd-servidor/imagenes.html',
