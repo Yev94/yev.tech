@@ -8,30 +8,39 @@ export let pages = {
     '#/descripcion-codigos/bbdd-servidor/conexion-bbdd':
     './html/descripcion-codigos/bbdd-servidor/conexion-bbdd.html',
 
-    '#/descripcion-codigos/bbdd-servidor/conexion-get-post':
-    './html/descripcion-codigos/bbdd-servidor/conexion-get-post.html',
-
+    
     '#/descripcion-codigos/bbdd-servidor/enviar-mail':
     './html/descripcion-codigos/bbdd-servidor/enviar-mail.html',
 
     '#/descripcion-codigos/bbdd-servidor/estructura-archivos':
     './html/descripcion-codigos/bbdd-servidor/estructura-archivos.html',
-
+    
     '#/descripcion-codigos/bbdd-servidor/evitar-inyeccion-sql':
     './html/descripcion-codigos/bbdd-servidor/evitar-inyeccion-sql.html',
 
     '#/descripcion-codigos/bbdd-servidor/htaccess':
     './html/descripcion-codigos/bbdd-servidor/htaccess.html',
-
+    
     '#/descripcion-codigos/bbdd-servidor/imagenes':
     './html/descripcion-codigos/bbdd-servidor/imagenes.html',
-
+    
     '#/descripcion-codigos/bbdd-servidor/mvc':
     './html/descripcion-codigos/bbdd-servidor/mvc.html',
-
+    
     '#/descripcion-codigos/bbdd-servidor/sistema-sesiones':
     './html/descripcion-codigos/bbdd-servidor/sistema-sesiones.html',
     
+    '#/descripcion-codigos/cliente/conexion-get-post':
+    './html/descripcion-codigos/cliente/conexion-get-post.html',
+    
+    '#/descripcion-codigos/cliente/extensiones-chrome':
+    './html/descripcion-codigos/cliente/extensiones-chrome.html',
+
+    '#/descripcion-codigos/cliente/intervalo-js':
+    './html/descripcion-codigos/cliente/intervalo-js.html',
+
+    '#/descripcion-codigos/cliente/proxies-js':
+    './html/descripcion-codigos/cliente/proxies-js.html',
     
     '#/descripcion-codigos/encontrar-suma-num-array':
     './html/descripcion-codigos/encontrar-suma-num-array.html',
@@ -43,9 +52,6 @@ export let pages = {
     
     '#/descripcion-codigos/expresiones-regulares':
     './html/descripcion-codigos/expresiones-regulares.html',
-    
-    '#/descripcion-codigos/extensiones-chrome':
-    './html/descripcion-codigos/extensiones-chrome.html',
     
     '#/descripcion-codigos/fibonnaci':
     './html/descripcion-codigos/fibonnaci.html',
@@ -61,9 +67,6 @@ export let pages = {
     
     '#/descripcion-codigos/programando-en-batch':
     './html/descripcion-codigos/programando-en-batch.html',
-
-    '#/descripcion-codigos/proxies-js':
-    './html/descripcion-codigos/proxies-js.html',
     
     '#/descripcion-codigos/recursividad':
     './html/descripcion-codigos/recursividad.html',
