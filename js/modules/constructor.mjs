@@ -11,7 +11,7 @@ export let constructor = (directory) => {
         await append(directory, mainHTML);
         hljs.highlightAll();
         let h1 = document.getElementsByTagName('h1')[0];
-        appendTitle(h1.innerHTML, titleHTML);
+        appendTitle(h1.textContent, titleHTML);
         menuToggle.checked = false;
     })();
 }
