@@ -23,13 +23,13 @@ nav {
 
 #logo {
     display: inline-block;
-    width: 200px;
+    width: 180px;
     font-size: 20px;
 }
 
 #logo img {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
 }
 
 .menu{
