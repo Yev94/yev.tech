@@ -22,12 +22,19 @@ nav {
 }
 
 #logo {
-    display: block;
-    padding: 0 30px;
-    float: left;
+    display: inline-block;
+    width: 200px;
     font-size: 20px;
 }
 
+#logo img {
+    width: 100px;
+    height: 100px;
+}
+
+.menu{
+    padding-top: 20px;
+}
 /* Since we'll have the "ul li" "float:left"
  * we need to add a clear after the container. */
 
