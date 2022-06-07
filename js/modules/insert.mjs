@@ -7,6 +7,10 @@ export let append = async (directory, htmlChained) => {
     });
 }
 
-export let appendTitle = (titulo, titleHTML) => {
+export let appendTitle = (titleHTML, titulo) => {
     titleHTML.innerHTML = titulo; //Ponemos el nuevo con el nuevo titulo
+}
+
+export let appendAttributeContentValue = (element, value) => {
+    element.content = value; //Insertamos el nuevo valor del atributo
 }
