@@ -192,8 +192,8 @@ class usuarios_model{
     public function insert($usuario, $password){
         $sql = "INSERT INTO usuarios (usuario, password) VALUES (:usuario, :password)";
         $query = $this-&gtdb-&gtprepare($sql);
-        $query-&gtbindParam(':usuario', $usuario);
-        $query-&gtbindParam(':password', $password);
+        $query-&gtbindParam(':usuario', $usuario, PDO::PARAM_STR);
+        $query-&gtbindParam(':password', $password, PDO::PARAM_STR);
         $query-&gtexecute();
         $query-&gtcloseCursor();
     }

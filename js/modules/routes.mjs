@@ -79,6 +79,12 @@ export let pages = {
     '#/herramientas': './html/herramientas',
     '#/herramientas/tracking/gtm': './html/herramientas/tracking/gtm',
     '#/herramientas/tracking/gtm/cliente': './html/herramientas/tracking/gtm/cliente.html',
+    '#/herramientas/vs-code/configuracion': './html/herramientas/vs-code/configuracion.html',
+    '#/herramientas/vs-code/extensiones': './html/herramientas/vs-code/extensiones.html',
+    '#/herramientas/vs-code/snippets': './html/herramientas/vs-code/snippets.html',
+    '#/herramientas/vs-code/testing': './html/herramientas/vs-code/testing.html',
+    '#/herramientas/wamp': './html/herramientas/wamp',
+    '#/herramientas/wamp/phpmyadmin': './html/herramientas/wamp/phpmyadmin.html',
 
     '#/os/linux/dns': './html/os/linux/dns.html',
     '#/os/linux/mime': './html/os/linux/mime.html',
@@ -86,10 +92,6 @@ export let pages = {
 
     '#/os/macos': './html/os/macos',
     
-    '#/vs-code/configuracion': './html/vs-code/configuracion.html',
-    '#/vs-code/extensiones': './html/vs-code/extensiones.html',
-    '#/vs-code/snippets': './html/vs-code/snippets.html',
-    '#/vs-code/testing': './html/vs-code/testing.html',
 
     '#/cms/prestashop': './html/cms/prestashop',
     '#/cms/prestashop/configuracion-avanzada': './html/cms/prestashop/configuracion-avanzada.html',

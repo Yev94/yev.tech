@@ -1,0 +1,231 @@
+<h1>Unit Testing para TDD(Test Driving Development)</h1>
+<h2>En JS</h2>
+<h3> <a href="https://jestjs.io/es-ES/docs/getting-started">Con JEST</a> </h3>
+<ol>
+    <h4>
+        <li>En la Terminal</li>
+    </h4>
+    <ol>
+        <li>npm init <span class="text-success">//Crea el package.json</span></li>
+        <li>{npm i -D jest, npm i --save-dev jest} <span class="text-success">//Descarga Jest</span></li>
+        <li>npx jest --init <span class="text-success">//Crea el jest.config</span></li>
+        <li class="fw-bolder">npm run test <span class="text-success">//Para que corra el test en la
+                terminal cada vez que se guarde (ctrl+C para pararlo)</span></li>
+    </ol>
+    <h4>
+        <li>En los archivos de config</li>
+    </h4>
+    <div class="code">
+        <pre>
+            <code class="language-json">
+//package.json creado con npm.init 
+{
+    "name": "testjs", //Este es el nombre del workspace
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js", //Este el el nombre del archivo JS
+    "scripts": {
+    // Esta zona se tiene que cambiar por esto: verbose para que dé +info y watchAll para que revise todos los archivos JS
+    "test": "jest --watchAll --verbose" // --coverage si no lo he puesto en en el jest.config.js
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+    "jest": "^27.4.5"
+    }
+}
+
+//Añadimos el archivo jsonconfig.json con:
+{
+    "typeAcquisition": {
+        "included": [
+            "jest"
+        ]
+    }
+}
+        </code>
+    </pre>
+    </div>
+    <h4>
+        <li>En el Workspace</li>
+    </h4>
+    <h5>Directorios</h5>
+    <ul>
+        <li>node_modules</li>
+        <li>test</li>
+    </ul>
+    <h5>Archivos</h5>
+    <ul>
+        <li>jest.config.js</li>
+        <li>jsonconfig.json</li>
+        <li>package-lock.json</li>
+        <li>package.json</li>
+        <li>test/nombreTest.test.js</li>
+    </ul>
+    <h4>
+        <li>En los archivos para el Test</li>
+    </h4>
+    <div class="code">
+        <pre>
+            <code class="language-javascript">
+//En los archivos main.js añadimos al final del código:
+module.exports = { funcionATestear1, funcionATestear2, miClase }; //Vamos añadiendo todas las f()s y clases que queremos testear
+
+//En el archivo test/nombreTest.test.js añadimos:
+//Para una función:
+const { funcionATestearX } = require('../main'); //Añadimos la función y el archivo que vamos a testear
+
+describe('funcionATestearX', () => { //Ponemos un comentario en que quede claro el grupo al que pertenece el test, por convención la f()
+
+    it('El primer test', () => { //Ponemos un comentario del test en especifico (it es abreviatura de test) (it.only => para skipear test)
+        const expected = 1; //Escribimos la variable que esperamos que devuelva la funcion
+        const result = primerTest(1); //Escribimos la funcion y sus entradas   
+
+        expect(result).toBe(expected); //Metemos la funcion
+        //Otras pruebas interesantes son:
+        expect(result).toBeUndefined(); //Esperamos que me devuelva undefine
+        expect(result).toBeNull(); //Esperamos que me devuelva NUll
+        expect(result).toBeNaN(); //Esperamos que me devuelva NaN
+        expect(result).toEqual({}); //Para objetos como Arrays, ya que comprueba recursivamente cada valor del objeto
+    })
+    
+//Para un objeto:
+const { miClase } = require('../main'); //Si vamos a testear un objeto lo llamamos
+
+describe('miClase', () => { //Por convención la clase
+    const miObjeto = new miClase(); //Instanciamos la clase
+    
+    it('El primer test', () => {
+        const expected = 1;
+        const result = miObjeto.miFuncion(1);
+        
+
+        expect(result).toBe(expected); //Metemos la funcion
+        
+    })
+
+})
+            </code>
+        </pre>
+    </div>
+</ol>
+<h2>En PHP</h2>
+<h3> <a href="https://phpunit.de/index.html">Con PHPUnit</a></h3>
+<ol>
+    <h4>
+        <li>En la terminal</li>
+    </h4>
+    <ol>
+        <li>composer require --dev phpunit/phpunit ^9 <span class="text-success">//Añadimos la v9 (solo
+                valido para v.PHP > 7.3)</span></li>
+        <p class="text-muted">Requiere descargar composer (y para descargarlo es necesario comentar el
+            <a href="./extensiones.html">XDebug</a> de PHP init de XAMPP)
+        </p>
+        <li>composer dump-autoload -o <span class="text-success">//o de optimization, optimiza el config
+                de composer (entre ello, asigna internamente el donde se encuentran los archivos para no
+                tener que estar llamando los archivos con require)</span></li>
+        <li class="fw-bolder">./vendor/bin/phpunit test <span class="text-success">//Para iniciar el
+                test</span></li>
+        <li>php vendor/bin/phpunit test/fileTest.php <span class="text-success">//En el CMD</span></li>
+    </ol>
+    <h4>
+        <li>En los archivos de config</li>
+    </h4>
+    <div class="code">
+        <pre>
+            <code class="language-json">
+//Composer.json creado con composer require --dev phpunit/phpunit ^9
+{
+    "autoload": {
+        "classmap": [
+            "main/" //Le añadimos la ruta que tiene que mapear para no estar diciendo todo el rato a cual ir
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
+
+//Para Automatizar el test y que se ejecute al guardar hace falta descargar la extensión run on save by pucelle
+//Configuramos la extensión en setting.json del siguiente modo
+    "runOnSave.statusMessageTimeout": 3000,
+    "runOnSave.commands": [
+        {
+            // Match scss files except names start with `_`.
+            "match": "\\.php$",
+            "command": "./vendor/bin/phpunit test -v",
+            "runIn": "terminal",
+        },
+    ],
+            </code>
+        </pre>
+    </div>
+    <h4>
+        <li>En el Workspace</li>
+    </h4>
+    <h5>Directorios</h5>
+    <ul>
+        <li>Vendor</li>
+        <li>Test</li>
+    </ul>
+    <h5>Archivos</h5>
+    <ul>
+        <li>composer.json</li>
+        <li>composer.log</li>
+        <li>phpunit.xml</li>
+        <li>test/nombreTest.php</li>
+    </ul>
+    <h4>
+        <li>En los archivos para el Test</li>
+    </h4>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+<?php
+//En el archivo test/nombreTest.php añadimos:
+//Para una función:
+use PHPUnit\Framework\TestCase;
+
+class OperationsTest extends TestCase
+{
+    //Para una función;
+    public function comentarioPrimerTest()
+    {
+        $expected = 2; //Escribimos la variable que esperamos que devuelva la f()
+        $result = primerTest(4, 2); //Escribimos la funcion y sus entradas
+
+        $this->assertEquals($expected, $result); //revisa que el restultado es el esperado
+    }
+    //Para un objeto;
+    private $op; //declaramos el futuro objeto
+
+    public function setUp(): void
+    {
+        $this->op = new Operation(); //Instanciamos el objeto según nuestra clase
+    }
+
+    public function testSumTwoValues() //Escribimos la funcion con un nombre descriptivo
+    {
+        $expected = "7";
+        $result = null;
+        $this->assertNull($result); //Mira a ver si devuelve el valor esperado sin importar el tipo
+    }
+
+    public function testSumsSameType()
+    {
+        $expected = 7;
+        $result = $this->op->sum(2, 5);
+        $this->assertSame($expected, $result); //Mira a ver si devuelve el valor esperado teniendo en cuenta el tipo
+    }
+
+    public function testSumWithNotNumericValue()
+    {
+        
+        $this->expectException(InvalidArgumentException::class); //Mira a ver si devuelve el error esperado
+        $this->op->sum('a', 'Hello');
+    }
+}
+            </code>
+        </pre>
+    </div>
+</ol>
