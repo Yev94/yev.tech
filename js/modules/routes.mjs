@@ -97,6 +97,8 @@ export let pages = {
     '#/cms/prestashop/configuracion-avanzada': './html/cms/prestashop/configuracion-avanzada.html',
     '#/cms/prestashop/instalar-prestashop-local': './html/cms/prestashop/instalar-prestashop-local.html',
     '#/cms/prestashop/primeros-pasos-en-prestashop': './html/cms/prestashop/primeros-pasos-en-prestashop.html',
+    '#/cms/prestashop/cambios': './html/cms/prestashop/cambios.html',
+    '#/cms/prestashop/features': './html/cms/prestashop/features.html',
 
     '#/cms/wordpress': './html/cms/wordpress',
     '#/cms/wordpress/configuracion-avanzada': './html/cms/wordpress/configuracion-avanzada.html',

@@ -1,0 +1,80 @@
+<h1>Cambios de Prestashop</h1>
+<section>
+    <h2>Cambiar URL admin</h2>
+    <img src="./img/22-07-03-18-28-41.png" alt="">
+    <p>Simplemente cambiando el nombre del archivo de administración</p>
+    <p>Ej: admin485ljlini -> yev-admin</p>
+    <p>P.S.: Presta no deja cambiar a admin solamente</p>
+</section>
+<section>
+    <h2>Cambiar Usuario desde BBDD</h2>
+    <p>Primero ir ./app/config/parameters.php</p>
+    <p>Copiar el valor de cookie_key</p>
+    <img src="./img/22-07-03-19-12-24.png" alt="">
+    <p>Al cambiar la contraseña hay que poner la (cookie_key + Contraseña). Todo junto sin espacios</p>
+    <p>Ej: <span style="color:rgb(0, 171, 251) !important">vbpnBuIYuPFreZbyB6R40AfANATbSpv3CB34QrBQZohRtzpVD1JfxQAMsw6Egmwz</span><span style="color:rgb(209, 23, 23) !important">Yev694..</span></p>
+    <h3>Admin</h3>
+    <p>En la tabla ps_employee</p>
+    <img src="./img/22-07-03-18-39-23.png" alt="">
+    <h3>Otros Usuarios</h3>
+    <p>En la tabla ps_customers</p>
+    <img src="./img/22-07-03-18-35-44.png" alt="">
+</section>
+<section>
+    <h2>Cambiar Nombre dominio desde BBDD</h2>
+    <p>En la tabla ps_shop_url</p>
+    <img src="./img/22-07-03-18-25-17.png" alt="">
+</section>
+<section>
+    <h2>Añadir estilos CSS y JS a un theme</h2>
+    <p>Vamos a: ./themes/&lt;nomTheme&gt;/assets/css</p>
+    <p>Creamos un archivo CSS llamado por Ej: custom.css</p>
+    <p>Vamos a : ./themes/&lt;nomTheme&gt;/config/theme.yml</p>
+    <img src="./img/22-07-03-20-20-21.png" alt="">
+    <p>Descomentamos la parte que nos interese del CSS y/o del JS</p>
+</section>
+<section>
+    <h2>Crear un child Theme</h2>
+    <p>Todo el contenido se puede copiar del tema padre según las necesidades</p>
+    <p>Carpetas</p>
+    <ul>
+        <li>classicChildTheme</li>
+            <ul>
+                <li>preview.png</li>
+                <li>config</li>
+                <ul>
+                    <li>.htaccess</li>
+                    <li>theme.yml</li>
+                </ul>
+                <li>assets</li>
+                <ul>
+                    <li>cache</li>
+                    <li>css</li>
+                    <ul>
+                        <li>custom.css</li>
+                    </ul>
+                </ul>
+            </ul>
+    </ul>
+    <div class="code">
+        <pre>
+            <code class="language-yml">
+parent: classic
+#Asegurarse que sea igual que el nombre de la carpeta del tema hijo
+name: classicChildTheme
+display_name: The Child Theme
+version: 1.0.0
+assets:
+  use_parent_assets: true
+            </code>
+        </pre>
+    </div>
+    <img src="./img/22-07-07-08-56-31.png" alt="">
+    <p>A tener en cuenta:</p>
+    <ul>
+        <li>Los cambios son en theme.yml</li>
+        <li>Evitar mayúsculas en el name y el nombre de la carpeta del tema hijo</li>
+        <li>Asegurase que el name y el nombre de la carpeta del tema hijo son iguales</li>
+        <li>Descomentar use_parent_assets:true de assets</li>
+    </ul>
+</section>
