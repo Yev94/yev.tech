@@ -81,3 +81,15 @@ assets:
         <li>Descomentar use_parent_assets:true de assets</li>
     </ul>
 </section>
+<section>
+    <h2>Cambio de domino</h2>
+    <p>Hay que cambiar el nuevo dominio en el .htaccess</p>
+    <p>Dentro del .htaccess también hay que escribir:</p>
+    <p>#Domain: miNuevoDominio.com</p>
+    <p>RewriteRule . - [E=REWRITEBASE:<i>DirectorioInterno</i>/]</p>
+    <p>En la BBDD hay que cambiar de la tabla</p>
+    <p>ps_shop_url del siguiente modo:</p>
+    <img src="./img/22-07-21-00-08-50.png" alt="">
+    <p>ps_configuration la variable PS_SHOP_DOMAIN y PS_SHOP_DOMAIN_SSL</p>
+    <img src="./img/22-07-21-00-10-35.png" alt="">
+</section>

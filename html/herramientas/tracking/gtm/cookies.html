@@ -1,6 +1,8 @@
 <h1>Gestión de Cookies con GTM</h1>
 <section>
   <h2>Usando el Consent Mode de Google y Klaro</h2>
+  <h3>Descargamos y configuramos Klaro</h3>
+  <p><a target="_blank" href="https://github.com/kiprotect/klaro">Link a repositorio</a></p>
   <p>Para ver y/o eliminar cookies vamos a > inspeccionar > pestaña de aplicaciones > cookies</p>
   <p>Recogemos el código de la configuración y las URLs y lo pones en una etiqueta de HTML personalizado.</p>
   <pre>
@@ -354,6 +356,54 @@
   <img src="./img/22-07-08-07-44-53.png" alt="">
   <p>Para que en la sección de variables del debugger podamos ver algo así:</p>
   <img src="./img/22-07-08-07-46-36.png" alt="">
+  <h3>Activamos el Consent Mode, descargamos algunas plantillas y lo conectamos a Klaro</h3>
   <p>Activamos el Consent Mode en > Administrador > Configuración del contenedor > Ajustes adicionales</p>
   <img src="./img/22-07-08-07-50-47.png" alt="">
+  <p>Podemos asegurarnos cuando aparezca el escudo en la sección de etiquetas</p>
+  <img src="./img/22-07-12-09-35-52.png" alt="">
+  <p>En las variables añadimos una nueva plantilla de la comunidad llamada GTM Consent State de Ayudante</p>
+  <img src="./img/22-07-12-09-42-20.png" alt="">
+  <p>Y guardamos la variable como Consent State</p>
+  <img src="./img/22-07-12-09-47-00.png" alt="">
+  <p>Por lo que ahora la podremos ver en nuestras variables</p>
+  <img src="./img/22-07-12-09-49-18.png" alt="">
+  <p>Ahora creamos una nueva etiqueta desde las plantillas de la comunidad llamada Consent Mode de
+    gtm-templates-simo-ahava</p>
+  <img src="./img/22-07-12-21-14-49.png" alt="">
+  <p>Lo configuramos poniendo Consent Command en Update, y Advertising y Analytics en Denied</p>
+  <p>Y ponemos el activador de inicialzación, para todas las páginas</p>
+  <p>Y lo guardamos con el nombre de: Conent Mode: denied</p>
+  <img src="./img/22-07-12-21-17-02.png" alt="">
+  <p>Creamos las variables para traducir cada uno de los consentimientos para las plataformas del plugin klaro al plugin
+    de Consent Mode</p>
+  <pre>
+    <code class="language-js">
+//Lo llamamos cjs - Google Analytics Consent
+function() {
+  var cookie = {{cookie - klaro}};
+  if(!cookie){return denied};
+
+  var json = JSON.parse(cookie);
+  if(json["Google Analytics"]){
+    return "granted";
+  } else{
+    return "denied";
+  }
+}
+
+//Lo llamamos cjs - Fb & Google Ads Consent
+function() {
+  var cookie = {{cookie - klaro}};
+  if(!cookie){return "denied"};
+
+  var json = JSON.parse(cookie);
+  if(json["Facebook Ads"] && json["Google Ads"]){
+    return "granted";
+  } else{
+    return "denied";
+  }
+}
+    </code>
+  </pre>
+  <h3>Conectamos el Consent Mode con nuestras etiquetas de tracking</h3>
 </section>
