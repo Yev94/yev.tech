@@ -91,6 +91,7 @@ export let pages = {
   '#/os/linux/dns': './html/os/linux/dns.html',
   '#/os/linux/mime': './html/os/linux/mime.html',
   '#/os/linux/vsftp': './html/os/linux/vsftp.html',
+  '#/os/linux/zsh': './html/os/linux/zsh.html',
 
   '#/os/macos': './html/os/macos',
 
