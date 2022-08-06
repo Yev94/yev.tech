@@ -1,11 +1,14 @@
 <h1>Gestión de Cookies con GTM</h1>
 <section>
-  <h2>Usando el Consent Mode de Google y Klaro</h2>
-  <h3>Descargamos y configuramos Klaro</h3>
-  <p><a target="_blank" href="https://github.com/kiprotect/klaro">Link a repositorio</a></p>
-  <p>Para ver y/o eliminar cookies vamos a > inspeccionar > pestaña de aplicaciones > cookies</p>
-  <p>Recogemos el código de la configuración y las URLs y lo pones en una etiqueta de HTML personalizado.</p>
-  <pre>
+    <h2>Usando el Consent Mode de Google y Klaro</h2>
+    <h3>Descargamos y configuramos Klaro</h3>
+    <p>El Consent Mode de GTM lo que permite es que si el usuario no acepta las cookies, Google Enviará datos por medio
+        de pings sin la necesidad de cookies que rastreen al propio usuario, y dará la info en función a lo que arroje
+        los resultados del modelo que se generan a partir de los datos enviados</p>
+    <p><a target="_blank" href="https://github.com/kiprotect/klaro">Link a repositorio</a></p>
+    <p>Para ver y/o eliminar cookies vamos a > inspeccionar > pestaña de aplicaciones > cookies</p>
+    <p>Recogemos el código de la configuración y las URLs y lo pones en una etiqueta de HTML personalizado.</p>
+    <pre>
     <code class="language-html">
 &lt;script&gt;
   // By default, Klaro will load the config from  a global "klaroConfig" variable.
@@ -348,35 +351,36 @@
 &lt;link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7.18/klaro.min.css" /&gt;
     </code>
   </pre>
-  <p>Quedaría algo así:</p>
-  <img src="./img/22-07-08-07-48-23.png" alt="">
-  <p>Y como activador, ponemos la inicialización del consentimiento</p>
-  <p>En variables, declaramos una variable personalizada llamada klaro del tipo Cookie de Origen</p>
-  <p>Y checkamos Decodificar la cookie de Origen</p>
-  <img src="./img/22-07-08-07-44-53.png" alt="">
-  <p>Para que en la sección de variables del debugger podamos ver algo así:</p>
-  <img src="./img/22-07-08-07-46-36.png" alt="">
-  <h3>Activamos el Consent Mode, descargamos algunas plantillas y lo conectamos a Klaro</h3>
-  <p>Activamos el Consent Mode en > Administrador > Configuración del contenedor > Ajustes adicionales</p>
-  <img src="./img/22-07-08-07-50-47.png" alt="">
-  <p>Podemos asegurarnos cuando aparezca el escudo en la sección de etiquetas</p>
-  <img src="./img/22-07-12-09-35-52.png" alt="">
-  <p>En las variables añadimos una nueva plantilla de la comunidad llamada GTM Consent State de Ayudante</p>
-  <img src="./img/22-07-12-09-42-20.png" alt="">
-  <p>Y guardamos la variable como Consent State</p>
-  <img src="./img/22-07-12-09-47-00.png" alt="">
-  <p>Por lo que ahora la podremos ver en nuestras variables</p>
-  <img src="./img/22-07-12-09-49-18.png" alt="">
-  <p>Ahora creamos una nueva etiqueta desde las plantillas de la comunidad llamada Consent Mode de
-    gtm-templates-simo-ahava</p>
-  <img src="./img/22-07-12-21-14-49.png" alt="">
-  <p>Lo configuramos poniendo Consent Command en Update, y Advertising y Analytics en Denied</p>
-  <p>Y ponemos el activador de inicialzación, para todas las páginas</p>
-  <p>Y lo guardamos con el nombre de: Conent Mode: denied</p>
-  <img src="./img/22-07-12-21-17-02.png" alt="">
-  <p>Creamos las variables para traducir cada uno de los consentimientos para las plataformas del plugin klaro al plugin
-    de Consent Mode</p>
-  <pre>
+    <p>Quedaría algo así:</p>
+    <img src="./img/22-07-08-07-48-23.png" alt="">
+    <p>Y como activador, ponemos la inicialización del consentimiento</p>
+    <p>En variables, declaramos una variable personalizada llamada klaro del tipo Cookie de Origen</p>
+    <p>Y checkamos Decodificar la cookie de Origen</p>
+    <img src="./img/22-07-08-07-44-53.png" alt="">
+    <p>Para que en la sección de variables del debugger podamos ver algo así:</p>
+    <img src="./img/22-07-08-07-46-36.png" alt="">
+    <h3>Activamos el Consent Mode, descargamos algunas plantillas y lo conectamos a Klaro</h3>
+    <p>Activamos el Consent Mode en > Administrador > Configuración del contenedor > Ajustes adicionales</p>
+    <img src="./img/22-07-08-07-50-47.png" alt="">
+    <p>Podemos asegurarnos cuando aparezca el escudo en la sección de etiquetas</p>
+    <img src="./img/22-07-12-09-35-52.png" alt="">
+    <p>En las variables añadimos una nueva plantilla de la comunidad llamada GTM Consent State de Ayudante</p>
+    <img src="./img/22-07-12-09-42-20.png" alt="">
+    <p>Y guardamos la variable como Consent State</p>
+    <img src="./img/22-07-12-09-47-00.png" alt="">
+    <p>Por lo que ahora la podremos ver en nuestras variables</p>
+    <img src="./img/22-07-12-09-49-18.png" alt="">
+    <p>Ahora creamos una nueva etiqueta desde las plantillas de la comunidad llamada Consent Mode de
+        gtm-templates-simo-ahava</p>
+    <img src="./img/22-07-12-21-14-49.png" alt="">
+    <p>Lo configuramos poniendo Consent Command en Update, y Advertising y Analytics en Denied</p>
+    <p>Y ponemos el activador de inicialzación, para todas las páginas</p>
+    <p>Y lo guardamos con el nombre de: Conent Mode: denied</p>
+    <img src="./img/22-07-12-21-17-02.png" alt="">
+    <p>Creamos las variables para traducir cada uno de los consentimientos para las plataformas del plugin klaro al
+        plugin
+        de Consent Mode</p>
+    <pre>
     <code class="language-js">
 //Lo llamamos cjs - Google Analytics Consent
 function() {
@@ -405,5 +409,48 @@ function() {
 }
     </code>
   </pre>
-  <h3>Conectamos el Consent Mode con nuestras etiquetas de tracking</h3>
+    <h3>Conectamos las variables personalizadas al Consent Mode de Simo Ahava</h3>
+    <p>Ponemos el Advertising y Analytics con nuestras variables personalizadas para cada caso</p>
+    <p>Cambiamos el nombre de denied a update</p>
+    <img src="./img/22-07-23-18-14-29.png" alt="">
+    <h3>Conectamos el Consent Mode con nuestras etiquetas de tracking</h3>
+    <h4>Creamos el activador para que refresque el estado del consentimiento</h4>
+    <p>Creamos el activador cuando pinchen en uno de los botones para aceptar o rechazar los consentimientos</p>
+    <p>El problema es que al ir todo tan rápido (Como siempre) los datos de los consentimientos no llegan refrescados al
+        dar click al botón por lo que hay que crear otro script que refresque estos datos</p>
+    <img src="./img/22-07-28-13-03-05.png" alt="">
+    <h4>Creamos un html personalizado para haga un delay y refresque datos</h4>
+    <p>Lo guardamos con el nombre de: cHTML - dataLayer push Consent</p>
+    <p>Su activador es el del click a los botones con la clase cm-btn</p>
+    <pre>
+        <code class="language-html">
+&lt;script&gt;
+    (function(){
+        window.setTimeout(function() {window.dataLayer.push({'event' : 'consentChoice'});}, 500);
+        window.setTimeout(function() {window.dataLayer.push({'event' : 'consentUpdated'});}, 800);
+    })();
+&lt;/script&gt;
+        </code>
+    </pre>
+    <h4>Creamos los activadores a partir de los eventos personalizados creados</h4>
+    <p>Creamos el activador cuando llegue el evento consentChoice</p>
+    <img src="./img/22-07-28-13-08-01.png" alt="">
+    <p>Hacemos lo mismo para el consentUpdated</p>
+    <img src="./img/22-07-28-13-14-34.png" alt="">
+    <p>Añadimos el consentChoice a la etiqueta Consent Mode de Simo Ahava</p>
+    <img src="./img/22-07-28-13-16-16.png" alt="">
+    <p>Añadimos el consentUpdated al resto de etiquetas de tracking de Fb, GA4, Ads...</p>
+    <h4>Conectamos al Fb pixel</h4>
+    <p>Para los consentimientos que ya vienen predefinidos no hay que hacer ningún cambio de consentimientos
+        adicionales, ya que será el propio Google el que decida que info llevar</p>
+    <p>Vamos a configuración avanzada > Configuración de consentimiento > La etiqueta requiere de consentimiento
+        adicional para activarse > ad_storage</p>
+    <img src="./img/22-07-23-17-38-09.png" alt="">
+    <p>También podemos hacerlo desde el escudo que se encuentra en Etiquetas > Pinchamos en el que queremos y le damos
+        al escudo con la rueda dentada</p>
+    <p>Si presionamos que no se requiere ningún consentimiento adicional, usara los consentimientos ya integrados, en
+        caso de GA4 usará el ad_storage y analytics_storage</p>
+    <img src="./img/22-07-23-17-57-02.png" alt="">
+    <p>Añadimos el activador consentUpdated para que también refresque se active en ese momento si han aceptado las cookies</p>
+    <img src="./img/22-07-28-13-18-30.png" alt="">
 </section>
