@@ -99,7 +99,7 @@ export let pages = {
   '#/cms/prestashop': './html/cms/prestashop',
   '#/cms/prestashop/configuracion-avanzada': './html/cms/prestashop/configuracion-avanzada.html',
   '#/cms/prestashop/instalar-prestashop-local': './html/cms/prestashop/instalar-prestashop-local.html',
-  '#/cms/prestashop/primeros-pasos-en-prestashop': './html/cms/prestashop/primeros-pasos-en-prestashop.html',
+  '#/cms/prestashop/creacion-modulos': './html/cms/prestashop/creacion-modulos.html',
   '#/cms/prestashop/cambios': './html/cms/prestashop/cambios.html',
   '#/cms/prestashop/features': './html/cms/prestashop/features.html',
 
