@@ -4,6 +4,8 @@ export let pages = {
   '': "./html/home.html",
 
   '#/admin/solicitud-prestacion-desempleo': './html/admin/solicitud-prestacion-desempleo.html',
+  
+  '#/calc': './html/calc',
 
   '#/descripcion-codigos/bbdd-servidor/conexion-bbdd':
     './html/descripcion-codigos/bbdd-servidor/conexion-bbdd.html',
