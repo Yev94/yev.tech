@@ -22,7 +22,6 @@ export default class Calc {
   }
 
   constructor() {
-    window.onload = () => {
       this.elementTime = document.querySelector('.time');
       this.elementFromRange = document.querySelector('#select-from-range');
       this.elementToRange = document.querySelector('#select-to-range');
@@ -46,8 +45,6 @@ export default class Calc {
       this.elementNext.addEventListener('click', ()=>{
         this.next();
       })
-
-    }
   }
 
   startTimer = (duration) => {

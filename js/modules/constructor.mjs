@@ -17,6 +17,7 @@ export let constructor = (directory) => {
         appendAttributeContentValue(metaTitle, h1.textContent);
         menuToggle.checked = false;
 
+        //Para rescatar el código necesario para el juego de calculadora
         if (window.location.href.includes('#/calc')) {
             let calc = new Calc();
         }
