@@ -1,4 +1,5 @@
 import { append, appendTitle, appendAttributeContentValue } from './insert.mjs'
+import Calc from './calc.mjs';
 
 export let constructor = (directory) => {
     let mainHTML = document.getElementsByTagName('main')[0];
@@ -15,5 +16,9 @@ export let constructor = (directory) => {
         appendTitle(titleHTML, h1.textContent);
         appendAttributeContentValue(metaTitle, h1.textContent);
         menuToggle.checked = false;
+
+        if (window.location.href.includes('#/calc')) {
+            let calc = new Calc();
+        }
     })();
 }
