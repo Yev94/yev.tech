@@ -23,7 +23,6 @@ export default class Calc {
 
   constructor() {
       this.elementTime = document.querySelector('.time');
-      document.querySelector('body').innerText = this.elementTime;
       this.elementFromRange = document.querySelector('#select-from-range');
       this.elementToRange = document.querySelector('#select-to-range');
       this.elementSelectOperator = document.querySelector('#select-operator');
