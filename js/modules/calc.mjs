@@ -14,11 +14,13 @@ export default class Calc {
   previousNum1;
   previousNum2;
   elementOperator;
+  iterations;
 
   config = {
     seconds: 60,
     from: 2,
     to: 20,
+    iterate: 60
   }
 
   constructor() {
@@ -103,6 +105,7 @@ export default class Calc {
     this.startTimer(this.config.seconds);
     this.insertRandomNum();
     this.elementOperator.forEach(element => element.innerText = this.elementSelectOperator.value);
+    this.iterations = this.config.iterate;
   }
 
   next(){
@@ -110,6 +113,11 @@ export default class Calc {
     this.previousNum2.innerText = this.num2.innerText;
     this.insertRandomNum();
     this.operate();
+    if(this.iterations == 0){
+      window.alert('🤩🤩🤩');
+      this.iterations = this.config.iterate;
+    }
+    this.iterations--;
   }
 
   operate () {
