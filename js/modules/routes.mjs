@@ -101,6 +101,7 @@ export let pages = {
 
   '#/cms/prestashop': './html/cms/prestashop',
   '#/cms/prestashop/bugs/v-1-7-6-4': './html/cms/prestashop/bugs/v-1-7-6-4.html',
+  '#/cms/prestashop/modulos/google-merchant': './html/cms/prestashop/modulos/google-merchant.html',
   '#/cms/prestashop/configuracion-avanzada': './html/cms/prestashop/configuracion-avanzada.html',
   '#/cms/prestashop/instalar-prestashop-local': './html/cms/prestashop/instalar-prestashop-local.html',
   '#/cms/prestashop/creacion-modulos': './html/cms/prestashop/creacion-modulos.html',
