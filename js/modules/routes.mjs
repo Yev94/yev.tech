@@ -3,6 +3,7 @@ export let pages = {
   '#/': "./html/home.html",
   '': "./html/home.html",
 
+  '#/admin/inversiones': './html/admin/inversiones.html',
   '#/admin/solicitud-prestacion-desempleo': './html/admin/solicitud-prestacion-desempleo.html',
   
   '#/calc': './html/calc',
