@@ -90,7 +90,14 @@ export let pages = {
   '#/herramientas/vs-code/testing': './html/herramientas/vs-code/testing.html',
   '#/herramientas/wamp': './html/herramientas/wamp',
   '#/herramientas/wamp/phpmyadmin': './html/herramientas/wamp/phpmyadmin.html',
+  
+  '#/i2/1/ffi/saber-general': './html/i2/1/ffi/saber-general.html',
+  '#/i2/1/ffi/t1-cargas-puntuales/practica': './html/i2/1/ffi/t1-cargas-puntuales/practica.html',
+  '#/i2/1/ffi/t1-cargas-puntuales/teoria': './html/i2/1/ffi/t1-cargas-puntuales/teoria.html',
+  '#/i2/1/m1/logica': './html/i2/1/m1/logica.html',
+  '#/i2/1/m1/prolog': './html/i2/1/m1/prolog.html',
 
+  '#/os/linux': './html/os/linux',
   '#/os/linux/dns': './html/os/linux/dns.html',
   '#/os/linux/mime': './html/os/linux/mime.html',
   '#/os/linux/vsftp': './html/os/linux/vsftp.html',
