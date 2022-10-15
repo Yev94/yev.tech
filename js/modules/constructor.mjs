@@ -1,5 +1,6 @@
 import { append, appendTitle, appendAttributeContentValue } from './insert.mjs'
 import Calc from './calc.mjs';
+import CountDownTimer from './count-down-timer.mjs';
 
 export let constructor = (directory) => {
     let mainHTML = document.getElementsByTagName('main')[0];
@@ -20,6 +21,10 @@ export let constructor = (directory) => {
         //Para rescatar el código necesario para el juego de calculadora
         if (window.location.href.includes('#/calc')) {
             let calc = new Calc();
+        }
+        //Para rescatar el código necesario para el Count Down Timer
+        if (window.location.href.includes('#/cdt')) {
+            let countDown = new CountDownTimer();
         }
     })();
 }

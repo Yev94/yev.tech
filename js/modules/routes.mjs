@@ -1,5 +1,7 @@
 export let pages = {
   
+  '#/cdt': "./html/countdowntimer.html",
+
   '#/': "./html/home.html",
   '': "./html/home.html",
 
@@ -92,6 +94,7 @@ export let pages = {
   '#/herramientas/wamp/phpmyadmin': './html/herramientas/wamp/phpmyadmin.html',
   
   '#/i2/1/ffi/saber-general': './html/i2/1/ffi/saber-general.html',
+  '#/i2/1/ffi/laboratorio/calc-error': './html/i2/1/ffi/laboratorio/calc-error.html',
   '#/i2/1/ffi/t1-cargas-puntuales/practica': './html/i2/1/ffi/t1-cargas-puntuales/practica.html',
   '#/i2/1/ffi/t1-cargas-puntuales/teoria': './html/i2/1/ffi/t1-cargas-puntuales/teoria.html',
   '#/i2/1/m1/logica': './html/i2/1/m1/logica.html',
