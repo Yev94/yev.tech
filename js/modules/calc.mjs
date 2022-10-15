@@ -20,7 +20,7 @@ export default class Calc {
     seconds: 60,
     from: 2,
     to: 20,
-    iterate: 60
+    iterate: 50
   }
 
   constructor() {
