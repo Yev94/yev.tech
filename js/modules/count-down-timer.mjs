@@ -64,6 +64,7 @@ export default class CountDownDateTimer {
         let finishTxt = '💥 Finished!!';
         this.timeElement.innerHTML = finishTxt;
         this.titleElement.innerHTML = finishTxt;
+        this.decimalMinutes = this.selectMinutesElement.value * 60;
         this.elementStartPause.classList.remove('activated');
         clearInterval(this.countDown);
         alert(finishTxt);
