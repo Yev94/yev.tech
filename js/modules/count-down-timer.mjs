@@ -1,7 +1,7 @@
 // Set the date we're counting down to
 export default class CountDownDateTimer {
 
-  decimalMinutes;
+  totalSeconds;
   countDown;
   titleElement;
   minutes;
@@ -34,13 +34,13 @@ export default class CountDownDateTimer {
   
   startTimer(){
     if(this.elementStartPause.classList.contains('stopped')){
-      this.decimalMinutes = this.selectMinutesElement.value * 60;
+      this.totalSeconds = this.selectMinutesElement.value * 60;
     }
 
     if(this.elementStartPause.classList.contains('activated')){
       if (this.countDown) clearInterval(this.countDown);
     } else{
-      this.timer(this.decimalMinutes);
+      this.timer(this.totalSeconds);
     }
   }
 
@@ -55,32 +55,32 @@ export default class CountDownDateTimer {
 
   timer = (duration) => {
     let callBackCountDown = () => {
-      let minutes = Math.floor(this.decimalMinutes / 60);
-      let seconds = Math.floor(this.decimalMinutes % 60);
+      let minutes = Math.floor(this.totalSeconds / 60);
+      let seconds = Math.floor(this.totalSeconds % 60);
       
-      let timeNow = this.parseTimeDigits(minutes) + "m " + this.parseTimeDigits(seconds) + "s ";
+      let displayTime = this.formatDisplayTime(minutes) + "m " + this.formatDisplayTime(seconds) + "s ";
       
-      if (this.decimalMinutes == 0) {
+      if (this.totalSeconds == 0) {
         let finishTxt = '💥 Finished!!';
         this.timeElement.innerHTML = finishTxt;
         this.titleElement.innerHTML = finishTxt;
-        this.decimalMinutes = this.selectMinutesElement.value * 60;
+        this.totalSeconds = this.selectMinutesElement.value * 60;
         this.elementStartPause.classList.remove('activated');
         clearInterval(this.countDown);
         alert(finishTxt);
       }
 
-      this.timeElement.innerHTML = timeNow;
-      this.titleElement.innerHTML = timeNow;
+      this.timeElement.innerHTML = displayTime;
+      this.titleElement.innerHTML = displayTime;
 
-      this.decimalMinutes--;
+      this.totalSeconds--;
     }
 
     this.countDown = setInterval(callBackCountDown, 1000);
-    this.decimalMinutes = duration;
+    this.totalSeconds = duration;
   }
 
-  parseTimeDigits(num){
+  formatDisplayTime(num){
     if(num / 10 >= 1) return num;
     return "0" + num;
   }
