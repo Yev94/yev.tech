@@ -96,7 +96,7 @@ export let pages = {
   '#/i2/1/ffi/saber-general': './html/i2/1/ffi/saber-general.html',
   '#/i2/1/ffi/laboratorio/calc-error': './html/i2/1/ffi/laboratorio/calc-error.html',
   '#/i2/1/ffi/t1-cargas-puntuales/practica': './html/i2/1/ffi/t1-cargas-puntuales/practica.html',
-  '#/i2/1/ffi/t1-cargas-puntuales/teoria': './html/i2/1/ffi/t1-cargas-puntuales/teoria.html',
+  '#/i2/1/ffi/t1-cargas-puntuales/fuerza-campo': './html/i2/1/ffi/t1-cargas-puntuales/fuerza-campo.html',
   '#/i2/1/m1/logica': './html/i2/1/m1/logica.html',
   '#/i2/1/m1/prolog': './html/i2/1/m1/prolog.html',
 
