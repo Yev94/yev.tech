@@ -82,6 +82,7 @@ export let pages = {
   '#/frameworks/laravel': './html/frameworks/laravel.html',
 
   '#/herramientas': './html/herramientas',
+  '#/herramientas/tracking/crm/clientify': './html/herramientas/tracking/crm/clientify',
   '#/herramientas/tracking/gtm': './html/herramientas/tracking/gtm',
   '#/herramientas/tracking/gtm/cliente': './html/herramientas/tracking/gtm/cliente.html',
   '#/herramientas/tracking/gtm/cookies': './html/herramientas/tracking/gtm/cookies.html',
@@ -95,9 +96,11 @@ export let pages = {
   
   '#/i2/1/ffi/saber-general': './html/i2/1/ffi/saber-general.html',
   '#/i2/1/ffi/laboratorio/calc-error': './html/i2/1/ffi/laboratorio/calc-error.html',
+  '#/i2/1/ffi/laboratorio/calc-resistencia': './html/i2/1/ffi/laboratorio/calc-resistencia.html',
   '#/i2/1/ffi/t1-cargas-puntuales/practica': './html/i2/1/ffi/t1-cargas-puntuales/practica.html',
   '#/i2/1/ffi/t1-cargas-puntuales/fuerza-campo': './html/i2/1/ffi/t1-cargas-puntuales/fuerza-campo.html',
   '#/i2/1/ffi/t2-distribuciones-carga/cargas-superficie': './html/i2/1/ffi/t2-distribuciones-carga/cargas-superficie.html',
+  '#/i2/1/ffi/t4-campo-magnetico/': './html/i2/1/ffi/t4-campo-magnetico/',
   '#/i2/1/m1/logica': './html/i2/1/m1/logica.html',
   '#/i2/1/m1/prolog': './html/i2/1/m1/prolog.html',
 
