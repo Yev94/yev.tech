@@ -94,6 +94,7 @@ export let pages = {
   '#/herramientas/wamp': './html/herramientas/wamp',
   '#/herramientas/wamp/phpmyadmin': './html/herramientas/wamp/phpmyadmin.html',
   
+  '#/i2': './html/i2',
   '#/i2/1/ffi/saber-general': './html/i2/1/ffi/saber-general.html',
   '#/i2/1/ffi/laboratorio/calc-error': './html/i2/1/ffi/laboratorio/calc-error.html',
   '#/i2/1/ffi/laboratorio/calc-resistencia': './html/i2/1/ffi/laboratorio/calc-resistencia.html',

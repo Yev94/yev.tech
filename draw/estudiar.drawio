@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="RsHKvY9ihVBDJwIDH-hp" name="Codificar">
-        <mxGraphModel dx="1322" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="990" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -12,9 +12,6 @@
                 </mxCell>
                 <mxCell id="2" value="Codificar" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;" parent="1" vertex="1">
                     <mxGeometry x="40" y="260" width="120" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="3" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" parent="1" vertex="1">
-                    <mxGeometry x="30" y="10" width="120" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="4" target="7" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -85,10 +82,10 @@
                 <mxCell id="20" value="Entendimiento" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="710" y="435" width="120" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="158" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="22" target="155">
+                <mxCell id="158" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="22" target="155" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="159" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="22" target="154">
+                <mxCell id="159" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="22" target="154" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;ol&gt;&lt;li&gt;Conocer los Inputs&lt;/li&gt;&lt;li&gt;Aprender los apartados que se asocian (Propiedades y transfomaciones)&lt;/li&gt;&lt;ol&gt;&lt;li&gt;Asociación&lt;/li&gt;&lt;li&gt;Causalidad (Experimentación y práctica)&lt;/li&gt;&lt;li&gt;Metafóricamente&lt;/li&gt;&lt;/ol&gt;&lt;li&gt;Conocer las secuencias en las que se dan&lt;/li&gt;&lt;li&gt;Concer los Outputs&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" parent="1" vertex="1">
@@ -135,7 +132,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="131" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="85" target="91">
+                <mxCell id="131" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="85" target="91" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="210" y="150"/>
@@ -146,10 +143,10 @@
                 <mxCell id="85" value="Sintaxis y escritura" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
                     <mxGeometry x="150" y="180" width="120" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="136" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="91" target="96">
+                <mxCell id="136" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="91" target="96" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="138" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="91" target="95">
+                <mxCell id="138" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="91" target="95" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="91" value="Reconocer la sintaxis" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
@@ -158,13 +155,13 @@
                 <mxCell id="92" value="Para disminuir la complejidad de la sintaxis se crea sintaxis prefabricada, para tipear el menor número de veces posible" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
                     <mxGeometry x="115" y="550" width="350" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="141" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="93" target="92">
+                <mxCell id="141" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="93" target="92" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="93" value="Tipear sintaxis = ComplejidadSintaxis()" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
                     <mxGeometry x="170" y="460" width="240" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="139" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="95" target="10">
+                <mxCell id="139" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="95" target="10" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="615" y="150"/>
@@ -175,7 +172,7 @@
                 <mxCell id="95" value="Por sintaxis memorizada" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
                     <mxGeometry x="555" y="80" width="120" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="137" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="96" target="7">
+                <mxCell id="137" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="96" target="7" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="96" value="Por busqueda de sintaxis" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
@@ -239,7 +236,7 @@
                         <mxPoint x="940" y="845" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="144" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="122" target="142">
+                <mxCell id="144" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="122" target="142" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="610" y="845" as="targetPoint"/>
                     </mxGeometry>
@@ -247,13 +244,13 @@
                 <mxCell id="122" value="Cuándo pasar el modelo físico al mental?" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" parent="1" vertex="1">
                     <mxGeometry x="665" y="810" width="120" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="142" value="Cuando se tenga la creencia de que se va a tener que volver a usar rápidamente y/o sin tener acceso al modelo físico" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" vertex="1" parent="1">
+                <mxCell id="142" value="Cuando se tenga la creencia de que se va a tener que volver a usar rápidamente y/o sin tener acceso al modelo físico" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" parent="1" vertex="1">
                     <mxGeometry x="460" y="777.5" width="150" height="135" as="geometry"/>
                 </mxCell>
-                <mxCell id="152" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="145" target="146">
+                <mxCell id="152" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="145" target="146" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="153" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="22">
+                <mxCell id="153" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="22" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="950" y="460"/>
@@ -262,23 +259,128 @@
                         <mxPoint x="930" y="460" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="145" value="2 maneras de abordarlo" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" vertex="1" parent="1">
+                <mxCell id="145" value="2 maneras de abordarlo" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="850" y="435" width="80" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="151" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="146" target="149">
+                <mxCell id="151" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="146" target="149" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="146" value="1. Conocer los Inputs/Outputs (YouTube y foros)&lt;br&gt;2. Crear una hipótesis de los apartados que se asocian (Propiedades, y transformaciones) y sus secuencias&lt;br&gt;3. Contrastar hipótesis (Documentación)&lt;br&gt;&lt;div&gt;&lt;span&gt;4. Ajustar hipótesis&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;Asociación&lt;/li&gt;&lt;li&gt;Causalidad (Experimentación y práctica)&lt;/li&gt;&lt;li&gt;Metafóricamente&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;align=left;spacingLeft=52;fontStyle=0" vertex="1" parent="1">
+                <mxCell id="146" value="1. Conocer los Inputs/Outputs (YouTube y foros)&lt;br&gt;2. Crear una hipótesis de los apartados que se asocian (Propiedades, y transformaciones) y sus secuencias&lt;br&gt;3. Contrastar hipótesis (Documentación)&lt;br&gt;&lt;div&gt;&lt;span&gt;4. Ajustar hipótesis&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;Asociación&lt;/li&gt;&lt;li&gt;Causalidad (Experimentación y práctica)&lt;/li&gt;&lt;li&gt;Metafóricamente&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;align=left;spacingLeft=52;fontStyle=0" parent="1" vertex="1">
                     <mxGeometry x="970" y="335" width="490" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="149" value="Al lanzar una hipótesis se asocia el contenido de la memoria a l/p con la memoria de trajo" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" vertex="1" parent="1">
+                <mxCell id="149" value="Al lanzar una hipótesis se asocia el contenido de la memoria a l/p con la memoria de trajo" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" parent="1" vertex="1">
                     <mxGeometry x="1490" y="360" width="150" height="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="154" value="Usando la memoria de trabajo para posteriormente pasar a la memoria a l/p" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" vertex="1" parent="1">
+                <mxCell id="154" value="Usando la memoria de trabajo para posteriormente pasar a la memoria a l/p" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;" parent="1" vertex="1">
                     <mxGeometry x="1480" y="565" width="160" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="155" value="Útil para &lt;br&gt;&lt;ol&gt;&lt;li&gt;Gente con alta capacidad de memoria de trabajo&lt;/li&gt;&lt;li&gt;Gente con conocimientos de modelos asociativos o abstractos del modelo estudiado&lt;/li&gt;&lt;/ol&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;align=left;spacingLeft=24;" vertex="1" parent="1">
+                <mxCell id="155" value="Útil para &lt;br&gt;&lt;ol&gt;&lt;li&gt;Gente con alta capacidad de memoria de trabajo&lt;/li&gt;&lt;li&gt;Gente con conocimientos de modelos asociativos o abstractos del modelo estudiado&lt;/li&gt;&lt;/ol&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;align=left;spacingLeft=24;" parent="1" vertex="1">
                     <mxGeometry x="1310" y="720" width="260" height="170" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="P7fN9YKYtky3MeD7_8yU" name="I2">
+        <mxGraphModel dx="990" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="M0LW3OsHfTfiaF7ZVUr0-0"/>
+                <mxCell id="M0LW3OsHfTfiaF7ZVUr0-1" parent="M0LW3OsHfTfiaF7ZVUr0-0"/>
+                <mxCell id="d4Q_z0Ft3MkQCfbThTxX-2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fillColor=#fa6800;strokeColor=#C73500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="d4Q_z0Ft3MkQCfbThTxX-0" target="d4Q_z0Ft3MkQCfbThTxX-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-12" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fillColor=#fa6800;strokeColor=#C73500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="d4Q_z0Ft3MkQCfbThTxX-0" target="JPmCGfXN_yvOJ7mz3cJq-11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="d4Q_z0Ft3MkQCfbThTxX-0" value="Estudio" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="56.25" y="40" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-10" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fillColor=#fa6800;strokeColor=#C73500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="d4Q_z0Ft3MkQCfbThTxX-1" target="JPmCGfXN_yvOJ7mz3cJq-9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-14" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fillColor=#fa6800;strokeColor=#C73500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="d4Q_z0Ft3MkQCfbThTxX-1" target="JPmCGfXN_yvOJ7mz3cJq-13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="d4Q_z0Ft3MkQCfbThTxX-1" value="Comprensión&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="40" y="160" width="132.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-9" value="En el proceso de comprensión de la resolución de problemas, se irán viendo las distintas fuentes necesarias para poder realizar los mismos" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;spacing=10;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="211.25" y="120" width="169.75" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-11" value="&amp;nbsp;Comenzando por problemas y cuestiones que puedan estar ya realizadas" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;spacing=7;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="211.25" y="20" width="169.75" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-16" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fillColor=#fa6800;strokeColor=#C73500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="JPmCGfXN_yvOJ7mz3cJq-13" target="JPmCGfXN_yvOJ7mz3cJq-15">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-18" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#fa6800;strokeColor=#C73500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="JPmCGfXN_yvOJ7mz3cJq-13" target="JPmCGfXN_yvOJ7mz3cJq-17">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="211" y="375" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="106" y="385"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-13" value="Fluidez Procesal&lt;br&gt;Repitiendo:" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="40" y="280" width="132.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-15" value="Cuestiones (Memo activa con Anki)" style="whiteSpace=wrap;html=1;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;rounded=1;arcSize=44;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="211.25" y="270" width="169.75" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-17" value="Problemas (Volviendo a resolverlos)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="211.25" y="350" width="169.75" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-31" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#e3c800;strokeColor=#B09500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="JPmCGfXN_yvOJ7mz3cJq-21" target="JPmCGfXN_yvOJ7mz3cJq-24">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-33" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fillColor=#e3c800;strokeColor=#B09500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="JPmCGfXN_yvOJ7mz3cJq-21" target="JPmCGfXN_yvOJ7mz3cJq-32">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-21" value="Guardado a l/p" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="437.25" y="40" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-22" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fillColor=#e3c800;strokeColor=#B09500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="JPmCGfXN_yvOJ7mz3cJq-24" target="JPmCGfXN_yvOJ7mz3cJq-25">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-23" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fillColor=#e3c800;strokeColor=#B09500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="JPmCGfXN_yvOJ7mz3cJq-24" target="JPmCGfXN_yvOJ7mz3cJq-28">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-24" value="Documentación y Vidumentación" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="421" y="160" width="132.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-25" value="Se irán guardando y organizando todos los tópico que se iran agrupando en tópicos más grandes" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;spacing=5;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="586.63" y="135" width="194.37" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-26" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fillColor=#e3c800;strokeColor=#B09500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="JPmCGfXN_yvOJ7mz3cJq-28" target="JPmCGfXN_yvOJ7mz3cJq-29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-27" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#e3c800;strokeColor=#B09500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="JPmCGfXN_yvOJ7mz3cJq-28" target="JPmCGfXN_yvOJ7mz3cJq-30">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="592" y="375" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="487" y="385"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-28" value="Anki y Problemas" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="421" y="280" width="132.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-29" value="Creación de documentación y vidumentación de los problemas realizados y la explicación de la resolución" style="whiteSpace=wrap;html=1;fillColor=#e3c800;strokeColor=#B09500;rounded=1;arcSize=44;fontColor=#000000;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="581" y="260" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-30" value="Creación de preguntas en Anki de cuestiones sencillas a repasar de cabeza" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="581" y="350" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-35" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;fillColor=#e3c800;strokeColor=#B09500;" edge="1" parent="M0LW3OsHfTfiaF7ZVUr0-1" source="JPmCGfXN_yvOJ7mz3cJq-32" target="JPmCGfXN_yvOJ7mz3cJq-34">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-32" value="Para poder repasarlo en aquel momento en el que sea necesario" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="581" y="17.5" width="200" height="85" as="geometry"/>
+                </mxCell>
+                <mxCell id="JPmCGfXN_yvOJ7mz3cJq-34" value="Empezando por el Anki y los problemas y, en caso de problemas, con la documentación y vidumentación de los tópicos" style="rounded=1;whiteSpace=wrap;html=1;arcSize=44;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;spacing=8;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="821" y="16.25" width="190" height="87.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="FwyTHG-N4FnLkLUw_k5h-0" value="&lt;div style=&quot;text-align: center&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;En física y similares se puede dividir los tópicos::&lt;/span&gt;&lt;/div&gt;&lt;ul style=&quot;font-size: 12px&quot;&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Conceptos&lt;/font&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Dibujos&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Esquemas&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Ecuaciones&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Cálculos&lt;/font&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Derivadas&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Integrales&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Geometría&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Conculos&lt;/font&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Conceptos + Cálculos&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Problemas&lt;/font&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Relacionan conceptos y los cálculos&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=left;html=1;shape=mxgraph.mockup.text.stickyNote2;fontColor=#666666;mainText=;fontSize=17;whiteSpace=wrap;fillColor=#ffffcc;strokeColor=#F62E00;spacingTop=40;" vertex="1" parent="M0LW3OsHfTfiaF7ZVUr0-1">
+                    <mxGeometry x="781" y="110" width="299" height="320" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
