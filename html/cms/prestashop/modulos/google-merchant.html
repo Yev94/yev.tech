@@ -5,3 +5,46 @@
   <p>Desde modules/gmerchantcenter/conf/common.conf.php ir a: /* defines available languages / countries / currencies for Google */</p>
   <p>Cambia en función de las necesidades usando el resto de referencia</p>
 </section>
+<section>
+  <h2>Cambiar donde aparecen los parámetros en las variantes</h2>
+  <p>Vamos a: modules > gmerchantcenterpro > lib > dao > module-dao_class.php</p>
+  <p>Vamos a la función de: class BT_GmcProModuleDao > function getProductComboLink</p>
+  <p>Y cambiamos:</p>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+// format the current URL with currency or Google campaign parameters
+if (!empty(GMerchantCenterPro::$conf['GMCP_ADD_CURRENCY'])) {
+    $sBaseLink .= (strpos($sBaseLink,
+            '?') !== false) ? '&SubmitCurrency=1&id_currency=' . (int)$iCurrencyId : '?SubmitCurrency=1&id_currency=' . (int)$iCurrencyId;
+}
+        </code>
+    </pre>
+  </div>
+  <p>Por esto:</p>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+//!-------------------------Yev Cambio parámetros moneda con variantes producto------------------------
+// format the current URL with currency or Google campaign parameters
+if (!empty(GMerchantCenterPro::$conf['GMCP_ADD_CURRENCY'])) {
+    //* Si en la URL encuentra el # lo reemplaza con la URl de la parte de los parámetros antes de la URL ancla
+    if (strpos($sBaseLink, '#') !== false) {
+        //TODO: Al baseLink que tenga URL ancla por la variante le ponemos entre medias los parámetros
+        $sBaseLink = str_replace('#', '?SubmitCurrency=1&id_currency=' . (int)$iCurrencyId . '#', $sBaseLink);
+    } else {
+    //* Si no, hace lo mismo que hacía antes
+        $sBaseLink .= (strpos($sBaseLink, '?') !== false) ?
+            '&SubmitCurrency=1&id_currency=' . (int)$iCurrencyId :
+            '?SubmitCurrency=1&id_currency=' . (int)$iCurrencyId;
+    }
+    //* Ej: Si URL: http://a.com/nn/women/2-brown-bear-printed-sweater.html
+    //* Cambia a:   http://a.com/nn/women/2-brown-bear-printed-sweater.html?SubmitCurrency=1&id_currency=3
+    //* Si URL:     http://a.com/nn/women/2-9-brown-bear-printed-sweater.html#/1-storleik-s
+    //* Cambia a:   http://a.com/nn/women/2-9-brown-bear-printed-sweater.html?SubmitCurrency=1&id_currency=3#/1-storleik-s
+}
+//!-------------------------!Yev Cambio parámetros moneda con variantes producto------------------------
+        </code>
+    </pre>
+  </div>
+</section>

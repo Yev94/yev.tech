@@ -104,3 +104,81 @@ assets:
     <h2>Cambiar Tema desde la BBDD</h2>
     <h2>En la tabla ps_shop</h2>
 </section>
+<section>
+    <h2>Snippets Review</h2>
+    <p>Para crear tu propia review</p>
+</section>
+<section>
+    <h2>Asociar Currency(Moneda) a Idioma</h2>
+    <p>Ref para la función de la asociación del idioma: <a href="https://www.prestashop.com/forums/topic/52019-change-currency-automatically-when-switching-from-one-language-to-another/">change currency automatically when switching from one language to another</a> (El código del final)</p>
+    <p>Ref para crear la clase y función override <a href="https://www.tiendaprest.com/como-hacer-un-override-en-prestashop/">Como hacer un override en Prestashop</a></p>
+    <p>En la carpeta override &gt classes &gt creamos el archivo Tools.php</p>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+&lt?php
+class Tools extends ToolsCore
+{
+    /**
+        * If necessary change cookie language ID and context language.
+        *
+        * @param Context|null $context
+        *
+        * @throws PrestaShopDatabaseException
+        * @throws PrestaShopException
+        */
+    public static function switchLanguage(Context $context = null)
+    {
+        if (null === $context) {
+            $context = Context::getContext();
+        }
+
+        // On PrestaShop installations Dispatcher::__construct() gets called (and so Tools::switchLanguage())
+        // Stop in this case by checking the cookie
+        if (!isset($context-&gtcookie)) {
+            return;
+        }
+
+        if (
+            ($iso = Tools::getValue('isolang')) &&
+            Validate::isLanguageIsoCode($iso) &&
+            ($id_lang = (int) Language::getIdByIso($iso))
+        ) {
+            $_GET['id_lang'] = $id_lang;
+        }
+
+        // Only switch if new ID is different from old ID
+        $newLanguageId = (int) Tools::getValue('id_lang');
+
+        if (
+            Validate::isUnsignedId($newLanguageId) &&
+            $newLanguageId !== 0 &&
+            $context-&gtcookie-&gtid_lang !== $newLanguageId
+        ) {
+            $context-&gtcookie-&gtid_lang = $newLanguageId;
+            $language = new Language($newLanguageId);
+            if (Validate::isLoadedObject($language) && $language-&gtactive && $language-&gtisAssociatedToShop()) {
+                $context-&gtlanguage = $language;
+            }
+        }
+
+        /** This is the switch we added to match language ID to a desired currency ID */
+        switch($newLanguageId) {
+            case 1: //if lang_id that's changed to is = 1 than...
+                $context-&gtcookie-&gtid_currency = 1;  //change the currency too, the currency that has the id 2
+                break;
+            case 2: //and so on ....
+                $context-&gtcookie-&gtid_currency = 2;
+                break;
+        }
+        
+        Tools::setCookieLanguage($context-&gtcookie);
+
+        /** This is the function that actually sets the currency */
+        Tools::setCurrency($context-&gtcookie);
+    }
+}
+            </code>
+        </pre>
+    </div>
+</section>

@@ -89,6 +89,7 @@ export let pages = {
 
   '#/herramientas/vs-code/configuracion': './html/herramientas/vs-code/configuracion.html',
   '#/herramientas/vs-code/extensiones': './html/herramientas/vs-code/extensiones.html',
+  '#/herramientas/vs-code/playwright': './html/herramientas/vs-code/playwright.html',
   '#/herramientas/vs-code/snippets': './html/herramientas/vs-code/snippets.html',
   '#/herramientas/vs-code/testing': './html/herramientas/vs-code/testing.html',
   '#/herramientas/wamp': './html/herramientas/wamp',
@@ -117,6 +118,7 @@ export let pages = {
   '#/cms/prestashop': './html/cms/prestashop',
   '#/cms/prestashop/bugs/v-1-7-6-4': './html/cms/prestashop/bugs/v-1-7-6-4.html',
   '#/cms/prestashop/modulos/google-merchant': './html/cms/prestashop/modulos/google-merchant.html',
+  '#/cms/prestashop/modulos/reviews': './html/cms/prestashop/modulos/reviews.html',
   '#/cms/prestashop/configuracion-avanzada': './html/cms/prestashop/configuracion-avanzada.html',
   '#/cms/prestashop/instalar-prestashop-local': './html/cms/prestashop/instalar-prestashop-local.html',
   '#/cms/prestashop/creacion-modulos': './html/cms/prestashop/creacion-modulos.html',
