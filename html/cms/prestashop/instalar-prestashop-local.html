@@ -1,0 +1,27 @@
+<h1>Descargar e instalar PrestaShop en Local</h1>
+<section>
+    <h2>Precedentes</h2>
+    <p>Última versión PHP admitida: 7.4</p>
+    <p>Revisar versiones en: <a href="https://devdocs.prestashop-project.org/1.7/basics/installation/system-requirements/">Para la 1.7</a> y <a href="https://devdocs.prestashop-project.org/8/basics/installation/system-requirements/">Para la version 8</a></p>
+
+    <p>Antes de la descarga e instalación de PrestaShop en local hay que tener un servidor local corriendo
+        junto con un gestor de bases de datos.</p>
+    <p>Esto se puede conseguir con el programas como XAMPP o WAMP, por ejemplo.</p>
+    <p class="text-muted">En esta explicación se usará WAMPP</p>
+    <h2>Descargar el Contenido</h2>
+    <p>Nos dirigimos a la <a target="_blank" href="https://www.prestashop.com/es/descarga">sección de descarga</a>.
+    </p>
+    <h2>Instalación del contenido</h2>
+    <p>Ponemos todos los archivos en directorio del host.</p>
+    <p>En los datos, si no hay SSL (como en localhost) NO marcar la opción de SSL. Ya que al marcarlo hace las redirecciones https (y en localhost no es un puerto configurado).</p>
+    <p>Podemos mejorar la experiencia (según info instalación) cambiando desde php.ini la var realpath_cache_size = 5M</p>
+    <p>Iniciamos la instalación en el navegador con los datos que nos pidan desde la URL donde hemos guardado los archivos.</p>
+    <h2>Errores</h2>
+    <p>Si da error: "SQL error on query Index column size too large. The maximum column size is 767 bytes."</p>
+    <h3>Modo 1</h3>
+    <p>Hay que ir a install/data/db_structure.sql</p>
+    <p>Y cambiar TODOS los parámetros: DEFAULT CHARSET=utf8mb4 COLLATION</p>
+    <p>Por: DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci</p>
+    <h3>Modo 2</h3>
+    <p>O bien si usas WAMPP, en settings de MySQL cambiar: innodb-defaul-row-format = dynamic</p>
+</section>

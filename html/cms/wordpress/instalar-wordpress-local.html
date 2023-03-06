@@ -1,0 +1,43 @@
+<h1>Descargar e instalar WordPress en Local</h1>
+<section>
+    <h2>Precedentes</h2>
+    <p>Antes de la descarga e instalación de WordPress en local hay que tener un servidor local corriendo
+        junto con un gestor de bases de datos.</p>
+    <p>Esto se puede conseguir con el programas como XAMPP o WAMP, por ejemplo.</p>
+    <p class="text-muted">En esta explicación se usará XAMPP</p>
+    <h2>Descargar el Contenido</h2>
+    <p>Nos dirigimos a la <a target="_blank" href="https://wordpress.org/download/">sección de descarga</a>
+        de la página oficial de WordPress (<a target="_blank" href="https://wordpress.org">wordpress.org</a>).
+    </p>
+    <img src="./img/2022-01-24 12-58-44.png" alt="">
+    <h2>Instalación del contenido</h2>
+    <p>Descomprimimos los archivos descargados en la carpeta del servidor del proyecto.</p>
+    <img src="./img/2022-01-24 01-07-17.png" alt="">
+    <h2>Configuración de la BBDD</h2>
+    <p>Antes de configurar los archivos de WordPress se procederá a configurar la BBDD.</p>
+    <p>Para ello, con XAMPP, podemos dirigirnos la ventana de <a target="_blank"
+            href="http://localhost/phpmyadmin/">PHPmyadmin</a> y en la misma sección creamos una nueva BBDD,
+        que en este caso llamaré instalacion_wordpress</p>
+    <img src="./img/2022-01-24 02-20-43.png" alt="">
+    <p>Una vez creada la BBDD, accedemos a la ruta de WordPress a traves del navegador (en este caso sería
+        en <a href="http://localhost/wordpress" target="_blank" rel="noopener noreferrer">localhost/wordpress</a>).
+    </p>
+    <img src="./img/2022-01-24 02-30-25.png" alt="">
+    <p>Y rellenamos el formulario con los datos necesarios para que Wordpress tenga el acceso a la BBDD</p>
+    <img src="./img/2022-01-24 02-35-55.png" alt="">
+</section>
+<section>
+    <h2>Configuración de la instalación</h2>
+    <p>En el siguiente paso rellenaremos el siguiente formularios con los datos necesario para el acceso a
+        WordPress.</p>
+    <p>En este caso de uso, usaremos un nombre de usuario y contraseñas fáciles de recordar pero, cuando se use
+        para sitios web reales, hará falta datos más fiables y robustos para el acceso 💪🏻</p>
+    <img src="./img/2022-01-24 02-40-44.png" alt="">
+    <p>Una vez rellenados todos los campos solo apretamos a instalar y listo! 🥳</p>
+    <h2>Inicio</h2>
+    <p>Una vez instalado, solo tendremos que dirigirnos a nuestro link y escribir al final "wp-admin", es decir:
+        <a href="http://localhost/wordpress/wp-admin" target="_blank"
+            rel="noopener noreferrer">localhost/wordpress/wp-admin</a>
+    </p>
+    <img src="./img/2022-01-24 02-50-45.png" alt="">
+</section>

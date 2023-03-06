@@ -1,0 +1,132 @@
+<h1>Evitar inyección SQL</h1>
+<h2>En PHP</h2>
+<p>Funciona tanto para seleccionar como para insertar registros</p>
+<section>
+    <h3>Con MySQLI mediante procedimientos (funciones)</h3>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+$dbLog = [
+    'host' =&gt 'localhost',
+    'user' =&gt 'root',
+    'password' =&gt '',
+    'db' =&gt 'niveldecalidad',
+    'charset' =&gt 'utf8',
+];
+
+//Introducimos los datos necesarios para la conexión
+//El @ lo escribimos para que en caso de error no lo muestre
+//Podemos no seleccionar de momento la BBDD y hacerlo luego
+$connection = @mysqli_connect(
+    $dbLog['host'], 
+    $dbLog['user'], 
+    $dbLog['password'],
+);
+
+//Si da error lanzamos un mensaje personalizado 
+if (!$connection) die("Error:" . mysqli_connect_error());
+
+//Aquí es donde podemos seleccionar otra BBDD
+mysqli_select_db($connection, $dbLog['db']) or die ("No existe BBDD");
+
+//Ponemos el juego de caracteres que vamos a usar para que no hayan errores
+mysqli_set_charset($connection, $dbLog['charset']);
+
+//----------------------------------------------------------------------------------------------------------
+
+//A partir de haber creado la conexión y haber puesto el juego de caracteres:
+//Creamos la sentencia SQL que vamos a usar poniendo un interrogante en la consulta que vamos a filtrar
+$query = "SELECT campo1, campo2, campo3, capo4 FROM tabla WHERE campo1 = ? OR campo2 = ?";
+
+//La pasamos para que prepare la consulta
+$rd = mysqli_prepare($connection, $query);
+
+//Le decimos el tipo de caracteres que contendrá el campo del formulario que vamos a usar para realizar la consulta
+// "i" la variable correspondiente es de tipo entero
+// "d" la variable correspondiente es de tipo double
+// "s" la variable correspondiente es de tipo string
+// "b" la variable correspondiente es un blob y se envía en paquetes
+$ok = mysqli_stmt_bind_param($rd, "sd", $campo1, $campo2);
+
+$ok = mysqli_stmt_execute($rd);
+
+if (!$ok){
+    echo "Error al ejecutar la consulta";
+} else {
+    $ok = mysqli_stmt_bind_result($rd, $campo1, $campo2, $campo3, $campo4);
+    
+    while(mysqli_stmt_fetch($rd)){
+        ? &gt &ltpre&gt &lt?php print_r($row); ?&gt &lt/pre&gt &lt?php
+    }
+}
+
+//Cerramos la conexión
+mysqli_close($connection);
+            </code>
+        </pre>
+    </div>
+</section>
+<section>
+    <h3>Con PDO mediante procedimientos</h3>
+    <div class="code">
+        <pre>
+            <code class="language-php">
+//Creamos un array con los datos necesarios para la conexión
+$ddbbLog = [
+    'host' =&gt 'localhost',
+    'user' =&gt 'root',
+    'password' =&gt '',
+    'ddbb' =&gt 'niveldecalidad',
+
+];
+
+//Introducimos los datos necesarios para la conexión
+try {
+    $con = new PDO(
+        "mysql:host={$ddbbLog['host']};dbname={$ddbbLog['ddbb']}",
+        $ddbbLog['user'],
+        $ddbbLog['password']
+    );
+    //Creamos una variable para capturar los errores y mostrarlos en el catch
+    //Si queremos que muestre el error como siempre, cambiamos ERROR_EXCEPTION a ERROR_WARNING
+    $con-&gtsetAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+    $con-&gtexec("SET CHARACTER SET utf8");
+    //Preparamos la consulta bien de manera tradicional o bien con marcadores que se escriben con : por delante
+    //$sql = "SELECT campo1, campo2, campo3, capo4 FROM tabla WHERE campo1 = ? OR campo2 = ?";
+    $sql = "SELECT campo1, campo2, campo3, capo4 FROM tabla WHERE campo1 = :marcadorCampo1 OR campo2 = :marcadorCampo2";
+
+    //Pasamos a una variable el resultado de la consulta
+    $rdo = $con-&gtprepare($sql);
+
+    //Pasamos los valores en un array, bien de la manera tradicional o bien con los marcadores en un array assoc
+    // $rdo-&gtexecute(array('campo1','campo2'));
+    $rdo-&gtexecute(array('marcadorCampo1'=&gt'campo1', 'marcadorCampo2'=&gt'campo2'));
+
+    //Mostramos los datos de la consulta
+    while ($registro = $rdo-&gtfetch(PDO::FETCH_ASSOC)) {
+        echo $registro['campo1'] . '&ltbr&gt';
+        echo $registro['campo2'] . '&ltbr&gt';
+        echo $registro['campo3'] . '&ltbr&gt';
+        echo $registro['campo4'] . '&ltbr&gt';
+    }
+
+    //Cerramos la conexión
+    $rdo-&gtcloseCursor();
+
+} catch (PDOException $e) {
+    echo 'Falló la conexión: ' . $e-&gtgetMessage() . '&ltbr&gt';
+    
+    //Con el código de error podemos generar un condicional para que muestre un mensaje propio según el error
+    echo 'Código de error: ' . $e-&gtgetCode() . '&ltbr&gt';
+
+    //Podemos mostrar la línea en que se produce el error
+    echo 'La línea del error: ' . $e-&gtgetLine();
+} finally {
+    $con = null;
+}
+            </code>
+        </pre>
+    </div>
+</section>

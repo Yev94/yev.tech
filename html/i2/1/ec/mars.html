@@ -1,0 +1,67 @@
+<h1>Mars - MIPS (Lenguaje Ensamblador)</h1>
+<section>
+  <h2>Ciclo de instrucciones</h2>
+  <img src="./img/23-02-26-17-08-13.png">
+</section>
+<section>
+  <h2>Máquina de Von Neumann</h2>
+  <h3>Partes</h3>
+  <img src="./img/23-02-26-16-49-35.png">
+  
+  <h4>CPU (Unidad Central de Proceso)</h4>
+  <p>Ejecuta los programas</p>
+  
+  <h5>Unidad de control (UC)</h5>
+  <p>Implementa el circuito secuencial que implementa el ciclo de instrucción, permitiendo acceder a la siguiente
+    instrucción de un programa, leer sus operandos, efectuar la operación indicada en la ALU y guardar el resultado de
+    la misma</p>
+  <p>Es decir, que tiene:</p>
+  <ul>
+    <li>Reloj: para funcionar a un ritmo (medido en Hz)</li>
+    <li>Decodificador: que se encarga de interpretar la instrucción</li>
+    <li>Secuenciador: el que dá las ordenes a los segmentos para que se ejecuten. Tipos:</li>
+    <ul>
+      <li>Load: Llevar datos de la memoria principal a la unidad de procesamiento (UP)</li>
+      <li>Suma: Suma 2 registros</li>
+      <li>Save: Llevar datos de la UP a la memoria principal</li>
+    </ul>
+  </ul>
+  <img src="./img/23-02-26-16-55-33.png">
+  
+  <h5>Unidad de procesamiento (UP)</h5>
+  <h6>Contador del Programa</h6>
+  <p>Dice qué orden se está ejecutando en cada momento y así saber cuál será la próxima orden</p>
+  <h6>Registro de Instrucción</h6>
+  <p>Sirve para tener una instrucción del programa guardada en la CPU, se usa porque esta va en la frecuencia que la CPU</p>
+  <h6>ALU (Unidad Aritmético Lógica)</h6>
+  <p>Implementa las operaciones de aritmética binaria: las operaciones binarias y C2</p>
+  <img src="./img/23-02-26-16-52-31.png">
+  <p>Y las operaciones lógicas: AND, OR, XOR, NOT, bit a bit, desplazamiento y rotación de bits</p>
+  <img src="./img/23-02-26-16-51-11.png">
+  <img src="./img/23-02-26-19-52-18.png">
+  
+  <h6>Banco de registros</h6>
+  <p>Es la memoria de la CPU que permite acceder más rápidamente a sus registros</p>
+  
+  <h4>Memoria</h4>
+  <p>Almacena instrucciones y datos (operadores y resultados)</p>
+  <p>Es decir, en ella se encuentran los datos y las ordenes del programa</p>
+  <h4>RAM</h4>
+  <p>Almacenamiento volátil</p>
+  <h4>ROM</h4>
+  <p>Almacenamiento persistente</p>
+  <h4>Memoria Caché</h4>
+  <img src="./img/23-02-26-17-06-31.png">
+  <p>Usando algoritmos y predictores de salto</p>
+  <h4>Entrada - Salida</h4>
+  <p>Comunica al computador con el mundo exterior</p>
+  <h4>El bus de Datos</h4>
+  <p>Conecta las partes y transporta la info</p>
+  <img src="./img/23-02-26-17-00-34.png">
+  <p>Ref: <a href="https://www.youtube.com/watch?v=O2O4hneA-tk&ab_channel=MrRyan">Arquitectura de Von Neumann y sus
+      Limitaciones</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=eDKzR06bpd8&ab_channel=JaviHernandez">Funcionaiento máquina Von Neumann</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=zfr1nwzvCdg&ab_channel=JuanCarlosValeroGonz%C3%A1lez">Suma sencilla [Simulador máquina Von Neumann]</a></p>
+  <p>Ref: <a href="https://lab.xitrus.es/VonNeumann/">Web Simulador de Maquina Von Neumann</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=LfGJ5PYbK0E&ab_channel=JuanCarlosValeroGonz%C3%A1lez">Instrucciones Von Neumann</a></p>
+</section>

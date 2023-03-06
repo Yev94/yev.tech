@@ -1,0 +1,153 @@
+<h1>Laravel</h1>
+<section>
+    <h2>0.Requisitos</h2>
+    <h3>Aplicaciones Instaladas</h3>
+    <ul>
+        <li>Composer</li>
+        <li>Bootstrap - El cual usa el framework para el diseño</li>
+        <li>Node JS - Para Bootstrap</li>
+        <li>XAMPP/Wamp</li>
+    </ul>
+</section>
+<section>
+    <h2>1. Instalación</h2>
+    <h3> <a target="_blank" href="https://laravel.com/docs/8.x/installation#installation-via-composer">Instalación
+            paquetes</a></h3>
+    <p>En la terminal CMD escribir:</p>
+    <ul>
+        <li>composer create-project laravel/laravel <i>nomCarpeta</i></li>
+        <ul>
+            <li>composer es sun programa que ayuda con las dependencias</li>
+            <li>laravel/laravel hace mención al repositorio de laravel</li>
+            <li>el nombre de la carpeta por defecto sera laravel</li>
+            <li>Tras la descarga hay que esperar a que se generen los archivos de autoload optimizados</li>
+        </ul>
+    </ul>
+
+    <h3>A tener en cuenta</h3>
+    <h4>Directorio raíz desde el navegador</h3>
+        <p>Este se encuentra dentro de la carpeta del servidor > public.</p>
+        <h4>Asegurarse que Routers funciona con enlaces internos</h4>
+        <p>Dentro de resources > routes > web.php escribir:</p>
+        <ul>
+            <li>Route::get('/Heey', function () {return 'Heey';});</li>
+        </ul>
+        <p></p>
+        <h3>Creamos una BBDD</h3>
+        <p>Creamos una BBDD a la que accederemos posteriormente.</p>
+        <p>Configuramos el acceso a la base de datos desde el archivo .env</p>
+        <p>Y revisamos todos los datos pertenecientes a las variables que comienzan con DB_</p>
+        <p>En DB_DATABASE ponemos el nombre que le pusimos al servidor.</p>
+        <h3>Migramos la información de Laravel a la BBDD</h3>
+        <p>Para ello desde la CMD escribimos:</p>
+        <ul>
+            <li>php artisan migrate</li>
+        </ul>
+        <p>Este comando utiliza los archivos de database > migration para su creación.</p>
+</section>
+<section>
+    <h2>2. Crear los archivos y la tabla con formato MVC</h2>
+    <img src="./img/MVC-laravel.svg" alt="">
+    <p>Desde la CMD escribimos:</p>
+    <ul>
+        <li>php artisan make:model <i>nomTabla</i> -mcr</li>
+    </ul>
+    <p>Por lo que ya tendremos en el archivo database migration un archivo para la creación de la nueva
+        tabla.</p>
+    <h3>Carpetas a tener en cuenta</h3>
+    <p>Los archivos que se han creado de <b>Modelos</b> se encuentra dentro de la carpeta app > Models.</p>
+    <p>Los archivos que se han creado de <b>Controladores</b> se encuentran dentro de la carpeta app > Http
+        > controllers.</p>
+    <ul>
+        <li>Dentro del mismo enlazamos el controlador con la vista que mostrará la página para el CRUD.</li>
+        <p>Por ejemplo:</p>
+        <ul>
+            <li> public function create()
+                {
+                return view("empleado.create");
+                }</li>
+        </ul>
+    </ul>
+    <p>Las archivos que se han creado de <b>Creaciones de Tabla</b> se encuentran en la carpeta database >
+        migrations.</p>
+    <h3>Crear el archivo que creará los campos de la tabla</h3>
+    <p>Desde el archivo creado que se encuentra en database > migrations.</p>
+    <p>Podemos crear los campos dentro de la función pertinente que contiene variables como:</p>
+    <ul>
+        <li>$table->id();</li>
+        <li>$table->string('Nombre'); //Por ejemplo</li>
+        <li>$table->timestamps(); //Para el tiempo</li>
+    </ul>
+    <p>Una vez creadas las tablas que queremos hacer hacemos la 'migración' a la BBDD con:</p>
+    <ul>
+        <li>php artisan migrate</li>
+    </ul>
+    <p>Con esto hacemos una actualización de todos los archivos creados para la migración a la BBDD</p>
+    <p>En el siguiente link se encuentran todos las funciones para crear los campos con los distintos tipo
+        de variable <a target="_blank" href="https://laravel.com/docs/8.x/migrations#columns">Tipos de
+            variable columna BBDD (string, int...)</a>.</p>
+</section>
+<section>
+    <h2>3. Crear el Archivo Vista</h2>
+    <p>Las <b>Vistas</b> se encuentran dentro de la carpeta resources > views</p>
+    <p>Para crear una nueva página en views podemos crear <i>nomCarpeta</i> > <i>nomPágina</i>.blade.php</p>
+</section>
+<section>
+    <h2>4. Enrutar una Página</h2>
+    <p>Los <b>Routes</b> (El archivo que hace que enlaza una URL a una página) se encuentra en la carpeta
+        resources > routes > web.php</p>
+    <p>También podemos revisar las rutas existentes en el CMD con:</p>
+    <ul>
+        <li>php artisan route:list</li>
+    </ul>
+    <h3>Para una página simple</h3>
+    <p>Para enrutar la página, por ejemplo, para convertirla en la home, solo tenemos que crear una función
+        = que en el ejemplo y cambiar los parámetros deseados.</p>
+    <h3>A un controlador</h3>
+    <p>Tenemos que haber creado en una función de página del controlador, por ejemplo create, una función
+        que devuelva la página a visualizar (revisar Carpetas a tener en cuenta > Controladores).</p>
+    <p class="text-muted">Ej: public function create() { return view("empleado.create"); }</p>
+    <p>Mandamos llamar al archivo del controlador por ejemplo: use App\Http\Controllers\EmpleadoController;
+        </li>
+    <h4>A todas las funciones del controlador</h4>
+    <p>Creamos la función que enrute la URL de la página y enlace a la clase del controlador en la que se
+        encuentran todas las funciones. Por ejemplo:</p>
+    <ul>
+        <li>Route::resource('empleado', EmpleadoController::class);</li>
+    </ul>
+    <h4>A una función de un controlador en específico</h4>
+    <p>Creamos la función que enrute la URL de la página y enlace a la función del controlador, por
+        ejemplo: </p>
+    <ul>
+        <li>Route::get('/empleado/create', [EmpleadoController::class,'create']);</li>
+    </ul>
+</section>
+<section>
+    <h2>5. Crear formulario</h2>
+    <h3>Insertar información</h3>
+    <p>Para enviar los formularios con medida de seguridad dentro de la etiqueta form meter @csrf</p>
+    <p>Para recoger todos los datos del formulario pero evitar que el token llegue al servidor -> $datosEmpleado
+        = request()->except('_token');</p>
+    <p>Para insertar los datos del formulario en la BBDD -> Empleado::insert($datosEmpleado);</p>
+    <p>Para evitar que se envíe el botón de enviar como campo evitamos el atributo name -> input type="submit"
+        value="Enviar"</p>
+    <p>Para guardar una foto en una ruta específica, por ejemplo, store > app > public > uploads ->
+        if($request->hasFile('Foto')){ $datosEmpleado['Foto']=$request->file('Foto')->store('uploads',
+        'public');}</p>
+    <h3>Consultar información</h3>
+    <p></p>
+</section>
+<section>
+    <h2>Imágenes en archivos</h2>
+    <p>Super importante!!! siempre!! php artisan storage:link</p>
+</section>
+<section>
+    <h2></h2>
+</section>
+<section>
+    <h2>Bibliografía</h2>
+    <ul>
+        <li><a href="https://www.youtube.com/watch?v=9DU7WLZeam8">Cómo HACER un CRUD en laravel 8 ► 🎁 PASO
+                A PASO, GRATIS y desde CERO</a></li>
+    </ul>
+</section>

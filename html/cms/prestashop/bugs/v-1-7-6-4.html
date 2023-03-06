@@ -1,0 +1,51 @@
+<h1>Bugs V 1.7.6.4</h1>
+<section>
+  <h2>Al eliminar monedas internacionales la web deja de funcionar en algún idioma</h2>
+  <p>Premisa: Al añadir y eliminar ciertas moneadas deja de funcionar alguno de los idiomas con un error 500 del servidor</p>
+  <p>Por ejemplo: Al eliminar la moneda SAR (Rial Saudí) deja de funcionar la web en Noruego</p>
+  <p>Si se pone en modo debuger aparece el siguiente error</p>
+  <img src="./img/22-09-18-21-04-59.png" alt="">
+  <h3>Comportamiento</h3>
+  <p>Las monedas aparecen en la tabla ps_currency</p>
+  <p>Al eliminar una moneda esta no se elimina de la BBDD sino que aparece en una columna como eliminada</p>
+  <img src="./img/22-09-18-21-08-37.png" alt="">
+  <p>En el hilo de la función, la información de la moneda, pasa de recogerse de la base de datos, a recogerse del XML (creado a modo de paquete de idiomas con toda la información necesaria)</p>
+  <p>Los archivos de idiomas XML con la info de las monedas se encuentran en location/CLDR/core/common/main</p>
+  <p>Cada idioma puede tener su archivo XML con la información de las monedas</p>
+  <p>En caso de no haber un XML del idioma, como en el caso Noruego con terminación no-NO se busca la información en el XML llamado root</p>
+  <p>El archivo root puede no contener la info de alguna moneda</p>
+  <h3>Back Propagation del error</h3>
+  <p>El error comienza en la función formatCurrencies del archivo src/Core/Localization/Currency/Repository.php</p>
+  <img src="./img/22-09-18-21-24-38.png" alt="">
+  <p>A dicha función se le pasa por valor un array con la variable $currenciesData en el que aparece un índice nulo correspondiente a la moneda eliminada</p>
+  <p>Esta función es llamada dentro de la misma clase en la función getAllInstalledCurrencies</p>
+  <p>Y se le pasa la siguiente variable: <b>$this->dataSource->getAllInstalledCurrenciesData($localeCode)</b></p>
+  <p>El <b>dataSource</b> no es más que una variable creada a partir del objeto <b>CurrencyDataSourceInterface</b>, el cual es usado como plantilla de clases</p>
+  <p>Usando la función var_dump($dataSource) podemos averiguar de qué clases se nutre el objeto y en qué archivo se encuentran</p>
+  <img src="./img/22-09-18-21-42-03.png" alt="">
+  <p>En ese caso viene de la función <b>getAllInstalledCurrencies</b> de la clase que se encuentra en el archivo src/Core/Localization/Currency/DataLayer/CurrencyInstalled</p>
+  <p>El mismo llama a la función <b>formatCurrenciesData</b> que a su vez llama a la función <b>getLocalizedCurrencyData</b> que se encuentra en la misma clase</p>
+  <img src="./img/22-09-18-22-39-01.png" alt="">
+  <p>La función llama a un objeto de tipo Interface que podemos volver a buscar con var_dumb($topLayer)</p>
+  <img src="./img/22-09-18-22-43-47.png" alt="">
+  <p>En este caso obtenemos que la función usada es <b>doRead</b> de archivo src/Core/Localization/Currency/DataLayer/CurrencyDatabase.php</p>
+  <p>Al sacar el resultado de esta función, podremos observar que en ningún momento aparece la moneda en la versión Noruega, mientras que en otros idiomas sí aparece</p>
+  <p>Esta misma función hace uso de la clase <b>CurrencyData</b> que se encuentra en src/Core/Localization/Currency</p>
+  <p>E implementa toda información de la variable de <b>$CurrencyEntity</b> que a su vez viene de <b>$this->dataProvider->getCurrencyByIsoCodeAndLocale($currencyCode, $localeCode)</b></p>
+  <img src="./img/22-09-18-22-54-53.png" alt="">
+  <p>Y en el que el dataProvider vuelve a ser una clase del tipo interface que volviendo a usar var_dump($dataProvider) vemos que la clase se encuentra en el archivo src/Adapter/Currency/CurrencyDataProvider.php</p>
+  <p>En la clase nos encontramos con la función usada en la clase anterior que a su vez llama a otra función de la misma clase</p>
+  <img src=".img/22-09-18-23-04-52.png" alt="">
+  <p>Vemos que en la función se usa de manera estática la clase Currency con la función <b>getIdByIsoCode</b> la cual podemos usar para buscar entre los archivos</p>
+  <p>Así encontraremos el archivo Currency.php en classes/</p>
+  <p>En el mismo encontraremos que se hace una consulta a la BBDD evitando aquellos que han sido eliminados</p>
+  <p>Por lo que una solución fácil pasaría por simplemente comentar esa cláusula where</p>
+  <img src="./img/22-09-19-00-00-40.png" alt="">
+  <p>Por otro lado si en vez de tirar por CurrencyDatabase, tiramos por CurrencyReference(el cuál se usa cuando no existe caché), vemos que esta hace uso del objeto <b>cldrLocaleRepository</b> que se encuentra en src/Core/Localization/CLDR/LocaleRepository.php y esta misma lleva a otro archivo del mismo directorio llamado <b>LocaleDataSource</b></p>
+  <img src="./img/22-09-19-00-09-30.png" alt="">
+  <p>Y de ahí, si usamos  <b>var_dump($topLayer)</b> nos lleva al archivo /src/Core/Localization/CLDR/DataLayer/LocaleReference.php y en la función <b>doRead</b> hace uso de una función llamada <b>readLocaleData</b> del objeto <b>reader</b> que se instancia en el constructor</p>
+  <img src="./img/22-09-19-19-48-22.png" alt="">
+  <p>El objeto <b>reader</b> se encuentra en src/Core/Localization/CLDR/Reader.php y en la misma buscamos la función <b>readLocaleData</b></p>
+  <img src="./img/readLocaleData" alt="">
+  <p>De aquí observamos que la función hace una llamada a otra función de la clase llamada <b>getLocaleData</b> y esta misma a <b>getMainXmlData</b> que la que hace las llamadas pertinentes al XML mencionado en el apartado del comportamiento</p>
+</section>

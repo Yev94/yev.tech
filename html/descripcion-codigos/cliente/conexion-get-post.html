@@ -1,0 +1,42 @@
+<h1>Conexiones GET y POST</h1>
+<section>
+    <h2>En JS</h2>
+    <h3>Mediante XML HTTP Request</h3>
+    <h4>Para conectar con GET sin llevar info adicional</h4>
+    <div class="code">
+        <pre>
+            <code class="language-js">
+const xhr = new XMLHttpRequest(); 
+const url = './holamundo.txt'; 
+
+xhr.addEventListener('readystatechange', function(){ 
+    if(this.readyState !== 4) return;
+    if (this.status &gt= 200 && this.status &lt 300) { 
+        let contenido = this.responseText;
+    } 
+})
+xhr.open('GET', url, true); 
+xhr.send();
+            </code>
+        </pre>
+    </div>
+    <h4>Para conectar con  POST enviando info adicional al server antes</h4>
+    <div class="code">
+        <pre>
+            <code class="language-js">
+const xhr = new XMLHttpRequest(); 
+const url = './holamundo.txt'; 
+xhr.addEventListener('readystatechange', function(){ 
+    if(this.readyState !== 4) return;
+    if (this.status &gt= 200 && this.status &lt 300) { 
+        let contenido = this.responseText;
+    } 
+})
+
+xhr.open('POST', url, true); 
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
+xhr.send(loQueQueramosEnviar);
+            </code>
+        </pre>
+    </div>
+</section>

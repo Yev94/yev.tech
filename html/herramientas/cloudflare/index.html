@@ -1,0 +1,17 @@
+<h1>Cloudflare</h1>
+<section>
+  <h2>Comienzos</h2>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=wzab4Vnv6xA&ab_channel=ProfesionalHosting">CloudFlare, ventajas y tutorial en Español configuración básica de 2021</a></p>
+</section>
+<section>
+  <h2>Arreglar web Movida</h2>
+  <p>Pasar por consola la siguiente comprobación</p>
+  <p>curl -X PATCH "https://api.cloudflare.com/client/v4/zones/&lt Zone ID &gt" 
+    -H "X-Auth-Email: sandra@muemue.com"  
+    -H "X-Auth-Key: &lt GLOBAL API KEY HERE &gt"  
+    -H "Content-Type: application/json"  
+    -d '{"status":"pending"}'
+  </p>
+  <p>Donde &lt GLOBAL API KEY HERE &gt está en: Usuario > Appearance > Menú(API Tokens) > Global PI Key > View</p>
+  <p>Donde &lt Zone ID &gt está en: el dominio > Menú(Overview) > En la parte derecha API >Zone ID</p>
+</section>
