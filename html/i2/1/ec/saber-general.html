@@ -1,0 +1,208 @@
+<h1>Saber General</h1>
+<section>
+  <h2>Tablas</h2>
+  <h3>Bases Hex-Dec-Bin</h3>
+  <img src="./img/23-03-05-01-32-14.png">
+  <h3>Unidades Codificación</h3>
+  <img src="./img/23-03-05-01-36-42.png">
+  
+</section>
+<section>
+  <h2>Pasar de Dec-Cualquier Base B</h2>
+  <p>Dividiendo el número entre la base B que deseemos</p>
+  <p>Cogemos el último resultado de la división y luego todos los restos al revés</p>
+  <img src="./img/23-03-05-01-15-35.png">
+</section>
+<section>
+  <h2>Locuras de Bases y de Cualquier Base a Decimal</h2>
+  <img src="./img/23-03-05-03-10-35.png">
+</section>
+<section>
+  <h2>Hexadcimal &lt-&gt Binario</h2>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=6Fq4Ah0ORK4&ab_channel=Electr%C3%B3nicaFP">HEXADECIMAL.
+  </a></p>
+</section>
+<section>
+  <h2>Complemento a 2</h2>
+  <p>Todo parte de que los números que representamos en ordenadores y demás van en círculo, es decir, que van del 0-9 por ejemplo y luego se repite</p>  
+  <p>Por lo que si lo tenemos en un ciclo, restar, al restar, que es ir x posiciones atrás será lo mismo que ir y posiciones hacia delante hasta terminar en la misma que la resta</p>
+  <p>Por lo que por ejemplo, en complemento a 9 sería hacer un flip vertical a la esfera y representar los números que le corresponsdan</p>
+  <p>Pero como siempre toca sumarle 1 al final del movimiento, si lo pasamos a complemento a 10 ya solo habría que pasar del acarreo</p>
+  <img src="./img/23-03-05-18-58-57.png">
+  <p>Por lo que podemos trasladar esa misma lógica a base binaria para poder hacer restas</p>
+  <p>Como vemos todo ello nos limita a tener que saber de antemano entre que rangos vamos a trabajar para hacer la resta</p>
+  <img src="./img/23-03-05-19-18-57.png">
+  <h3>Pasar de decimal negativo a binario en complemento a 2</h3>
+  <p>Al decimal elegimos el que en binario corresponda al mayor y lo ponemos en negativo y luego le sumamos el resto que corresponda, por ejemplo:</p>
+  <img src="./img/23-03-05-19-24-59.png">
+  
+  <p>Ref: <a href="https://www.youtube.com/watch?v=hPgBDtlrDZc&ab_channel=TVUnADM">Complemento a 1 y complemento a 2</a></p>
+  <p>Ref Complemento a 9: <a href="https://www.youtube.com/watch?v=qsU5yLQjuuc&ab_channel=Lemnismath">Este truco cambiará tu forma de entender los números | Complemento a 9</a></p>
+</section>
+<section>
+  <h2>Operaciones con Binarios</h2>
+  <h3>Números con decimal</h3>
+  <img src="./img/23-02-26-22-08-34.png">
+  <h3>De decimal a Binario</h3>
+  <p>Con enteros</p>
+  <img src="./img/23-02-26-22-09-57.png">
+  <p>Con decimal</p>
+  <img src="./img/23-02-26-22-11-34.png">
+  <h3>Número negativos</h3>
+  <img src="./img/23-02-26-22-12-30.png">
+  <h3>Suma</h3>
+  <img src="./img/23-02-26-22-20-38.png">
+  <h3>Resta</h3>
+  <img src="./img/23-02-26-22-44-15.png">
+  <h3>Multiplicación</h3>
+  <img src="./img/23-02-26-22-49-54.png">
+  <h3>División</h3>
+  <img src="./img/23-02-26-23-03-22.png">
+  <h3>Propiedades</h3>
+  <h4>Propiedad Conmutativa</h4>
+  <img src="./img/23-02-26-23-27-07.png">
+  <h4>Propiedad Asociativa y Distributiva</h4>
+  <img src="./img/23-02-26-23-29-34.png">
+  <h4>Elementos Neutros</h4>
+  <img src="./img/23-02-26-23-33-41.png">
+  
+  <p>Ref: <a href="https://www.youtube.com/watch?v=L5bd8E9Zrik&list=PLdpGohrQe9Jh6ZuIPASATGUsg-_3Pu_-7&index=2&ab_channel=Tecnolog%C3%ADaconCLASE">OPERACIONES con números BINARIOS</a></p>
+</section>
+<section>
+  <h2>Operadores Lógicos</h2>
+  <p>Ejemplo en chips integrados</p>
+  <img src="./img/23-02-26-23-06-07.png">
+  <h3>AND = multiplicación</h3>
+  <h3>OR = Suma</h3>
+  <img src="./img/23-02-26-23-08-25.png">
+  <h3>NAND = not AND</h3>
+  <img src="./img/23-02-26-23-14-57.png">
+  <h3>NOR = nor OR</h3>
+  <img src="./img/23-02-26-23-15-46.png">
+  <h3>NOT</h3>
+  <img src="./img/23-02-26-23-17-01.png">
+  <h3>XOR</h3>
+  <p>Es 0 cuando las 2 entradas son iguales y 1 cuando son distintas</p>
+  <img src="./img/23-02-26-23-22-57.png">
+  <img src="./img/23-02-26-23-23-11.png">
+  <img src="./img/23-02-27-11-53-34.png">
+  
+  <h3>XNOR = not XOR</h3>
+  <img src="./img/23-02-26-23-24-40.png">
+  <img src="./img/23-02-27-11-54-52.png">
+  
+  <h3>Leyes de Morgan</h3>
+  <p>La negación de la suma es la multiplicación de los contrarios</p>
+  <p>La negación de una multiplicación es la suma de los contrarios</p>
+  <img src="./img/23-02-26-23-25-42.png">
+  
+  <p>Ref: <a href="https://www.youtube.com/watch?v=8CRzrOKI96o&list=PLdpGohrQe9Jh6ZuIPASATGUsg-_3Pu_-7&index=3&ab_channel=unicoos">Puertas lógicas AND OR NOT NAND NOR unicoos tecnología</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=3t3Pgve1mvw&ab_channel=AElectronic">Puertas Lógicas: Aprende o Recuerda !</a></p>
+</section>
+<section>
+  <h2>Dibujar un Circuito</h2>
+  <h3>Con Todo</h3>
+  <p>Dibujamos todas las entradas positivas y negativas que aparecen:</p>
+  <img src="./img/23-02-27-13-00-51.png">
+  <p>Tenemos en cuenta que AND = multiplicación y la OR = suma</p>
+  <img src="./img/23-02-27-13-01-50.png">
+  <p>Que si se conectan es con un punto y que no se pueden conectar a y b si no es con una puerta lógica</p>
+  <img src="./img/23-02-27-13-05-30.png">
+  <p>Creamos el circuito de la multiplicación, y si podemos usar 3 entradas, las usamos y si no simplemente dividimos la operación:</p>
+  <img src="./img/23-02-27-13-07-47.png">
+  <p>Creamos el circuito con la suma, si podemos usar varias entradas, las usamos, si no dividimos la operación:</p>
+  <img src="./img/23-02-27-13-10-24.png">
+  
+  <p>Ref: <a href="https://www.youtube.com/watch?v=XwTwocD0vnI&ab_channel=unicoos">Circuito de una función con puertas lógicas - unicoos tecnologia</a></p>
+  <h3>Solo con puertas NAND</h3>
+  <p>Equivalente</p>
+  <p>Teniendo en cuenta las leyes de Morgan:</p>
+  <img src="./img/23-02-26-23-25-42.png">
+  <img src="./img/23-03-04-14-42-01.png">
+  <p>Ejemplo:</p>
+  <img src="./img/23-03-04-16-15-21.png">
+  <img src="./img/23-03-04-16-15-33.png">
+  <p>Ref: <a href="https://www.youtube.com/watch?v=cJuHFHGOMcs&ab_channel=unicoos">Circuito lógico solo con puertas NAND - unicoos tecnologia</a></p>
+</section>
+<section>
+  <h2>Tablas de Karnaught</h2>
+  <p>Ejemplo:</p>
+  <p>Traducimos la fórmula en 1 y 0, y agrupamos de 2</p>
+  <img src="./img/23-03-04-14-43-13.png">
+  <p>Al construir la tabla hay que tener en cuenta que hay que intercambiar los números porque solo puede hacer un cambio de 1 dígito al pasar de una fila/columna a otra</p>
+  <img src="./img/23-03-04-15-09-13.png">
+  <p>Ponemos los 1 donde corresponda a cada celda según la fórmula</p>
+  <p>Creamos grupos de círculos o elipses, verticales u horizontales únicamente</p>
+  <p>Tenemos en cuenta que el plano en realidad es una esfera, por lo que podemos juntar los extremos</p>
+  <p>Creamos grupos de potencias de 2, es decir: 1, 2, 4, 8, 16, 32...</p>
+  <p>Ahí donde no cambie el 1 o el 0 del x,y,z,w ponemos lo que valga la variable de la fórmula</p>
+  <p>Ello lo hacemos porque seguimos las igualdades de Morgan como se ve en el lateral</p>
+  <img src="./img/23-03-04-15-34-22.png">
+  <p>Ejemplo 2</p>
+  <p>En este caso tenemos que nos faltan algunas de las variables en cada multiplicaciones</p>
+  <p>Las añadimos con las leyes de morgan donde A + ~A = 1</p>
+  <p>Aplicamos la propiedad Distributiva</p>
+  <p>Aplicamos la otra formula de morgan donde A + A = A, por lo que nos podemos deshacer de las multiplicaciones repetidas</p>
+  <img src="./img/23-03-04-16-02-37.png">
+  <p>Ejemplo: 3</p>
+  <img src="./img/23-03-04-16-40-06.png">
+  <p>Ref: <a href="https://www.youtube.com/watch?v=PIYUwnlnQUY&ab_channel=ProfesorLuisFelipe">Mapas de Karnaugh de 4 Variables | Álgebra Booleana
+  </a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=vdrRqimopt8&ab_channel=Electr%C3%B3nicaFP">SUMADORES</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=RpBlYf9STzY&ab_channel=Pasosporingenier%C3%ADa">MAPAS de KARNAUGH - Ejercicio #1 (Simplificación de FUNCIÓN BOOLEANA con un MAPA-K de 3 VARIABLES)</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=XeQR_5zDutM&ab_channel=unicoos">Mapa de Karnaugh de 4 variables - unicoos tecnología</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=cJuHFHGOMcs&ab_channel=unicoos">Circuito lógico solo con puertas NAND - unicoos tecnologia</a></p>
+</section>
+<section>
+  <h2>Sumadores y Semisumadores</h2>
+  <img src="./img/23-03-06-00-29-18.png">
+  <p>Ref: <a href="https://www.youtube.com/watch?v=pZfp3wuIirY&ab_channel=ClasesenL%C3%ADnea">Sumadores, semi-sumadores electrónica digital</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=PFnM7DZ3POM&t=616s&ab_channel=Electr%C3%B3nicaFP">SUMADORES de 2 y 4 bits</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=jHt6xLJWOuQ&ab_channel=LesIngenieurs">✅MEDIO SUMADOR BINARIO (2 bits) | CÓMO se DISEÑA | ELECTRÓNICA DIGITAL</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=qtjohnz4C8c&ab_channel=LesIngenieurs">✅SUMADOR COMPLETO de 3 BITS | BIEN EXPLICADO 💯| ELECTRÓNICA DIGITAL</a></p>
+  <p>Para ampliar: <a href="https://www.youtube.com/watch?v=tAnb0B5VLDc&ab_channel=Electr%C3%B3nicaFP">SUMADORES de 8 bits</a></p>
+</section>
+<section>
+  <h2>Restadores</h2>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=OE3Y_sK5fL4&ab_channel=LesIngenieurs">Restador binario 2 bits</a></p>
+</section>
+<section>
+  <h2>Codificación BCD</h2>
+  <p>El que pasa el binario al decimal 0-9</p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=UQeiN-K6rKY&ab_channel=Electr%C3%B3nicaFP">BCD</a></p>
+</section>
+<section>
+  <h2>Multiplexores</h2>
+  <p>En general son un switch que según la entrada que le metamos permitirá meter la info de un canal o de otro</p>
+  <p>Se iría activando las entradas las entradas I1, I2, I3, I4 según lo que valga el sitch S1, S2</p>
+  <img src="./img/23-03-04-19-38-23.png">
+  <img src="./img/23-03-04-19-38-58.png">
+  <p>Y el circuito interno sería el siguiente:</p>
+  <img src="./img/23-03-04-19-40-30.png">
+  <p>Ref: <a href="https://www.youtube.com/watch?v=V09LfIUTQ04&list=PLdpGohrQe9Jh6ZuIPASATGUsg-_3Pu_-7&index=5&ab_channel=Electr%C3%B3nicaFP">MULTIPLEXORES</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=gTcU-FrRioM&ab_channel=LesIngenieurs">✅MULTIPLEXOR 4x1 | CÓMO FUNCIONA| ELECTRÓNICA DIGITAL
+  </a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=LElFYHnz1Ls&ab_channel=FelipeMachado">Multiplexor de 2 entradas - Circuitos combinacionales</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=aSzWWSFSBwk&ab_channel=ACADENAS">Multiplexores analogicos y digitales (clase 17)</a></p>
+  <p>Para ampliar: <a href="https://www.youtube.com/watch?v=7Sv0o0vYtzE&ab_channel=Electr%C3%B3nicaFP">3 Aplicaciones de los MULTIPLEXORES</a></p>
+</section>
+<section>
+  <h2>Chips Decodificadores/Codificadores</h2>
+  <p>Lo normal son codificadores/decodificadores de binario y decimal</p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=9W8Z070YAYU&ab_channel=LesIngenieurs">✅DECODIFICADORES 2x4, 3x8 | DISEÑO y FUNCIONAMIENTO BIEN EXPLICADO💯| ELECTRÓNICA DIGITAL</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=uw4BWX6VhaY&list=PLdpGohrQe9Jh6ZuIPASATGUsg-_3Pu_-7&index=7&ab_channel=Electr%C3%B3nicaFP">DECODIFICADORES</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=HmKPyeKsZfo&ab_channel=Electr%C3%B3nicaFP">2 TRUCOS geniales de los DECODIFICADORES</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=JhsudiB5Dj0&ab_channel=Electr%C3%B3nicaFP">CODIFICADORES</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=IyYyuDfyXWs&ab_channel=FelipeMachado">Decodificador de 3 a 8 usando decodificadores de 2 a 4 - Circuitos combinacionales</a></p>
+  <p>También encontramos codificadores y decodificadores de binario a 7 segmentos (para escribir los números)</p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=QaIwCO9W_-s&ab_channel=Electr%C3%B3nicaFP">Decodificador BCD 7 segmentos</a></p>
+</section>
+<section>
+  <h2>Flip-Flops</h2>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=Sxzzh-OUZjg&ab_channel=ElTraductordeIngenier%C3%ADa">FLIP-FLOPS Sincrónicos | El Traductor</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=MpQFOpsNUZA&ab_channel=Electr%C3%B3nicaFP">Curso de Flip Flops (o biestables)</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=-O3Ft6SYGWU&ab_channel=Electr%C3%B3nicaFP">CONTADORES</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=3xy9WDgfqJg&ab_channel=LesIngenieurs">✅FLIP FLOP RS, D, JK y T |TODOS los FLIP FLOPS en 6 MINUTOS | ELECTRÓNICA DIGITAL</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=8430s8_LsOw&ab_channel=Cefuve">Flip Flop D</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=Kaq59Z9Z7Us&ab_channel=Electr%C3%B3nicaFP">Registros.</a></p>
+</section>

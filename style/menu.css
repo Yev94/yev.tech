@@ -10,6 +10,7 @@
 }
 
 /* Giving a background-color to the nav container. */
+/*Giving a background-color to the nav container. */
 header{
     top: 0;
     position: sticky;
@@ -246,3 +247,70 @@ li > a:only-child:after {
         width: 94%;
     }
 }
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #fff;
+  }
+  
+  #logo img {
+    height: 40px;
+    margin-left: 10px;
+  }
+  
+  .menu a, .menu label {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .toggle {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+    }
+  
+    .menu {
+      display: none;
+    }
+  
+    .toggle {
+      display: block;
+      padding: 10px;
+    }
+  
+    input[type="checkbox"] {
+      display: none;
+    }
+  
+    input[type="checkbox"]:checked ~ .menu {
+      display: block;
+    }
+  
+    ul ul {
+      display: none;
+    }
+  
+    ul input[type="checkbox"]:checked ~ ul {
+      display: block;
+    }
+  
+    ul li {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    ul li a:hover {
+      background-color: transparent;
+    }
+  }

@@ -82,6 +82,7 @@ export let pages = {
   '#/frameworks/laravel': './html/frameworks/laravel.html',
 
   '#/herramientas': './html/herramientas',
+  '#/herramientas/cloudflare': './html/herramientas/cloudflare',
   '#/herramientas/tracking/crm/clientify': './html/herramientas/tracking/crm/clientify',
   '#/herramientas/tracking/gtm': './html/herramientas/tracking/gtm',
   '#/herramientas/tracking/gtm/cliente': './html/herramientas/tracking/gtm/cliente.html',
@@ -96,6 +97,8 @@ export let pages = {
   '#/herramientas/wamp/phpmyadmin': './html/herramientas/wamp/phpmyadmin.html',
   
   '#/i2': './html/i2',
+  '#/i2/1/ec/mars': './html/i2/1/ec/mars.html',
+  '#/i2/1/ec/saber-general': './html/i2/1/ec/saber-general.html',
   '#/i2/1/ffi/saber-general': './html/i2/1/ffi/saber-general.html',
   '#/i2/1/ffi/laboratorio/calc-error': './html/i2/1/ffi/laboratorio/calc-error.html',
   '#/i2/1/ffi/laboratorio/calc-resistencia': './html/i2/1/ffi/laboratorio/calc-resistencia.html',
@@ -105,6 +108,7 @@ export let pages = {
   '#/i2/1/ffi/t4-campo-magnetico/': './html/i2/1/ffi/t4-campo-magnetico/',
   '#/i2/1/m1/logica': './html/i2/1/m1/logica.html',
   '#/i2/1/m1/prolog': './html/i2/1/m1/prolog.html',
+  '#/i2/1/m2/python': './html/i2/1/m2/python.html',
 
   '#/os/linux': './html/os/linux',
   '#/os/linux/dns': './html/os/linux/dns.html',
