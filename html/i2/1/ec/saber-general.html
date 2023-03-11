@@ -5,7 +5,8 @@
   <img src="./img/23-03-05-01-32-14.png">
   <h3>Unidades Codificación</h3>
   <img src="./img/23-03-05-01-36-42.png">
-  
+  <p>(K M Gusta Tu 🍆)</p>
+  <p>1 Byte = 8 Bits = FF B.Hex = 255 B.Dec = 256 posibilidades</p>
 </section>
 <section>
   <h2>Pasar de Dec-Cualquier Base B</h2>
@@ -18,7 +19,7 @@
   <img src="./img/23-03-05-03-10-35.png">
 </section>
 <section>
-  <h2>Hexadcimal &lt-&gt Binario</h2>
+  <h2>Hexadecimal &lt-&gt Binario</h2>
   <p>Ref: <a href="https://www.youtube.com/watch?v=6Fq4Ah0ORK4&ab_channel=Electr%C3%B3nicaFP">HEXADECIMAL.
   </a></p>
 </section>
@@ -199,10 +200,63 @@
 </section>
 <section>
   <h2>Flip-Flops</h2>
-  <p>Ref: <a href="https://www.youtube.com/watch?v=Sxzzh-OUZjg&ab_channel=ElTraductordeIngenier%C3%ADa">FLIP-FLOPS Sincrónicos | El Traductor</a></p>
+  <h3>Tipos de Biestables:</h3>
+  <ul>
+    <li>Según Tiempos</li>
+    <ul>
+      <li>Asíncronos: No Existe señal de reloj</li>
+      <ul>
+        <li>Flip Flop RS</li>
+      </ul>
+      <li>Sincrónicos: Con señal del reloj</li>
+      <ul>
+        <li>Activos por Nivel D</li>
+        <li>M/S o "Toogle": RS, JK, D</li>
+        <li>Activos por flanco o "edge": JK, D</li>
+      </ul>
+      <li>Síncronos</li>
+      <ul>
+        <li>Por nivel: Alto o Bajo</li>
+        <li>Por flanco o transición: De Subida o Bajada</li>
+      </ul>
+    </ul>
+  </ul>
+  
+  <h3>Flip Flip Flop SR</h3>
+    <p>S de Set y R de Reset</p>
+    <img src="./img/23-03-08-03-44-50.png">
+    <p>Ref: <a href="https://www.youtube.com/watch?v=Sxzzh-OUZjg&ab_channel=ElTraductordeIngenier%C3%ADa">FLIP-FLOPS Sincrónicos | El Traductor</a></p>
+    <h4>S-R Asíncrono</h4>
+    <p>Ref: <a href="https://www.youtube.com/watch?v=jHbiMWhGPzw&ab_channel=LesIngenieurs">✅FLIP FLOP RS sin RELOJ | DISEÑO Y FUNCIONAMIENTO 100% EFECTIVO | ELECTRÓNICA DIGITAL</a></p>
+    <p>Ref: <a href="https://www.youtube.com/watch?v=xH-gPqFONyM&ab_channel=ACADENAS">¿Sabes esto del biestable RS?</a></p>
+    <h4>S-R Síncrono</h4>
+    <p>Ref: <a href="https://www.youtube.com/watch?v=ShQwsahdLOc&ab_channel=LesIngenieurs">✅FLIP FLOP RS con RELOJ | FUNCIONAMIENTO y DISEÑO | ELECTRÓNICA DIGITAL</a></p>
+    <h4>S-R con entradas Asíncronas</h4>
+  <p>Experimento: <a href="https://www.youtube.com/watch?v=B16u9YDb2nM&ab_channel=AndrobotTECH">Contador de 0 a 15 con Flip Flop | utsource</a></p>
+  <h3>Flip Flip Flop JK</h3>
+  <p>Es como un RS síncronas pero elimina la indeterminación J = S y K = R</p>
+  <p>Pero en vez de reconectarse la vuelta las NOR del final, se reconecta a las AND del principio, donde el Clock</p>
+  <p>Y lo que hace, es que en el 11, donde el RS se queda "indeterminado" en este caso, en el 11, pone el estado anterior negado</p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=M9toqPQghaA&list=PLdpGohrQe9Jh6ZuIPASATGUsg-_3Pu_-7&index=11&ab_channel=LesIngenieurs">✅FLIP FLOP JK | APRENDERÁS Si o Si| ELECTRÓNICA DIGITAL</a></p>
+  <p>Experimento: <a href="https://www.youtube.com/watch?v=hUAosXHgY68&t=1s&ab_channel=AndrobotTECH">FLIP FLOP JK - Electronica Digital</a></p>
+  <h3>Flip Flip Flop D</h3>
+  <p>Saca a la salida Q lo que tengo en la entrada D</p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=Gpliq_1qxh0&t=197s&ab_channel=LesIngenieurs">✅FLIP FLOP D | APRÉNDELO en 6 MINUTOS| ELECTRÓNICA DIGITAL</a></p>
+  <h3>Flip Flip Flop T</h3>
+  <p>Lo que hace el D pero invierte siempre el Q-1</p>
   <p>Ref: <a href="https://www.youtube.com/watch?v=MpQFOpsNUZA&ab_channel=Electr%C3%B3nicaFP">Curso de Flip Flops (o biestables)</a></p>
   <p>Ref: <a href="https://www.youtube.com/watch?v=-O3Ft6SYGWU&ab_channel=Electr%C3%B3nicaFP">CONTADORES</a></p>
   <p>Ref: <a href="https://www.youtube.com/watch?v=3xy9WDgfqJg&ab_channel=LesIngenieurs">✅FLIP FLOP RS, D, JK y T |TODOS los FLIP FLOPS en 6 MINUTOS | ELECTRÓNICA DIGITAL</a></p>
   <p>Ref: <a href="https://www.youtube.com/watch?v=8430s8_LsOw&ab_channel=Cefuve">Flip Flop D</a></p>
   <p>Ref: <a href="https://www.youtube.com/watch?v=Kaq59Z9Z7Us&ab_channel=Electr%C3%B3nicaFP">Registros.</a></p>
+</section>
+<section>
+  <h2>Modelo de Mealy y de Moore</h2>
+  <p>Los 1/0 0/1 0/0 1/1, la primera parte de / corresponde a la entrada de I y la seguna parte a la salida del conjunto</p>
+  <p>Es decir, que salida sera 0 hasta que se complete la secuencia que busco</p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=WQH_ir08hug&ab_channel=LDDFI">Ejercicio sencillo de una secuencia usando Modelo Moore y Mealy</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=KsBntK8alIg&ab_channel=LDDFI">Error común en diagramas de estados</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=4Pu9ptpbb9s&ab_channel=ElectronicaUEB">Maquinas de Estado Mealy - Detector de secuencia</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=TNxK2kvaKOk&ab_channel=LuisMarqu%C3%A9s">5.2 - Circuitos de Moore y de Mealy</a></p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=o4tzMqugG2Y&t=314s&ab_channel=ElectronicaUEB">Maquinas de Estado Mealy y Moore con flip-flop tipo D</a></p>
 </section>

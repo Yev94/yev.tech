@@ -108,7 +108,9 @@ export let pages = {
   '#/i2/1/ffi/t4-campo-magnetico/': './html/i2/1/ffi/t4-campo-magnetico/',
   '#/i2/1/m1/logica': './html/i2/1/m1/logica.html',
   '#/i2/1/m1/prolog': './html/i2/1/m1/prolog.html',
+  '#/i2/1/m2/funciones': './html/i2/1/m2/funciones.html',
   '#/i2/1/m2/python': './html/i2/1/m2/python.html',
+  '#/i2/1/m2/saber-general': './html/i2/1/m2/saber-general.html',
 
   '#/os/linux': './html/os/linux',
   '#/os/linux/dns': './html/os/linux/dns.html',
