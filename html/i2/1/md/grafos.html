@@ -1,0 +1,260 @@
+<h1>Grafos</h1>
+<section>
+  <h2>Teoremas y sus Locuras</h2>
+
+  <h3>Cuando un grafo es Conexo?</h3>
+  <p>grafo conexo &lt;-&gt; Nº Componentes Conexas = 1</p>
+
+  <h3>Cuándo un grafo es bipartido?</h3>
+  <p>Es bipartido &lt;-&gt; No contiene Ningún Ciclo impar, es decir, que el ciclo no esté formado por un Nº de vértices(o) impares</p>
+  <img src="./img/23-03-15-18-45-32.png">
+  
+</section>
+<section>
+  <h2>Representación Matricial</h2>
+
+  <h3>Matriz de Adyacencia(A)</h3>
+  <p>Teniendo en cuenta que la adyacencia es el hecho de que dos vértices estén conectados por una misma arista(-) o arco(-&gt;)</p>
+  <p>Con este, nos podemos preguntar cuántas cadenas de longitud r(que querrámos) se pueden formar al ir de vi a vj</p>
+  <img src="./img/23-03-15-23-06-32.png">
+  <p>Si buscamos una en concreto no hace falta multiplicar todos los elementos de la matriz, podemos hacerlo solo de los que necesitemos</p>
+  <p>Atento a que la primera parte de cada producto se repita en la fila de la columna de la primera matriz, y la segunda es cada uno de los elementos de la fila de la segunda matriz</p>
+  <img src="./img/23-03-15-23-17-56.png">
+  
+
+  <h4>Matriz de Adyacencia(A) de grafo No Dirigido</h4>
+  <p>El bucle, como es obvio, se cuenta 2 veces, ya que es adyacente a los 2 vértices(o)</p>
+  <img src="./img/23-03-15-22-14-36.png">
+  <p>La suma de cada fila o columna será = al grado del vértice(o)</p>
+  
+  <h4>Matriz de Adyacencia(A) de grafo Dirigido</h4>
+  <img src="./img/23-03-15-22-32-41.png">
+  <p>La suma de cada fila, representa los grados de salida de cada vértice</p>
+  <p>La suma de cada columna, representa los grados de entrada de cada vértice</p>
+  
+  <h3>Matriz de Incidencia(M)</h3>
+  <p>Teniendo en cuenta que la incidencia es el hecho de cuando una arista(-) o arco(-&gt;) toca (incide) sobre un vértice(o)</p>
+
+  <h4>Matriz de Incidencia de grafo No Dirigido</h4>
+  <p>Siendo el grafo no dirigido G = (V,A) con n vértices(o) y m aristas(-)</p>
+  <p>Donde V es igual al conjunto de vértices desde i = 1 hasta n y A el conjunto de aristas desde i = 1 hasta m</p>
+  <img src="./img/23-03-15-20-55-26.png">
+  <img src="./img/23-03-15-21-32-46.png">
+  <img src="./img/23-03-15-21-31-19.png">
+  <p>La suma de cada columna será = 2 que es la incidencia de cada arista(-) sobre los vértices(o), y la suma de cada fila será = al grado del vértice(o)</p>
+  <p>Siendo la matriz de incidencia de orden n × m</p>
+  
+  <h4>Matriz de Incidencia(M) de grafo Dirigido</h4>
+  <p>Siendo el grafo dirigido G = (V,A) con n vértices(o) y m arcos(-&gt;)</p>
+  <p>Donde V es igual al conjunto de vértices desde i = 1 hasta n y A el conjunto de aristas desde i = 1 hasta m</p>
+  <img src="./img/23-03-15-20-55-26.png">
+  <img src="./img/23-03-15-21-43-04.png">
+  <img src="./img/23-03-15-21-41-33.png">
+  <p>Siendo la matriz de incidencia de orden n × m</p>
+  <p>La suma de cada columna, si No es un Bucle, será = 0</p>
+
+  <h3>Tablas de Aristas incidentes</h3>
+  <img src="./img/23-03-16-00-39-20.png">
+  
+  <h3>Tablas de Arcos salientes/entrantes</h3>
+  <img src="./img/23-03-16-00-49-38.png">
+
+  <h3>Matriz de Accesibilidad(R) (Solo para Dirigidos)</h3>
+  <p>Es solo para dirigidos, ya que en los no dirigidos como se puede ir y volver, al final tendríamos una matriz de 1s</p>
+  <p>Nos dice hasta qué vértices llega cada vértice</p>
+  
+  <h4>Calculo Matriz Accesibilidad(R) a partir de Matriz Adyacencia(A)</h4>
+  <p>Ejemplo:</p>
+  <img src="./img/23-03-16-11-01-20.png">
+  <img src="./img/23-03-16-11-03-31.png">
+  <p>Por lo que  la Matriz de accesibilidad R quedaría:</p>
+  <img src="./img/23-03-16-11-04-36.png">
+  
+  <h3>Calculo Matriz Accesibilidad(R) a partir de Matriz Adyacencia(A) Por Algoritmo de Warshall</h3>
+  <img src="./img/23-03-16-12-09-05.png">
+  <p>Ejemplo:</p>
+  <img src="./img/23-03-16-12-48-31.png">
+  
+  <p>Para entender mejor: <a href="https://www.youtube.com/watch?v=mTNSvI1pRPA&ab_channel=MagnoEdwinCalizaya">Cerradura transitva, algoritmo Warshall</a></p>
+
+  <h4>Calcular la Matriz de Acceso(Q)</h4>
+  <p>Nos dice desde qué vertices han llegado al vértice</p>
+  <p>Se calcula con la transpuesta de la matriz de Accesibilidad (R), es decir cambiando las filas por columnas</p>
+  <img src="./img/23-03-16-11-55-58.png">
+  
+  <h3>Calcular las componentes conexas</h3>
+  <p>Son todos los Subgrafos conexos de un grafo, es decir, aquellos en los que todos los vértices del subgrafo están conectados</p>
+  <h4>Cálculo mediante multiplicación de R ⊗ Q elemento a elemento</h4>
+  <img src="./img/23-03-16-17-14-58.png">
+  <img src="./img/23-03-16-17-15-49.png">
+  
+</section>
+<section>
+  <h2>Conceptos Avanzados</h2>
+  
+  <h3>Grado de un Vértice</h3>
+  
+  <h4>Grados de un Vértice de Grafo No Dirigido</h4>
+  <p>Nº de aristas(-) incidentes(o-) (que tocan) con el vértice(o)</p>
+  <p>Cada bucle se cuenta 2 veces</p>
+  
+  <h5>Matemáticamente</h5>
+  <p>Significa: El grado (degree) del Vértice(o) V del grafo G es</p>
+  <img src="./img/23-03-15-06-21-24.png">
+  <p>Γ(v): conjunto de vértices(o) adyacentes a V.</p>
+  <img src="./img/23-03-15-06-25-32.png">
+  <p>Se puede calcular como 2 veces la cardinalidad (Nº de vértices) del grafo, puesto que cada arista incide sobre 2 vértices</p>
+  <p>Por lo que siendo G = (V,A) un grafo:</p>
+  <img src="./img/23-03-15-06-41-47.png">
+  
+  <h5>Curiosidad</h5>
+  <p>Si hay Vértices de un grafo que tengan grado impar, la suma de los vértices (V) que tengan grado impar, será par</p>
+  <img src="./img/23-03-15-06-52-25.png">
+  
+  <h4>Grados de un Vértice de Grafo Dirigido</h4>
+  <p>Son la suma de los grados de entrada y salida del grafo dirigido</p>
+  
+  <h5>Matemáticamente</h5>
+  <p>Grados de salida: número de arcos salientes de v</p>
+  <img src="./img/23-03-15-06-29-19.png">
+  <p>Grados de entrada: número de arcos entrantes en v</p>
+  <img src="./img/23-03-15-06-30-04.png">
+  <p>Γ(v) y Γ¯¹(v): conjunto de vértices(o) de salida y conjunto de vértices de entrada a V.</p>
+  <img src="./img/23-03-15-06-34-21.png">
+  <p>Se puede calcular como la cardinalidad (Nº de vértices) del grafo, puesto que cada arco incide sobre un vértice</p>
+  <p>Por lo que siendo G = (V,A) un grafo:</p>
+  <img src="./img/23-03-15-06-43-29.png">
+  
+  <h3>Cadenas</h3>
+  <p>Son la conexión cualquiera entre vertices cualquiera</p>
+  <p>O dicho de otro modo, es una sucesión finita W=(v0 e1 v1 ... ek vk) cuyos términos son alternativamente vértices(o) y aristas(-), por ejemplo:</p>
+  <img src="./img/23-03-15-17-15-36.png">
+  
+  <h4>Longitud de una cadena</h4>
+  <p>Es el Nº de aristas(-) que contiene, por ejemplo, en la de antes es = 7</p>
+
+  <h4>Cadena Simple</h4>
+  <p>Es una cadena en la que todas las Aristas(-) son !=s</p>
+
+  <h4>Camino</h4>
+  <p>Es una cadena en la que todos los Vértices (o) son !=s</p>
+  <img src="./img/23-03-15-17-18-40.png">
+  
+  <h4>Cadena Cerrada</h4>
+  <p>Es una cadena de longitud no nula en donde el vértice(o) inicial y final coinciden</p>
+  <img src="./img/23-03-15-17-21-31.png">
+  
+  <h4>Ciclo</h4>
+  <p>Es una cadena simple cerrada, es decir, que todos los vértices(o) de la cadena son distintos excepto el último, y que completa una vuelta</p>
+  <p>En los grafos dirigidos, recibe el nombre de Circuito</p>
+  <img src="./img/23-03-15-17-25-53.png">
+  
+  <h4>Conexión</h4>
+  <p>Se dice que están conectados si existe un camino de "u" a "v" y (el mismo camino u otro) viceversa</p>
+  <img src="./img/23-03-15-17-31-12.png">
+  
+  <h3>Alcanzable (Solo para dirigidos)</h3>
+  <p>Cuando de un vértice(o) se alcanza a otro a través de un camino dirigido(pasando por los vértices que sean)</p>
+</section>
+<section>
+  <h2>Tipos de Grafos</h2>
+
+  <h3>Grafo No Dirigido</h3>
+  <p>Formado por aristas(-)</p>
+  <img src="./img/23-03-14-19-42-43.png">
+
+  <h3>Grafo Dirigido</h3>
+  <p>Formado por arcos(-&gt;)</p>
+  <img src="./img/23-03-14-19-43-06.png">
+
+  <h3>Grado No Dirigido Asociado</h3>
+  <p>Paso del dirigido a no dirigido</p>
+  <img src="./img/23-03-14-19-49-12.png">
+
+  <h3>Grafo mixto</h3>
+  <p>El que tiene aristas(-) y arcos(-&gt;)</p>
+
+  <h3>Grafo Simple</h3>
+  <p>No bucle</p>
+  <p>No 2 aristas</p>
+  <p>Si es dirigido, no 2 arcos(-&gt;) a = vértice(o) con = dirección</p>
+  <img src="./img/23-03-14-21-19-38.png">
+  <p>Si no es simple, se llama multigrafo</p>
+
+  <h3>Grafo Completo</h3>
+  <p>Es un grafo donde cada par de vértices está conectado por una arista</p>
+  <p>Es decir, que todos los vértices se conectan con todos los vértices</p>
+  <img src="./img/23-03-14-22-13-21.png">
+  
+  <h3>Grafo Bipartido</h3>
+  <p>Aquella cuyo vértice de un conjunto X toca los vértices de otro conjunto Y</p>
+  <img src="./img/23-03-15-05-42-16.png">
+  <p>En el caso de los dirigidos hay que pasarlos a no dirigidos asociados</p>
+  <img src="./img/23-03-15-05-43-16.png">
+  
+  <h3>Subgrafos</h3>
+  <p>Sean G = (V,A) y H = (V’,A’) dos grafos. H es subgrafo de G si V’ ⊆ (está incluido) V y A’ ⊆ (está incluido) A.</p>
+  <img src="./img/23-03-15-06-03-10.png">
+
+  <h3>Grafo Generador</h3>
+  <p>Es un subgrafo que tiene todos los vértices(o) del grafo original, es decir si los conjuntos de vértices(o) son =es</p>
+  <p>Ref: <a href="https://www.youtube.com/watch?v=XgWROCjUsXM&ab_channel=JuanCarlosM%C3%A9ndez">Subgrafo</a></p>
+
+  <h3>Grafo Conexo</h3>
+  <p>Teniendo en cuenta la conexión de los grafos, se dice que es un grafo conexo si Todos los Vértices(o) están conectados</p>
+  <p>Se dice que un grafo es fuertemente conexo cuando hay un camino que vaya de un vértice inicial a uno final y viceversa</p>
+  <h4>Grafo débilmente Conexo</h4>
+  <p>Cuando el grafo dirigido no es conexo pero el no dirigido asociado sí es conexo</p>
+  <img src="./img/23-03-15-17-48-40.png">
+  
+  <h4>Componentes conexas</h4>
+  <p>Son todos los Subgrafos conexos de un grafo</p>
+  <img src="./img/23-03-15-18-40-20.png">
+  
+  <p>Ref: <a href="https://www.youtube.com/watch?v=wywRnMQu39g&ab_channel=AULADEMATEM%C3%81TICA">GRAFOS CONEXOS</a></p>
+</section>
+
+  <h3>Grafo Isomorfo</h3>
+  <p>Aquellos que son iguales</p>
+  <img src="./img/23-03-16-05-01-49.png">
+  <p>A partir de esta definición significa que los 2 grafos han de tener = :</p>
+  <ul>
+    <li>Nº de aristas(-)/arcos(-&gt;)</li>
+    <li>Nº de vértices(o)</li>
+    <li>Nº grado de = vértice(o)</li>
+  </ul>
+  <p>Aunque es condición necesaria pero no suficiente para afirmarlo, es decir, que si no cumple alguno de estos podemos asegurar que No será isomorfo, pero si las cumple, no lo podremos asegurar</p>
+  <p>Ejemplo:</p>
+  <img src="./img/23-03-16-05-41-16.png">
+  
+  <p>Para ampliar: <a href="https://www.youtube.com/watch?v=9OTSeYyM1Dw&ab_channel=Agust%C3%ADnValverdeRamos">Isomorfismo de grafos</a></p>
+<section>
+  <h2>Conceptos Generales</h2>
+  <h3>Grafo</h3>
+  <p>A nivel matemático es G = (V, E) donde G = Grafos, V = Vertices y E = Aristas (Edge)</p>
+  <h3>Aristas(-)</h3>
+  <img src="./img/23-03-14-19-51-13.png">
+  
+  <h3>Arcos(-&gt;)</h3>
+  <img src="./img/23-03-14-19-51-30.png">
+
+  <h3>Vértices(o)</h3>
+  <img src="./img/23-03-14-19-50-57.png">
+
+  <h3>Incidencias(o-)</h3>
+  <p>Es el hecho de cuando una arista(-) o arco(-&gt;) toca (incide) sobre un vértice(o)</p>
+  <p>Por ejemplo, aquí la arista "e3" es incidente sobre el vértice "z"</p>
+  <img src="./img/23-03-14-20-59-34.png">
+
+  <h3>Adyacencia(o-o)</h3>
+  <p>Es el hecho de que dos vértices estén conectados por una misma arista(-) o arco(-&gt;)</p>
+  <p>Por ejemplo, "x" e "y" aquí son adyacentes</p>
+  <img src="./img/23-03-14-20-59-00.png">
+
+  <h3>Bucle</h3>
+  <p>Cuando en una arista(-) o arco(-&gt;), sus extremos son el mismo vértice</p>
+  <img src="./img/23-03-14-21-02-44.png">
+
+  <h3>Cardinalidad</h3>
+  <p>Es el número de vértices(-) o arcos(-&gt;) de un grafo</p>
+</section>

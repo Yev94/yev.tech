@@ -111,6 +111,7 @@ export let pages = {
   '#/i2/1/m2/funciones': './html/i2/1/m2/funciones.html',
   '#/i2/1/m2/python': './html/i2/1/m2/python.html',
   '#/i2/1/m2/saber-general': './html/i2/1/m2/saber-general.html',
+  '#/i2/1/md/grafos': './html/i2/1/md/grafos.html',
 
   '#/os/linux': './html/os/linux',
   '#/os/linux/dns': './html/os/linux/dns.html',
