@@ -76,10 +76,17 @@ export let pages = {
   '#/descripcion-codigos/recursividad':
     './html/descripcion-codigos/recursividad.html',
 
-
-  '#/estudio-anki': './html/estudio-anki',
-  '#/frameworks': './html/frameworks',
-  '#/frameworks/laravel': './html/frameworks/laravel.html',
+  '#/lenguajes': './html/lenguajes',
+  '#/lenguajes/java-script': './html/lenguajes/java-script.html',
+  '#/lenguajes/html': './html/lenguajes/html.html',
+  '#/lenguajes/css': './html/lenguajes/css.html',
+  '#/lenguajes/python': './html/lenguajes/python.html',
+  '#/lenguajes/php': './html/lenguajes/php.html',
+  '#/lenguajes/sql': './html/lenguajes/sql.html',
+  '#/lenguajes/bash-linux': './html/lenguajes/bash-linux.html',
+  '#/lenguajes/bash-mac': './html/lenguajes/bash-mac.html',
+  '#/lenguajes/cmd': './html/lenguajes/cmd.html',
+  '#/lenguajes/prolog': './html/lenguajes/prolog.html',
 
   '#/herramientas': './html/herramientas',
   '#/herramientas/cloudflare': './html/herramientas/cloudflare',

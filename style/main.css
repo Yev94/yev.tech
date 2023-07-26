@@ -1,7 +1,7 @@
 *:not(pre *) {
     color: #e9e9f4 !important;
 }
-*:not(pre *, nav *) {
+*:not(pre *, nav *, a) {
     background-color: #282936;
 }
 
@@ -72,6 +72,12 @@ p{
 
 .logo-principal{
   width: 200px;
+}
+
+.table a
+{
+    display:block;
+    text-decoration:none;
 }
 
 @media screen and (max-width: 360px) {

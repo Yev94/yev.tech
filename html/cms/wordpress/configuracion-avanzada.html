@@ -1,5 +1,12 @@
 <h1>Configuración avanzada de WordPress</h1>
 <section>
+    <h2>Hooks</h2>
+    <p>function mi_funcion(){?&gt; //Código HTML &lt;php}</p>
+    <p>add_action('wp_head', 'mi_funcion');</p>
+    <p>add_action('wp_body_open', 'mi_funcion');</p>
+    <p>add_action( 'wp_footer', 'mi_funcion' );</p>
+</section>
+<section>
     <h2>Desactivar mensajes de errores</h2>
     <p>Una forma de desactivar los errores es en el archivo de wp-config añadiendo las siguientes líneas:</p>
     <div class="code">
@@ -44,3 +51,59 @@ add_filter( 'gettext', 'my_text_strings', 20, 3 );
             </pre>
     </div>
 </section>
+
+{% if first_time_accessed %}
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K2JH54K');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2JH54K"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <!-- Global site tag (gtag.js) - Google Ads: 772844555 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-772844555"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  /*gtag('config', 'AW-774660386');*/
+  gtag('config', 'AW-772844555');
+</script>
+
+<!-- Event snippet for Place Order conversion page -->
+<script>
+/*
+ 'send_to': /*['AW-774660386/0TCMCPOg75QBEKLCsfEC',  'AW-772844555/ONV0CO7a2O8CEIvYwvAC'],
+*/
+  gtag('event', 'conversion', {
+      'send_to': 'AW-772844555/ONV0CO7a2O8CEIvYwvAC',
+      'value': {{ checkout.total_price | money_without_currency | replace: ",", "." }},
+      'currency': '{{ currency }}',
+      'transaction_id': '{{ order.order_number }}'
+  });
+</script>
+
+<script>
+(function(){
+    let url = localStorage.getItem('conversion-test')
+
+    if(url){
+
+        fetch(url, {
+            method: 'GET',
+            mode: 'no-cors',
+            referrerPolicy: 'no-referrer',
+        })
+
+        localStorage.removeItem('conversion-test')
+    }
+})()
+</script>
