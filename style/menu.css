@@ -14,6 +14,7 @@
 header{
     top: 0;
     position: sticky;
+    z-index: 999;
 }
 nav {
     margin: 0;
@@ -46,7 +47,7 @@ nav:after {
 }
 
 /* Removing padding, margin and "list-style" from the "ul",
- * and adding "position:reltive" */
+  and adding "position:reltive" */
 nav ul {
     float: right;
     padding: 0;
