@@ -43,9 +43,12 @@ h3{
   color: #b45bcf !important;
 }
 
+h4, b{
+  color: #ebff87 !important;
+}
+
 h4{
   font-size: 20px;
-  color: #ebff87 !important;
 }
 h5{
   font-size: 20px;
@@ -65,6 +68,7 @@ p{
 
 .titulo-home{
     margin-top: 100px;
+    margin-bottom: 50px;
     display: flex;
     align-content: center;
     align-items: center;
@@ -114,7 +118,7 @@ p{
 
 /* Cubo */
 .assembly {
-  left: 49%;
+  left: 49.4%;
   transform: rotateX(-45deg) rotateY(-45deg);
 }
 
