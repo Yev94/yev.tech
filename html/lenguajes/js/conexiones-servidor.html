@@ -1,0 +1,95 @@
+<h1>Conexiones Servidor</h1>
+<section>
+  <h3>Mediante XML HTTP Request</h3>
+  <h4>Conectar con GET sin llevar info adicional</h4>
+  <div class="code">
+    <pre>
+        <code class="language-js">
+const xhr = new XMLHttpRequest(); 
+const url = './holamundo.txt'; 
+
+xhr.addEventListener('readystatechange', function(){ 
+  if(this.readyState !== 4) return;
+  if (this.status &gt= 200 && this.status &lt 300) { 
+    let contenido = this.responseText;
+} 
+})
+xhr.open('GET', url, true); 
+xhr.send();
+        </code>
+    </pre>
+</div>
+  <h4>Para conectar con  POST enviando info adicional al server antes</h4>
+  <div class="code">
+      <pre>
+          <code class="language-js">
+const xhr = new XMLHttpRequest(); 
+const url = './holamundo.txt'; 
+xhr.addEventListener('readystatechange', function(){ 
+  if(this.readyState !== 4) return;
+  if (this.status &gt= 200 && this.status &lt 300) { 
+      let contenido = this.responseText;
+  } 
+})
+
+xhr.open('POST', url, true); 
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
+xhr.send(loQueQueramosEnviar);
+          </code>
+      </pre>
+  </div>
+</section>
+<section>
+  <h3>Mediante Fetch</h3>
+  <h4>Conectar con GET sin llevar info adicional</h4>
+  <div class="code">
+      <pre>
+          <code class="language-js">
+const url = './holamundo.txt';
+fetch(url)
+.then(function(response) {
+  if(response.ok) {
+    return response.text();
+  } else {
+    throw new Error(response.status);
+  }
+})
+.then(function(texto) {
+  console.log(texto);
+})
+.catch(function(error) {
+  console.log(error);
+});
+          </code>
+      </pre>
+  </div>
+  <h4>Para conectar con  POST enviando info adicional al server antes</h4>
+  <div class="code">
+      <pre>
+          <code class="language-js">
+const url = './holamundo.txt';
+fetch(url, {
+  method: 'POST',
+  body: loQueQueramosEnviar
+})
+.then(function(response) {
+  if(response.ok) {
+    return response.text();
+  } else {
+    throw new Error(response.status);
+  }
+})
+.then(function(texto) {
+  console.log(texto);
+})
+.catch(function(error) {
+  console.log(error);
+});
+          </code>
+      </pre>
+  </div>
+</section>
+<section>
+  
+</section>
+
