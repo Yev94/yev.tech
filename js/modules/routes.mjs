@@ -91,6 +91,7 @@ export let pages = {
   '#/lenguajes/bash-mac': './html/lenguajes/bash-mac',
   '#/lenguajes/cmd': './html/lenguajes/cmd',
   '#/lenguajes/prolog': './html/lenguajes/prolog',
+  '#/lenguajes/mips': './html/lenguajes/mips',
 
   '#/herramientas': './html/herramientas',
   '#/herramientas/cloudflare': './html/herramientas/cloudflare',
