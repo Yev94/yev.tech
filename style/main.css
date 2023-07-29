@@ -1,7 +1,7 @@
 *:not(pre *) {
     color: #e9e9f4 !important;
 }
-*:not(pre *, nav *, a) {
+*:not(pre *, nav *, a, b, td *) {
     background-color: #282936;
 }
 
@@ -30,7 +30,6 @@ img{
 
 h1{
   text-align: center;
-  /* font-size: 40px; */
 }
 
 h2{
@@ -55,7 +54,7 @@ h5{
   color: #62d6e8 !important;
 }
 h6{
-  color: #039aab !important;
+  color: #e6049a !important;
 }
 
 p{
@@ -115,8 +114,22 @@ p{
   max-width: 600px;
 }
 
+.table>:not(caption)>*>* {
+  height: 42px;
+  padding: inherit;
+  vertical-align: middle;
+  width: 400px;
+}
 
-/* Cubo */
+.table>:not(caption)>*>*>*:not(div, i, b) {
+  padding: .5rem .5rem;
+}
+
+.selection_highlighter_scroll_markers{
+  display: none;
+}
+
+/* -------------------------- INICIO Cubo ---------------------------------- */
 .assembly {
   left: 49.4%;
   transform: rotateX(-45deg) rotateY(-45deg);
@@ -399,3 +412,5 @@ p{
       box-shadow: 0 0 14px #ff00c8a2 inset;
   }
 }
+
+/* -------------------------- FIN Cubo ---------------------------------- */
