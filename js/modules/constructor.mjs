@@ -13,9 +13,9 @@ export let constructor = (directory) => {
     ; (async () => {
         await append(directory, mainHTML);
         hljs.highlightAll();
-        let h1 = document.getElementsByTagName('h1')[0];
-        appendTitle(titleHTML, h1.textContent);
-        appendAttributeContentValue(metaTitle, h1.textContent);
+        let h1 = document.getElementsByTagName('h1')[0].textContent.replace(/\s*\n/g, '');
+        appendTitle(titleHTML, h1);
+        appendAttributeContentValue(metaTitle, h1);
         menuToggle.checked = false;
 
         //Para rescatar el código necesario para el juego de calculadora
