@@ -1,6 +1,7 @@
 import { append, appendTitle, appendAttributeContentValue } from './insert.mjs'
 import Calc from './calc.mjs';
 import CountDownTimer from './count-down-timer.mjs';
+import Modal from './modal.mjs';
 
 export let constructor = (directory) => {
     let mainHTML = document.getElementsByTagName('main')[0];
@@ -17,6 +18,8 @@ export let constructor = (directory) => {
         appendTitle(titleHTML, h1);
         appendAttributeContentValue(metaTitle, h1);
         menuToggle.checked = false;
+
+        let modal = new Modal();
 
         //Para rescatar el código necesario para el juego de calculadora
         if (window.location.href.includes('#/calc')) {

@@ -109,6 +109,7 @@ export let pages = {
   '#/herramientas/wamp/phpmyadmin': './html/herramientas/wamp/phpmyadmin.html',
   
   '#/i2': './html/i2',
+  '#/i2/1/ec': './html/i2/1/ec',
   '#/i2/1/ec/mars': './html/i2/1/ec/mars.html',
   '#/i2/1/ec/saber-general': './html/i2/1/ec/saber-general.html',
   '#/i2/1/ffi/saber-general': './html/i2/1/ffi/saber-general.html',
