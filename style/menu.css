@@ -162,21 +162,34 @@ li > a:only-child:after {
     .toggle + a,
     .menu {
         display: none;
+
     }
 
+    nav ul li ul li:hover {
+        background: none;
+    }
+
+    nav ul li ul *:not(a){
+        background-color: #0a0a1454;
+        padding-left: 15px;
+    }
+    
     /* Stylinf the toggle label */
     .toggle {
         display: block;
-        background-color: #282936;
-        padding: 14px 20px;
+        padding: 5px 0px;
         color: #fff;
-        font-size: 17px;
         text-decoration: none;
         border: none;
+        width: 100%;
     }
 
-    .toggle:hover {
-        background-color: #037e8b;
+    nav > .toggle{
+        text-align: center;
+    }
+
+    nav li >:not(.toggle){
+        padding: 5px 0px;
     }
 
     /* Display Dropdown when clicked on Parent Lable */
@@ -194,31 +207,12 @@ li > a:only-child:after {
         width: 100%;
     }
 
-    nav ul ul .toggle,
-    nav ul ul a {
-        padding: 0 40px;
-    }
-
-    nav ul ul ul a {
-        padding: 0 80px;
-    }
-
-    nav a:hover,
-    nav ul ul ul a {
-        background-color: #037e8b;
-    }
-
     nav ul li ul li .toggle,
     nav ul ul a,
     nav ul ul ul a {
-        padding: 5px 20px;
+        /* padding: 5px 0px; */
         color: #fff;
         font-size: 17px;
-    }
-
-    nav ul li ul li .toggle,
-    nav ul ul a {
-        margin-left: 30px;
     }
 
     /* Hide Dropdowns by Default */
@@ -274,12 +268,10 @@ nav {
   }
   
   .menu .toggle a {
-    display: inline-block;
-
+    /* display: inline-block; */
   }
   .menu label {
     display: block;
-    padding: 2;
   }
   
   .toggle {
@@ -299,7 +291,7 @@ nav {
   
     .toggle {
       display: block;
-      padding: 10px;
+      /* padding: 10px; */
     }
   
     input[type="checkbox"] {

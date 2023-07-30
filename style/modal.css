@@ -14,7 +14,7 @@
   /* Sit on top */
   left: 0;
   top: 0;
-  width: 100vw;
+  width: 99.5vw;
   /* Full width */
   height: 100vh;
   /* Full height */
@@ -31,6 +31,11 @@
   aspect-ratio: auto;
   background-color: transparent;
   margin: 0 auto;
+}
+
+.zoom{
+  -webkit-transform: scale(1.5);
+  overflow: auto;
 }
 
 /* Add Animation */
@@ -80,3 +85,4 @@
   text-decoration: none;
   cursor: pointer;
 }
+
