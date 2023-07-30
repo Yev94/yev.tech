@@ -9,13 +9,6 @@ export default class Modal {
         this.openModal(initialImage.src, initialImage.alt);
       };
     });
-
-    let imageContainer = document.createElement("div");
-    imageContainer.style.display = "flex";
-    imageContainer.style.flexWrap = "wrap";
-    imageContainer.style.marginTop = "20px";
-
-    document.body.appendChild(imageContainer);
   };
 
   // Function to create the modal dynamically
@@ -43,10 +36,19 @@ export default class Modal {
   openModal(src, alt) {
     let modal = this.createModal(src, alt);
 
+    // Un botón de cerrar por si la imagen está perfectamente ajustada a la pantalla
     let closeBtn = modal.getElementsByClassName("close")[0];
     closeBtn.onclick = function () {
       modal.style.display = "none";
       document.body.removeChild(modal);
     };
+    
+    modal.addEventListener('click', function(event) {
+      if (event.target === this) {
+        // Acción a ejecutar cuando se hace clic en el contenedor padre
+        this.style.display = "none";
+        document.body.removeChild(modal);
+      }
+    });
   }
 }
