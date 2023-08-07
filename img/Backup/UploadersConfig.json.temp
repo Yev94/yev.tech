@@ -4,12 +4,7 @@
   "ImgurDirectLink": true,
   "ImgurThumbnailType": "Medium_Thumbnail",
   "ImgurUseGIFV": true,
-  "ImgurOAuth2Info": {
-    "Client_ID": "d297fd441566f99",
-    "Client_Secret": "0cfdf9368cbf988e69dff262d0425debd440fcc2",
-    "Token": null,
-    "Proof": null
-  },
+  "ImgurOAuth2Info": null,
   "ImgurUploadSelectedAlbum": false,
   "ImgurSelectedAlbum": null,
   "ImgurAlbumList": null,

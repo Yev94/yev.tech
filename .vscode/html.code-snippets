@@ -24,5 +24,14 @@
 				"$2"
 			],
 			"description": "source of img"
+		},
+
+		"Yev ref": {
+			"scope": "html",
+			"prefix": "ref",
+			"body": [
+				"<p>Ref: <a target=\"_blank\" href=\"$1\">$2</a></p>",
+			],
+			"description": "Ref label"
 		}
 }
