@@ -20,7 +20,7 @@
 			"scope": "html",
 			"prefix": "img",
 			"body": [
-				"<img src=\"./$1\">",
+				"<img src=\"./img/$1\">",
 				"$2"
 			],
 			"description": "source of img"
