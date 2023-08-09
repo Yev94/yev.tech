@@ -85,7 +85,12 @@ export let pages = {
   '#/lenguajes/html': './html/lenguajes/html',
   '#/lenguajes/css': './html/lenguajes/css',
   '#/lenguajes/python': './html/lenguajes/python',
+
   '#/lenguajes/php': './html/lenguajes/php',
+  '#/lenguajes/php/wordpress': './html/lenguajes/php/wordpress',
+  '#/lenguajes/php/wordpress/insertar-gtm': './html/lenguajes/php/wordpress/insertar-gtm.html',
+  '#/lenguajes/php/wordpress/insertar-redireccion-cf7': './html/lenguajes/php/wordpress/insertar-redireccion-cf7.html',
+
   '#/lenguajes/sql': './html/lenguajes/sql',
   '#/lenguajes/bash-linux': './html/lenguajes/bash-linux',
   '#/lenguajes/bash-mac': './html/lenguajes/bash-mac',
@@ -121,6 +126,7 @@ export let pages = {
   '#/plataformas/tracking/ga4/utm-facebook': './html/plataformas/tracking/ga4/utm-facebook.html',
   '#/plataformas/tracking/gtm': './html/plataformas/tracking/gtm',
   '#/plataformas/tracking/gtm/cliente': './html/plataformas/tracking/gtm/cliente.html',
+  '#/plataformas/tracking/gtm/tipicos-errores': './html/plataformas/tracking/gtm/tipicos-errores.html',
   '#/plataformas/tracking/gtm/cookies': './html/plataformas/tracking/gtm/cookies.html',
 
   '#/plataformas/vs-code/configuracion': './html/plataformas/vs-code/configuracion.html',
