@@ -124,10 +124,12 @@ export let pages = {
   '#/plataformas/tracking/crm/clientify': './html/plataformas/tracking/crm/clientify',
   '#/plataformas/tracking/ga4': './html/plataformas/tracking/ga4',
   '#/plataformas/tracking/ga4/utm-facebook': './html/plataformas/tracking/ga4/utm-facebook.html',
+  '#/plataformas/tracking/ga4/referral': './html/plataformas/tracking/ga4/referral.html',
   '#/plataformas/tracking/gtm': './html/plataformas/tracking/gtm',
   '#/plataformas/tracking/gtm/cliente': './html/plataformas/tracking/gtm/cliente.html',
   '#/plataformas/tracking/gtm/tipicos-errores': './html/plataformas/tracking/gtm/tipicos-errores.html',
   '#/plataformas/tracking/gtm/cookies': './html/plataformas/tracking/gtm/cookies.html',
+  '#/plataformas/tracking/gtm/formularios-ajax': './html/plataformas/tracking/gtm/formularios-ajax.html',
 
   '#/plataformas/vs-code/configuracion': './html/plataformas/vs-code/configuracion.html',
   '#/plataformas/vs-code/extensiones': './html/plataformas/vs-code/extensiones.html',
