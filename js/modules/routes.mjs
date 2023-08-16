@@ -90,11 +90,13 @@ export let pages = {
   '#/lenguajes/php/wordpress': './html/lenguajes/php/wordpress',
   '#/lenguajes/php/wordpress/insertar-gtm': './html/lenguajes/php/wordpress/insertar-gtm.html',
   '#/lenguajes/php/wordpress/insertar-redireccion-cf7': './html/lenguajes/php/wordpress/insertar-redireccion-cf7.html',
+  '#/lenguajes/php/wordpress/plugin': './html/lenguajes/php/wordpress/plugin.html',
 
   '#/lenguajes/sql': './html/lenguajes/sql',
   '#/lenguajes/bash-linux': './html/lenguajes/bash-linux',
   '#/lenguajes/bash-mac': './html/lenguajes/bash-mac',
   '#/lenguajes/cmd': './html/lenguajes/cmd',
+  '#/lenguajes/git': './html/lenguajes/git',
   '#/lenguajes/prolog': './html/lenguajes/prolog',
   '#/lenguajes/mips': './html/lenguajes/mips',
 
@@ -155,7 +157,6 @@ export let pages = {
   '#/plataformas/wordpress/primeros-pasos-en-wordpress': './html/plataformas/wordpress/primeros-pasos-en-wordpress.html',
   '#/plataformas/wordpress/temas/avada': './html/plataformas/wordpress/temas/avada.html',
   '#/plataformas/wordpress/temas/divi': './html/plataformas/wordpress/temas/divi.html',
-  
 
   '#/os/linux': './html/os/linux',
   '#/os/linux/dns': './html/os/linux/dns.html',
@@ -163,7 +164,8 @@ export let pages = {
   '#/os/linux/vsftp': './html/os/linux/vsftp.html',
   '#/os/linux/zsh': './html/os/linux/zsh.html',
 
-  '#/os/macos': './html/os/macos',
-
+  '#/os/mac': './html/os/macos',
+  
+  '#/os/windows': './html/os/windows',
 
 }

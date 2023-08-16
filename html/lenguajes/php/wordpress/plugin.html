@@ -1,0 +1,108 @@
+<h1>Crear un Plugins</h1>
+<section>
+  <p>Creamos la carpeta con el mismo nombre que el archivo PHP</p>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+&lt;?php
+/*
+Plugin Name: Nombre del Plugin
+Description: Descripción del Plugin
+Version: 1.0.0
+Author: Yev Tech from NDC
+*/
+
+function funcion_plugin()
+{
+  // Nuestro código
+}
+        </code>
+    </pre>
+  </div>
+</section>
+<section>
+  <h2>Hooks</h2>
+  <p>Los hooks son ganchos que nos permiten ejecutar código en ciertos momentos de la ejecución de WordPress</p>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+// Para los estilos del head del font
+add_action('wp_head', 'funcion_plugin');
+
+// Para los estilos del head del back
+add_action('admin_head', 'funcion_plugin');
+
+// Para el body
+add_action('init', 'funcion_plugin');
+
+// Para el footer
+add_action('wp_footer', 'funcion_plugin');
+
+// Para el footer del back
+add_action('admin_footer', 'funcion_plugin');
+
+// Para el footer del login
+add_action('login_footer', 'funcion_plugin');
+        </code>
+    </pre>
+  </div>
+</section>
+<section>
+  <h2>Otros</h2>
+  <p>Para crear un shortcode</p>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+// Con la función defined revisamos si está o no definida la constante, que en este caso es la versión del Plugin Contact Form 7
+if (defined('WPCF7_VERSION')) {
+  // Con esto llamamos a un directorio nuestro llamando al archivo shortcode
+  require_once plugin_dir_path(__FILE__) . 'includes/shortcode.php';
+  
+  // Encolamos el script
+  add_action(
+    'wp_enqueue_scripts',
+    'yevtech_plugin_scripts'
+  );
+}
+
+// Función para recoger una variable guardada en la tabla options de la BBDD
+$redirect_url = get_option('valor_guardado_bbd')
+
+// Agregar menú en el panel de administración
+add_action('admin_menu', 'ndc_redirection_menu');
+function ndc_redirection_menu() {
+  add_options_page('Redirección NDC', 'Redirección NDC', 'manage_options', 'ndc-redirection', 'nuestra_funcion_de_config');
+}
+
+// Página de opciones del plugin
+function nuestra_funcion_de_config() {
+  // Si se envía por Post el formulario, guarda lo que haya introducido el usuario en valor_guardado_bbd e imprime que se guardó correctamente
+  // Si no queremos poner nada en los parámetros de la función del botón solo tenemos que poner "submit" en el post
+  if (isset($_POST['guardar_formulario'])) {
+    update_option('valor_guardado_bbd', sanitize_text_field($_POST['valor_guardado_bbd']));
+    echo '&lt;div class="updated"&gt;&lt;p&gt;Opción guardada&lt;/p&gt;&lt;/div&gt;';
+  }
+  ?&gt;
+  &lt;div class="wrap"&gt;
+    &lt;h2&gt;Redirección NDC&lt;/h2&gt;
+    &lt;form method="post" action=""&gt;
+      &lt;table class="form-table"&gt;
+        &lt;tr valign="top"&gt;
+          &lt;th scope="row"&gt;URL de redirección&lt;/th&gt;
+          &lt;td&gt;&lt;input type="text" name="valor_guardado_bbd" value="&lt;?php 
+          // Imprime el valor del valor_guardado_bbd
+          echo esc_attr(get_option('valor_guardado_bbd')); 
+          ?&gt;" /&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+      &lt;?php 
+      // Botón de guardar de WordPress
+      submit_button('Guardar', 'primary', 'guardar_formulario'); 
+      ?&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;?php
+        </code>
+    </pre>
+  </div>
+</section>

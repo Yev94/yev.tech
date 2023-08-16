@@ -47,7 +47,7 @@ h3{
 }
 
 h4, b{
-  color: #ebff87 !important;
+  color: #ffa900 !important;
 }
 
 h4{
@@ -82,8 +82,7 @@ p{
   width: 200px;
 }
 
-.table a
-{
+.table a {
     display:block;
     text-decoration:none;
 }
@@ -119,15 +118,13 @@ p{
 }
 
 .table>:not(caption)>*>* {
-  height: 42px;
-  padding: inherit;
   vertical-align: middle;
-  width: 400px;
+  /* width: 400px; */
 }
 
-.table>:not(caption)>*>*>*:not(div, i, b) {
+/* .table>:not(caption)>*>*>*:not(div, i, b) {
   padding: .5rem .5rem;
-}
+} */
 
 .selection_highlighter_scroll_markers{
   display: none;
