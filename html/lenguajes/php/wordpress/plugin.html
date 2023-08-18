@@ -26,30 +26,55 @@ function funcion_plugin()
   <div class="code">
     <pre>
         <code class="language-php">
-// Para los estilos del head del font
-add_action('wp_head', 'funcion_plugin');
+add_action('wp_head', 'funcion_plugin');      // head front
+add_action('admin_head', 'funcion_plugin');   // head back
+add_action('init', 'funcion_plugin');         // body front y back
+add_action('wp_footer', 'funcion_plugin');    // footer front
+add_action('admin_footer', 'funcion_plugin'); // footer back
+add_action('login_footer', 'funcion_plugin'); // footer login
+        </code>
+    </pre>
+  </div>
+</section>
+<section>
+  <h2>Acceso BBDD</h2>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+get_option('valor_guardado_bbd', $valor_por_defecto_opcional); // Recoge el valor buscado a partir de la clave 'valor_guardado_bbdd' de la tabla options
+update_option('valor_guardado_bbd', sanitize_text_field($_POST['valor_guardado_bbd'])); // Actualiza valor tabla options
+        </code>
+    </pre>
+  </div>
+</section>
+<section>
+  <h2>Funciones Útiles</h2>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+$clean_url = esc_url_raw( $_GET['redirect_to'] );
+wp_redirect($clean_url); // Redirección PHP con WP
 
-// Para los estilos del head del back
-add_action('admin_head', 'funcion_plugin');
+// ------- Formularios --------------------------
+submit_button('Guardar', 'primary', 'guardado'); // Botón de Guardado que va envuelto en un if (isset($_POST['guardado']))
+// ------------ Filtros -------------------------
+// De seguridad para escapar de caracteres que se van a mostrar en el HTML que no sean
+esc_attr(&atributoHTML);             // Atributos HTML (como comillas)
+esc_html($HTML);                     // HTML
+esc_url($URL);                       // URLs de href
+esc_url_raw( $_GET['redirect_to'] ); // URLs para PHP
+esc_js($js);                         // JS
+// De seguridad para Guardar limpio
+sanitize_text_field($_POST['valor_guardado_bbd']); // txt
+sanitize_email($_POST['valor_guardado_bbd']);      // email
 
-// Para el body
-add_action('init', 'funcion_plugin');
-
-// Para el footer
-add_action('wp_footer', 'funcion_plugin');
-
-// Para el footer del back
-add_action('admin_footer', 'funcion_plugin');
-
-// Para el footer del login
-add_action('login_footer', 'funcion_plugin');
         </code>
     </pre>
   </div>
 </section>
 <section>
   <h2>Otros</h2>
-  <p>Para crear un shortcode</p>
+  <!-- <p>Para crear un shortcode</p> -->
   <div class="code">
     <pre>
         <code class="language-php">
@@ -65,10 +90,12 @@ if (defined('WPCF7_VERSION')) {
   );
 }
 
+// ------------------------ Sección de Config en el WordPress -------------------------------------
+
 // Función para recoger una variable guardada en la tabla options de la BBDD
 $redirect_url = get_option('valor_guardado_bbd')
 
-// Agregar menú en el panel de administración
+// Agregar menú en el Panel de Administración
 add_action('admin_menu', 'ndc_redirection_menu');
 function ndc_redirection_menu() {
   add_options_page('Redirección NDC', 'Redirección NDC', 'manage_options', 'ndc-redirection', 'nuestra_funcion_de_config');
@@ -89,10 +116,14 @@ function nuestra_funcion_de_config() {
       &lt;table class="form-table"&gt;
         &lt;tr valign="top"&gt;
           &lt;th scope="row"&gt;URL de redirección&lt;/th&gt;
-          &lt;td&gt;&lt;input type="text" name="valor_guardado_bbd" value="&lt;?php 
+          &lt;td&gt;&lt;input type="text" name="valor_guardado_bbd" value=
+          
+          "&lt;?php 
           // Imprime el valor del valor_guardado_bbd
           echo esc_attr(get_option('valor_guardado_bbd')); 
-          ?&gt;" /&gt;&lt;/td&gt;
+          ?&gt;" 
+
+          /&gt;&lt;/td&gt;
         &lt;/tr&gt;
       &lt;/table&gt;
       &lt;?php 
@@ -102,6 +133,32 @@ function nuestra_funcion_de_config() {
     &lt;/form&gt;
   &lt;/div&gt;
   &lt;?php
+
+// --------------------- Renderizar HTML a través de funciones -----------
+
+function gtm_scripts_body() {
+  $yev_gtm_ids = get_option('yev_gtm_ids', []);
+  foreach ($yev_gtm_ids as $gtm_id) {
+      // Ya con el echo renderizamos el contenido pero no antes
+      echo render_gtm_body($gtm_id);
+  }
+}
+
+function render_gtm_head($id) {
+  // Permite almacenar en buffer antes de renderizarlo en el cliente
+  ob_start();
+  ?>
+  &lt;!-- Google Tag Manager --&gt;
+  &lt;script&gt;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','&lt;?php echo esc_js($id); ?&gt;');&lt;/script&gt;
+  &lt;!-- End Google Tag Manager --&gt;
+  &lt;?php
+  // Obtenemos el contenido del buffer sin renderizarlo y lo limpiamos
+  return ob_get_clean();
+}
         </code>
     </pre>
   </div>

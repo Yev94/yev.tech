@@ -1,0 +1,56 @@
+<h1>Manipular salida antes de Renderizar HTML</h1>
+<section>
+  <p>ob_start() es una función de PHP que inicia el almacenamiento en buffer de salida. Cuando el almacenamiento en buffer
+    de salida está activo, no se envía la salida (es decir, desde echo, print, etc.) directamente al navegador. En su
+    lugar, la salida se guarda en un buffer interno.</p>
+
+  <h3>¿Para qué se usa ob_start()?</h3>
+  <p>Controlar la salida: Puedes iniciar el almacenamiento en buffer al comienzo de tu script y luego, en cualquier punto
+    posterior, decidir si deseas enviar esa salida al navegador o descartarla.</p>
+
+  <p>Manipular la salida antes de enviarla: Una vez que la salida ha sido almacenada en el buffer, puedes manipularla
+    antes de enviarla al navegador.</p>
+
+  <p>Evitar errores de encabezado: En PHP, una vez que se ha enviado algo de salida al navegador, no puedes enviar
+    encabezados HTTP adicionales. Usar ob_start() al comienzo de un script puede ayudarte a evitar errores como "Cannot
+    modify header information - headers already sent".</p>
+
+  <h3>¿Cómo se utiliza?</h3>
+  <div class="code">
+    <pre>
+      <code class="language-php">
+ob_start();                     // Iniciar el almacenamiento en buffer
+echo "Hola, mundo!";            // Generar alguna salida
+$contenido = ob_get_contents(); // Obtener el contenido del buffer (sin enviarlo al navegador)
+ob_clean();                     // Limpiar el buffer (sin enviarlo al navegador)
+ob_end_flush();                 // Enviar el contenido del buffer al navegador y desactivar el almacenamiento en buffer
+$contenido = ob_get_clean();    // Obtener el contenido del buffer y desactivar el almacenamiento en buffer (sin enviarlo al navegador)
+      </code>
+    </pre>
+  </div>
+
+  <p>Ejemplo práctico:</p>
+  <p>Supongamos que quieres capturar la salida de una función y modificarla antes de enviarla al navegador:</p>
+  <div class="code">
+    <pre>
+      <code class="language-php">
+ob_start();
+
+function saludo() {
+  echo "Hola, mundo!";
+}
+
+saludo();                                                         // No lo renderizará
+$contenido = ob_get_contents();                                   // Capturar la salida
+$contenido_modificado = str_replace("mundo", "bebe", $contenido); // Modificar la salida
+ob_clean();                                                       // Limpiar el buffer
+echo $contenido_modificado;                                       // Imprimir la salida modificada
+ob_end_flush();                                                   // Finalizar el almacenamiento en buffer
+        </code>
+    </pre>
+  </div>
+  <p>En este ejemplo, la función saludo() imprime "Hola, mundo!", pero gracias al almacenamiento en buffer, podemos
+    capturar esa salida, modificarla y luego enviar la versión modificada ("Hola, ChatGPT!") al navegador.</p>
+  <p>En resumen, ob_start() y las funciones relacionadas ofrecen una gran flexibilidad en PHP para controlar y manipular
+    la salida antes de que llegue al navegador.</p>
+</section>

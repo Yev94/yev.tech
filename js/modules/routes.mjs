@@ -87,6 +87,7 @@ export let pages = {
   '#/lenguajes/python': './html/lenguajes/python',
 
   '#/lenguajes/php': './html/lenguajes/php',
+  '#/lenguajes/php/buffer': './html/lenguajes/php/buffer.html',
   '#/lenguajes/php/wordpress': './html/lenguajes/php/wordpress',
   '#/lenguajes/php/wordpress/insertar-gtm': './html/lenguajes/php/wordpress/insertar-gtm.html',
   '#/lenguajes/php/wordpress/insertar-redireccion-cf7': './html/lenguajes/php/wordpress/insertar-redireccion-cf7.html',
@@ -132,6 +133,7 @@ export let pages = {
   '#/plataformas/tracking/gtm/tipicos-errores': './html/plataformas/tracking/gtm/tipicos-errores.html',
   '#/plataformas/tracking/gtm/cookies': './html/plataformas/tracking/gtm/cookies.html',
   '#/plataformas/tracking/gtm/formularios-ajax': './html/plataformas/tracking/gtm/formularios-ajax.html',
+  '#/plataformas/tracking/gtm/klaro': './html/plataformas/tracking/gtm/klaro.html',
 
   '#/plataformas/vs-code/configuracion': './html/plataformas/vs-code/configuracion.html',
   '#/plataformas/vs-code/extensiones': './html/plataformas/vs-code/extensiones.html',
