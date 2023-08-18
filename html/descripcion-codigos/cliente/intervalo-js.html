@@ -1,0 +1,41 @@
+<h1>Crear y eliminar múltiples intervalos con el mismo ID</h1>
+<section>
+    <div class="code">
+        <pre>
+            <code class="language-javascript">
+//Crear el objeto que contendrá las funciones del intervalo
+interval = {
+    // to keep a reference to all the intervals
+    intervals: new Set(),
+
+    // create another interval
+    make(...args) {
+        var newInterval = setInterval(...args);
+        this.intervals.add(newInterval);
+        return newInterval;
+    },
+
+    // clear a single interval
+    clear(id) {
+        this.intervals.delete(id);
+        return clearInterval(id);
+    },
+
+    // clear all intervals
+    clearAll() {
+        for (var id of this.intervals) {
+            this.clear(id);
+        }
+    }
+};
+
+//Pasamos la función que queremos que se ejecute en los intervalos
+interval.make(() => {
+    console.log("Hola");
+    //Dentro del mismo podemos limpiar todos los intervalos creados cuando resulte oportuno
+    interval.clearAll();
+}, 1000);
+            </code>
+        </pre>
+    </div>
+</section>

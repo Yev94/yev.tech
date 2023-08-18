@@ -1,0 +1,511 @@
+<h1>Creación de módulos</h1>
+<section>
+  <h2>Directorios a tener en cuenta</h2>
+  <ul>
+    <li>img</li>
+    <li>translations</li>
+    <li>views - Almacena todo el html</li>
+  </ul>
+  <h2>Archivos a tener en cuenta</h2>
+  <ul>
+    <li>config.xml - Lo genera el presta cuando instalamos el módulo</li>
+    <li>index.php - También lo genera el presta y es para que no nos entren por el árbol de directorios</li>
+    <li>logo.png</li>
+    <li>nombreDelMódulo.php - ⚠️Siempre igual que el nombre de la carpeta (a ser posible todo en minúscula)</li>
+    <ul>
+      <li>claseNombreDelModulo:</li>
+      <ul>
+        <li>Función constructora:</li>
+        <ul>
+          <li>$this->name = "⚠️Siempre igual que el nombre del archivo = nombreCarpeta"</li>
+          <li>$this->version</li>
+          <li>$this->author</li>
+          <li>$this->need_instance = 0</li>
+        </ul>
+        <li>Función renderForm - Contendrá lo necesario para generar el formulario del BackOffice</li>
+        <li>Función renderWidget - Llama al archivo tpl que contendrá el html que se renderizará en la parte del cliente
+        </li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>gtm_integration.php</h2>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+          if (!defined('_PS_VERSION_')){
+            exit;
+          }
+          
+          use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
+          
+          class gtm_integration extends Module implements WidgetInterface
+          {
+          
+            public function __construct()
+            {
+              //Always the same name as folder
+              $this->name = 'gtm_integration';
+              // Add to label Design & Navigation
+              $this->tab = 'front_office_features';
+              $this->version = '1.0.0';
+              $this->author = 'Yev Tech';
+              //If depends from other module the = 1
+              $this->need_instance = 0;
+          
+              $this->bootstrap = true;
+              parent::__construct();
+              
+              $this->displayName = $this->trans('GTM Integration', array(), "Modules.mymodules.Admin");
+              
+              $this->description = $this->trans("Add GTM Codes to Conversion Tracking", array(), "Admin.Global");
+          
+              $this->ps_versions_compliancy = array("min" => "1.7.0.0", "max" => _PS_VERSION_);
+            }
+          
+            public function install(){
+              //Check if Exists a register with this name
+              //If exists it actualize with value false 
+              //If doesn't exist it's created
+              Configuration::updateValue("GTM_INTEGRATION", false);
+          
+              return parent::install() &&
+                $this->registerHook("header") &&
+                $this->registerHook("backOfficeHeader") &&
+                $this->registerHook("displayHome") &&
+                $this->registerHook("displayLeftColumns") &&
+                $this->registerHook("footer");
+            }
+          
+            public function uninstall(){
+              //If register exists, it's deleted
+              Configuration::deleteByName("GTM_INTEGRATION");
+          
+              return parent::uninstall();
+            }
+          
+            //Activates the Config mode
+            public function getContent(){
+              //Context allows to access to objects as:
+              //Language, country, currency and smarty
+              //We gonna send the installation relative route of our module
+              $this->context->smarty->assign($this->name, array(
+                "path" => $this->_path
+              ));
+              //We gonna call the tpl(template) file that contains our configuration html of our module
+              //Also we gonna create the directory and files inside the module
+              return $this->context->smarty->fetch($this->local_path."views/templates/admin/configure.tpl");
+            }
+          
+            public function hookHeader(){
+          
+            }
+            public function hookBackOfficeHeader(){
+          
+            }
+          
+            public function hookDisplayHome(){
+              $this->context->smarty->assign($this->name, array(
+                "path" => $this->_path
+              ));
+              return $this->context->smarty->fetch($this->local_path."views/templates/hook/displayHome.tpl");
+            }
+            public function hookDisplayLeftColumns(){
+          
+            }
+            public function hookFooter(){
+          
+            }
+          
+            public function renderWidget($hookName, array $configuration){
+              
+            }
+          
+            public function getWidgetVariables ($hookName, array $configuration){
+          
+            }
+          }
+        </code>
+    </pre>
+</section>
+<section>
+  <h2>Creación de la vista del Back Office</h2>
+  <h3>De manera automatizada con ayuda del presta</h3>
+  <p>Las name y values del formulario se guardarán en BBDD en la tabla ps_configuration</p>
+<div class="code">
+  <pre><code class="language-php">
+//We create the form to BackOffice 
+protected function getConfigForm() {
+  return array(
+      'form' => array(
+          'legend' => array(	
+              'title' => $this->l('Settings'),
+              'icon' => 'icon-cogs',
+          ),
+          'input' => array(
+              array(
+                  'type' => 'switch',
+                  'label' => $this->l('Live mode'),
+                  'name' => 'MYMODULE_LIVE_MODE',
+                  'is_bool' => true,
+                  'desc' => $this->l('Use this module in live mode'),
+                  'values' => array(
+                      array(
+                          'id' => 'active_on',
+                          'value' => true,
+                          'label' => $this->l('Enabled')
+                      ),
+                      array(
+                          'id' => 'active_off',
+                          'value' => false,
+                          'label' => $this->l('Disabled')
+                      )
+                  ),
+              ),
+              array(
+                  'col' => 3,
+                  'type' => 'text',
+                  'prefix' => '<i class="icon icon-envelope"></i>',
+                  'desc' => $this->l('Enter a valid email address'),
+                  'name' => 'MYMODULE_ACCOUNT_EMAIL',
+                  'label' => $this->l('Email'),
+              ),
+              array(
+                  'type' => 'password',
+                  'name' => 'MYMODULE_ACCOUNT_PASSWORD',
+                  'label' => $this->l('Password'),
+              ),
+          ),
+          'submit' => array(
+              'title' => $this->l('Save'),
+          ),
+      ),
+  );
+}
+
+//We get the info from the DDBB to render it if exist
+protected function getConfigFormValues () {
+  return array(
+      //We get the name of the form and we set a default value
+      'MYMODULE_LIVE_MODE' => Configuration::get('MYMODULE_LIVE_MODE', true),
+      'MYMODULE_ACCOUNT_EMAIL' => Configuration::get('MYMODULE_ACCOUNT_EMAIL', 'contact@pixelpro.com'),
+      'MYMODULE_ACCOUNT_PASSWORD' => Configuration::get('MYMODULE_ACCOUNT_PASSWORD', null),
+  );
+}
+
+//We render the form on BackOffice
+protected function renderForm() {
+  //We use this class to create the Form of BackOffice
+  $helper = new HelperForm();
+  
+  $helper->show_toolbar = false;
+  //We say that the container it's table's type
+  $helper->table = $this->table;
+  //We say that this form it's for this module
+  $helper->module = $this;
+  //We say the default language
+  $helper->default_form_language = $this->context->language->id;
+  //And if it's for other languages as well
+  $helper->allow_employee_form_lang = Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG', 0);
+  $helper->identifier = $this->identifier;
+  //⚠️ We say the name of submit button and if we use several forms this need to have different names
+  $helper->submit_action = 'submitMymodule';
+  //This gonna be the URL from the action form
+  $helper->currentIndex = $this->context->link->getAdminLink('AdminModules', false)
+          . '&configure=' . $this->name . '&tab_module=' . $this->tab . '&module_name=' . $this->name;
+  //This is for security
+  $helper->token = Tools::getAdminTokenLite('AdminModules');
+  //We send all info to tpl
+  $helper->tpl_vars = array(
+      'fields_value' => $this->getConfigFormValues(),
+      'languages' => $this->context->controller->getLanguages(),
+      'id_language' => $this->context->language->id,
+  );
+  
+  //With all of this previous info we call the function of Helper
+  return $helper->generateForm(array($this->getConfigForm()));
+  
+}
+
+//With this function we recover all data from user form and we update the DDBB on table ps_configuration
+protected function postProcess() {
+  $formValues = $this->getConfigFormValues();
+  
+  foreach(array_keys($formValues) as $key) {
+      Configuration::updateValue($key, Tools::getValue($key));
+
+  }
+}
+//Also we say what content gonna be display
+public function getContent(){
+
+  if((bool) Tools::isSubmit('submitMymodule')) {
+    $this->postProcess();
+}
+
+  $this->context->smarty->assign($this->name, array(
+    "path" => $this->_path
+  ));
+
+  //We store in a variable the content that it's inside of TPL
+  $customTpl = $this->context->smarty->fetch($this->local_path."views/templates/admin/configure.tpl");
+  //Also we store in a variable the tpl that generate Prestashop with all of our variables
+  $autoGenerateTpl = $this->renderForm();
+  return $customTpl . $autoGenerateTpl;
+}
+  </code></pre>
+</div>
+  <h3>De manera manual</h3>
+<div class="code">
+  <pre><code class="language-php">
+//We create 2 controls to store the info and other one to the button
+public $controls = array();
+public $button = array();
+
+public function __construct()
+{
+  $this->name = 'gtm_integration';
+  $this->tab = 'front_office_features';
+  $this->version = '1.0.0';
+  $this->author = 'Yev Tech';
+  $this->need_instance = 0;
+
+  $this->bootstrap = true;
+  parent::__construct();
+  
+  $this->displayName = $this->trans('GTM Integration', array(), "Modules.mymodules.Admin");
+  
+  $this->description = $this->trans("Add GTM Codes to Conversion Tracking", array(), "Admin.Global");
+
+  $this->ps_versions_compliancy = array("min" => "1.7.0.0", "max" => _PS_VERSION_);
+
+  //We Call de function
+  $this->createControls();
+}
+
+//We create the controls to create the inputs
+protected function createControls() {
+$this->controls['MYMODULE_SAVE_NAME'] = array(
+      'controlName' => 'MYMODULE_SAVE_NAME',
+      'values' => null,
+      'label' => $this->l('Name'),
+      'desc' => $this->l('Enter your Name')
+  );        
+  $this->controls['MYMODULE_SAVE_LAST_NAME'] = array(
+      'controlName' => 'MYMODULE_SAVE_LAST_NAME',
+      'values' => null,
+      'label' => $this->l('Last Name'),
+      'desc' => $this->l('Enter your Last Name')
+  );
+  $this->controls['MYMODULE_HTML'] = array(
+      'controlName' => 'MYMODULE_HTML',
+      'values' => null,
+      'label' => $this->l('HTML'),
+      'desc' => $this->l('Escribe tu html personalizado')
+  );
+  // Button Save
+  $this->button['MYMODULE_SAVE_FORM'] = array(
+      'controlName' => 'MYMODULE_SAVE_FORM',
+      'label' => $this->l('Save')
+ 
+  );
+}
+
+//First we get the languages and then we update the values for each language
+protected function customPostProcess() {    
+  $languages = $this->context->controller->getLanguages();
+  foreach($this->controls as $control) {
+      foreach($languages as $lang) {
+          $composeName = $control['controlName'] . '_' . $lang["id_lang"];
+          Configuration::updateValue($composeName, Tools::getValue($composeName),true);
+      }
+  }
+}
+
+public function getContent(){
+
+  if((bool) Tools::isSubmit($this->button['MYMODULE_SAVE_FORM']['controlName'])) {
+    $this->customPostProcess();
+  }
+
+  $this->context->smarty->assign($this->name, array(
+    "path" => $this->_path,
+    //Here we send the available languages 
+    'languagesArray' => $this->context->controller->getLanguages(),
+    //The current lang
+    'currentLang' => $this->context->language->id,
+    //The controls and it's values
+    'customControls' => $this->controls,
+    'saveButton' => $this->button,
+    'postAction' => $this->context->link->getAdminLink('AdminModules', false).'&configure='
+              .$this->name.'&tab_module='.$this->tab.'&module_name='.$this->name 
+              .'&token='.Tools::getAdminTokenLite('AdminModules')
+  ));
+
+  foreach($this->controls as $control){
+    $this->controls[$control['controlName']]['values'] = $this->getLangValues($control['controlName']);
+  }
+
+  $customTpl = $this->context->smarty->fetch($this->local_path."views/templates/admin/configpersonalized.tpl");
+
+  return $customTpl;
+}
+
+public function getLangValues($_controlName) {
+  $languages = Language::getLanguages(false);
+  $values = array();
+  foreach($languages as $lang) {
+      $composeName = $_controlName . '_' . $lang["id_lang"];
+      $values[$lang["id_lang"]] = Configuration::get($composeName);
+  }
+  return $values;
+}
+      </code>
+    </pre>
+  </div>
+  <p>Un ejemplo de cómo quedaría el tpl customizado para cada idioma</p>
+  <div class="code">
+    <pre><code class="language-html">
+&lt;div class="panel mymodule-admin-panel"&gt;
+  &lt;div class="panel-heading"&gt;
+    &lt;i class="icon-cogs"&gt;&lt;/i&gt; {l s='Custom Admin' d='Modules.gtm_integration'}
+  &lt;/div&gt;
+  &lt;div class="form-wrapper"&gt;
+    &lt;form action="{$gtm_integration.postAction}" method="post"
+      enctype="application/x-www-form-urlencoded,multipart/form-data"&gt;
+      &lt;div class="form-group"&gt;
+        &lt;label class="control-label col-lg-3"&gt;
+          {$gtm_integration.customControls['MYMODULE_SAVE_NAME']['label']}
+        &lt;/label&gt;
+        &lt;div class="col-lg-3"&gt;
+          &lt;div class="form-group"&gt;
+            {foreach item=lang from=$gtm_integration.languagesArray}
+            &lt;div class="translatable-field lang-{$lang["id_lang"]}" {if $gtm_integration.currentLang
+              !=$lang["id_lang"]}style="display: none;" {/if}&gt;
+              &lt;div class="col-lg-9"&gt;
+                &lt;div class="input-group"&gt;
+                  &lt;span class="input-group-addon"&gt;
+                    &lt;i class="icon-user"&gt;&lt;/i&gt;
+                  &lt;/span&gt;
+                  &lt;input type="text" id="{$gtm_integration.customControls['MYMODULE_SAVE_NAME']['controlName']}_{$lang["id_lang"]}" name="{$gtm_integration.customControls['MYMODULE_SAVE_NAME']['controlName']}_{$lang["id_lang"]}" class="mymodule-language"
+                    value="{$gtm_integration.customControls['MYMODULE_SAVE_NAME']['values'][$lang["id_lang"]]}"
+                    onkeyup="if (isArrowKey(  event)) return ;updateFriendlyURL();" /&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="col-lg-2"&gt;
+                &lt;button type="button" class="btn btn-default dropdown-toggle" tabindex="-1" data-toggle="dropdown"&gt;
+                  {$lang["iso_code"]}
+                  &lt;i class="icon-caret-down"&gt;&lt;/i&gt;
+                &lt;/button&gt;
+                &lt;ul class="dropdown-menu"&gt;
+                  {foreach item=lang from=$gtm_integration.languagesArray}
+                  &lt;li&gt;&lt;a href="javascript:hideOtherLanguage({$lang["id_lang"]});" tabindex="-1"&gt;{$lang["name"]}&lt;/a&gt;
+                  &lt;/li&gt;
+                  {/foreach}
+                &lt;/ul&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            {/foreach}
+          &lt;/div&gt;
+          &lt;p class="help-block"&gt;
+            {$gtm_integration.customControls['MYMODULE_SAVE_NAME']['desc']}
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="form-group"&gt;
+        &lt;label class="control-label col-lg-3"&gt;
+          {$gtm_integration.customControls['MYMODULE_SAVE_LAST_NAME']['label']}
+        &lt;/label&gt;
+        &lt;div class="col-lg-3"&gt;
+          &lt;div class="form-group"&gt;
+            {foreach item=lang from=$gtm_integration.languagesArray}
+            &lt;div class="translatable-field lang-{$lang["id_lang"]}" {if $gtm_integration.currentLang
+              !=$lang["id_lang"]}style="display: none;" {/if}&gt;
+              &lt;div class="col-lg-9"&gt;
+                &lt;div class="input-group"&gt;
+                  &lt;span class="input-group-addon"&gt;
+                    &lt;i class="icon-user"&gt;&lt;/i&gt;
+                  &lt;/span&gt;
+                  &lt;input type="text"
+                    id="{$gtm_integration.customControls['MYMODULE_SAVE_LAST_NAME']['controlName']}_{$lang["id_lang"]}"
+                    name="{$gtm_integration.customControls['MYMODULE_SAVE_LAST_NAME']['controlName']}_{$lang["id_lang"]}" class="mymodule-language"
+                    value="{$gtm_integration.customControls['MYMODULE_SAVE_LAST_NAME']['values'][$lang["id_lang"]]}"
+                    onkeyup="if (isArrowKey(event)) return ;updateFriendlyURL();" /&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="col-lg-2"&gt;
+                &lt;button type="button" class="btn btn-default dropdown-toggle" tabindex="-1" data-toggle="dropdown"&gt;
+                  {$lang["iso_code"]}
+                  &lt;i class="icon-caret-down"&gt;&lt;/i&gt;
+                &lt;/button&gt;
+                &lt;ul class="dropdown-menu"&gt;
+                  {foreach item=lang from=$gtm_integration.languagesArray}
+                  &lt;li&gt;&lt;a href="javascript:hideOtherLanguage({$lang["id_lang"]});" tabindex="-1"&gt;{$lang["name"]}&lt;/a&gt;
+                  &lt;/li&gt;
+                  {/foreach}
+                &lt;/ul&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            {/foreach}
+          &lt;/div&gt;
+          &lt;p class="help-block"&gt;
+            {$gtm_integration.customControls['MYMODULE_SAVE_LAST_NAME']['desc']}
+          &lt;/p&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="form-group"&gt;
+        &lt;label class="control-label col-lg-3"&gt;
+          {$gtm_integration.customControls['MYMODULE_HTML']['label']}
+        &lt;/label&gt;
+        &lt;div class="col-lg-3"&gt;
+          &lt;div class="form-group"&gt;
+            {foreach item=lang from=$gtm_integration.languagesArray}
+            &lt;div class="translatable-field lang-{$lang["id_lang"]}" {if $gtm_integration.currentLang
+              !=$lang["id_lang"]}style="display: none;" {/if}&gt;
+              &lt;div class="col-lg-9"&gt;
+                &lt;div class="input-group"&gt;
+                  &lt;span class="input-group-addon"&gt;
+                    &lt;i class="icon-info"&gt;&lt;/i&gt;
+                  &lt;/span&gt;
+                  &lt;textarea id="{$gtm_integration.customControls['MYMODULE_HTML']['controlName']}_{$lang["id_lang"]}"
+                    name="{$gtm_integration.customControls['MYMODULE_HTML']['controlName']}_{$lang["id_lang"]}"
+                    class="mymodule-language"&gt;{$gtm_integration.customControls['MYMODULE_HTML']['values'][$lang["id_lang"]]}&lt;/textarea&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="col-lg-2"&gt;
+                &lt;button type="button" class="btn btn-default dropdown-toggle" tabindex="-1" data-toggle="dropdown"&gt;
+                  {$lang["iso_code"]}
+                  &lt;i class="icon-caret-down"&gt;&lt;/i&gt;
+                &lt;/button&gt;
+                &lt;ul class="dropdown-menu"&gt;
+                  {foreach item=lang from=$gtm_integration.languagesArray}
+                  &lt;li&gt;&lt;a href="javascript:hideOtherLanguage({$lang["id_lang"]});" tabindex="-1"&gt;{$lang["name"]}&lt;/a&gt;
+                  &lt;/li&gt;
+                  {/foreach}
+                &lt;/ul&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            {/foreach}
+          &lt;/div&gt;
+          &lt;p class="help-block"&gt;
+            {$gtm_integration.customControls['MYMODULE_HTML']['desc']}
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="panel-footer"&gt;
+        &lt;button type="submit" value="1" id="{$gtm_integration.saveButton['MYMODULE_SAVE_FORM']['controlName']}"
+          name="{$gtm_integration.saveButton['MYMODULE_SAVE_FORM']['controlName']}" class="btn btn-default pull-right"&gt;
+          &lt;i class="process-icon-save"&gt;&lt;/i&gt; {$gtm_integration.saveButton['MYMODULE_SAVE_FORM']['label']}
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </code>
+    </pre>
+  </div>
+</section>

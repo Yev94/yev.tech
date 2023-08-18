@@ -1,0 +1,41 @@
+<h1 id="time">Timer</h1>
+<select class="form-select" name="" id="select-time">
+  <option value="25">25</option>
+  <option value="10">10</option>
+  <option value="5">5</option>
+  <option value="3">3</option>
+  <option value="1">1</option>
+</select>
+<div class="btn btn-success start-pause stopped">Start / Pause</div>
+<div class="btn btn-danger stop">Stop</div>
+<style>
+  h1 {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 0px;
+  }
+  main * {
+    margin: 10px 5px;
+  }
+  main, .operation{
+    display: grid;
+    align-items: center;
+  }
+  .form-select{
+    display: inline-block;
+    background-color: transparent;
+    width: auto;
+    text-align: center;
+  }
+  span{
+    font-size: 1.5em;
+  }
+
+  .operation{
+    margin-left: 20px;
+  }
+
+  .btn-success{
+    width: 250px;
+  }
+  </style>

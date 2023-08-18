@@ -1,0 +1,423 @@
+*:not(pre *) {
+    color: #e9e9f4 !important;
+}
+*:not(pre *, nav *, a, b, td *) {
+    background-color: #282936;
+}
+
+/* Center all except parragrafs */
+
+
+code {
+  border: 0.5px solid rgb(216, 216, 216);
+  border-radius: 10px;
+}
+
+img:not([src$='.svg'], .modal-content) {
+  max-width: 90vw;
+  border-radius: 10px;
+  margin: 0px ;
+}
+
+@media screen and (min-width: 900px) {
+  img:not([src$='.svg'], .modal-content) {
+    max-width: 60%;
+  }
+}
+
+img{
+  max-width: 100%;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+
+h1{
+  text-align: center;
+}
+
+h2{
+  font-size: 40px;
+  color: #d63384 !important;
+}
+
+h3{
+  font-size: 30px;
+  color: #b45bcf !important;
+}
+
+h4, b{
+  color: #ffa900 !important;
+}
+
+h4{
+  font-size: 20px;
+}
+h5{
+  font-size: 20px;
+  color: #62d6e8 !important;
+}
+h6{
+  color: #e6049a !important;
+}
+
+p{
+  margin-left: 15px;
+}
+
+.hljs{
+  background-color: #1a1a21
+}
+
+.titulo-home{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-principal{
+  width: 200px;
+}
+
+.table a {
+    display:block;
+    text-decoration:none;
+}
+
+@media screen and (max-width: 360px) {
+  .titulo-home{
+    flex-direction: column;
+  }
+}
+
+.intro div {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.slider {
+  background: rgb(238, 232, 232);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(100%);
+
+}
+
+.hide span {
+  transform: translateY(100%);
+  display: inline-block;
+}
+
+.intro-logo{
+  width: 100%;
+  max-width: 600px;
+}
+
+.table>:not(caption)>*>* {
+  vertical-align: middle;
+  /* width: 400px; */
+}
+
+/* .table>:not(caption)>*>*>*:not(div, i, b) {
+  padding: .5rem .5rem;
+} */
+
+.selection_highlighter_scroll_markers{
+  display: none;
+}
+
+iframe[src^="https://www.youtube.com"]{
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-width: 1200px;
+  margin: 15px 0px;
+}
+/* -------------------------- INICIO Cubo ---------------------------------- */
+.assembly {
+  left: 49.4%;
+  transform: rotateX(-45deg) rotateY(-45deg);
+}
+
+.pos:nth-child(1) {
+  transform: scale3d(1, 1, 1) translate3d(28px, 28px, 28px);
+}
+
+:not(.pos)>.cube:nth-child(1) {
+  transform: translate3d(-28px, -28px, 0em);
+}
+
+.pos:nth-child(2) {
+  transform: scale3d(1, 1, -1) translate3d(28px, 28px, 28px);
+}
+
+:not(.pos)>.cube:nth-child(2) {
+  transform: translate3d(-28px, 0em, -28px);
+}
+
+:not(.pos)>.cube:nth-child(3) {
+  transform: translate3d(-28px, 0em, 0em);
+}
+
+:not(.pos)>.cube:nth-child(4) {
+  transform: translate3d(-28px, 0em, 28px);
+}
+
+.pos:nth-child(3) {
+  transform: scale3d(1, -1, 1) translate3d(28px, 28px, 28px);
+}
+
+:not(.pos)>.cube:nth-child(5) {
+  transform: translate3d(-28px, 28px, 0em);
+}
+
+.pos:nth-child(4) {
+  transform: scale3d(1, -1, -1) translate3d(28px, 28px, 28px);
+}
+
+:not(.pos)>.cube:nth-child(6) {
+  transform: translate3d(0em, -28px, -28px);
+}
+
+:not(.pos)>.cube:nth-child(7) {
+  transform: translate3d(0em, -28px, 0em);
+}
+
+:not(.pos)>.cube:nth-child(8) {
+  transform: translate3d(0em, -28px, 28px);
+}
+
+:not(.pos)>.cube:nth-child(9) {
+  transform: translate3d(0em, 0em, -28px);
+}
+
+:not(.pos)>.cube:nth-child(10) {
+  transform: translate3d(0em, 0em, 0em);
+}
+
+:not(.pos)>.cube:nth-child(11) {
+  transform: translate3d(0em, 0em, 28px);
+}
+
+:not(.pos)>.cube:nth-child(12) {
+  transform: translate3d(0em, 28px, -28px);
+}
+
+:not(.pos)>.cube:nth-child(13) {
+  transform: translate3d(0em, 28px, 0em);
+}
+
+:not(.pos)>.cube:nth-child(14) {
+  transform: translate3d(0em, 28px, 28px);
+}
+
+.pos:nth-child(5) {
+  transform: scale3d(-1, 1, 1) translate3d(28px, 28px, 28px);
+}
+
+:not(.pos)>.cube:nth-child(15) {
+  transform: translate3d(28px, -28px, 0em);
+}
+
+.pos:nth-child(6) {
+  transform: scale3d(-1, 1, -1) translate3d(28px, 28px, 28px);
+}
+
+:not(.pos)>.cube:nth-child(16) {
+  transform: translate3d(28px, 0em, -28px);
+}
+
+:not(.pos)>.cube:nth-child(17) {
+  transform: translate3d(28px, 0em, 0em);
+}
+
+:not(.pos)>.cube:nth-child(18) {
+  transform: translate3d(28px, 0em, 28px);
+}
+
+.pos:nth-child(7) {
+  transform: scale3d(-1, -1, 1) translate3d(28px, 28px, 28px);
+}
+
+:not(.pos)>.cube:nth-child(19) {
+  transform: translate3d(28px, 28px, 0em);
+}
+
+.pos:nth-child(8) {
+  transform: scale3d(-1, -1, -1) translate3d(28px, 28px, 28px);
+}
+
+.cube__face {
+  margin: -14px;
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 0 14px #ff00001f inset;
+  backface-visibility: hidden;
+  background-color: hsla(310, 67%, 52%, 0.337);
+  box-shadow: 0em 0em 1em #d6337180 inset;
+  
+}
+
+
+.cube__face:nth-child(2n) {
+  filter: brightness(0.97);
+}
+
+.cube__face:nth-child(n + 5) {
+  filter: brightness(1.03);
+}
+
+.cube__face:nth-child(1) {
+  transform: rotateY(0deg) translateZ(14px);
+}
+
+.cube__face:nth-child(2) {
+  transform: rotateY(90deg) translateZ(14px);
+}
+
+.cube__face:nth-child(3) {
+  transform: rotateY(180deg) translateZ(14px);
+}
+
+.cube__face:nth-child(4) {
+  transform: rotateY(270deg) translateZ(14px);
+}
+
+.cube__face:nth-child(5) {
+  transform: rotateX(90deg) translateZ(14px);
+}
+
+.cube__face:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(14px);
+}
+
+
+/* Animación Rotación Caja */
+.comp-3d {
+  animation: r 5s ease-in-out infinite;
+}
+
+.comp-3d--i {
+  animation-name: ri;
+}
+
+.comp-3d--o {
+  animation-name: ri;
+}
+
+.assembly:hover .comp-3d--o, .cube__face {
+  animation-name: ro, color-transition;
+}
+
+
+
+/* Animación Salida Cajas */
+.assembly:hover .pos .cube {
+  animation: m 5s ease-out infinite;
+}
+
+.assembly {
+  animation: ani 10s infinite alternate;
+}
+.cube__face {
+  animation: color-transition 10s infinite alternate;
+}
+
+@keyframes ri {
+
+  0%,
+  20% {
+    transform: rotateY(-0.5turn);
+  }
+
+  50% {
+    transform: none;
+  }
+
+  100%,
+  80% {
+    transform: rotateX(-0.5turn);
+  }
+}
+
+@keyframes ro {
+
+  0%,
+  35% {
+    transform: rotate(-0.5turn);
+  }
+
+  65%,
+  100% {
+    transform: none;
+  }
+}
+
+
+@keyframes m {
+
+  0%,
+  5%,
+  95%,
+  100% {
+    transform: none;
+  }
+
+  15% {
+    transform: translate3d(0, 28px, 0);
+  }
+
+  25% {
+    transform: translate3d(0, 28px, 28px);
+  }
+
+  35%,
+  65% {
+    transform: translate3d(28px, 28px, 28px);
+  }
+
+  75% {
+    transform: translate3d(28px, 0, 28px);
+  }
+
+  85% {
+    transform: translate3d(28px, 0, 0);
+  }
+}
+
+@keyframes ani {
+  from {
+    transform: rotateY(2turn) rotateX(2turn);
+  }
+
+  to {
+    transform: rotateY(1turn) rotateX(1turn);
+  }
+}
+
+@keyframes color-transition {
+  0%{
+      background-color: rgb(255, 0, 0, 0.337);
+      box-shadow: 0 0 14px #ff00c8a2 inset;
+  }
+  25%{
+      background-color: rgb(0, 255, 0, 0.337);
+      box-shadow: 0 0 14px #00fff2b6 inset;
+
+  }
+
+  75%{
+      background-color: rgb(0, 0, 255, 0.337);
+      box-shadow: 0 0 14px #00e1ffa4 inset;
+  }
+
+  100%{
+      background-color: rgb(255, 8, 0, 0.337);
+      box-shadow: 0 0 14px #ff00c8a2 inset;
+  }
+}
+
+/* -------------------------- FIN Cubo ---------------------------------- */

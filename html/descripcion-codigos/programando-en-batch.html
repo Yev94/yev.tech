@@ -1,0 +1,89 @@
+
+<h1>Programando en batch</h1>
+<div class="bat">
+    <pre>
+    <code class="language-bat">
+rem :: Que no salga lo de C:/...
+@echo off
+
+rem :: Poner título en la ventana
+title Mi Titulo
+
+rem :: Cambiar el color
+color {1, 2, 3, 4, 5, 6, a, b = Aqua, c, d, e = amarillo pastel}
+
+rem :: Imprimir lo que sea por consola
+echo Lo que sea
+
+rem :: Matar un proceso por el titulo de la ventana
+taskkill /FI "windowtitle eq Mi Ventana"
+
+rem :: Ponemos una variable a la que ir con goto
+:variable
+rem :: Para ir a la variable:
+goto variable
+
+rem :: Borrar las lineas anteriores
+cls
+
+rem :: Declarar una variable que inicie el usuario por cmd
+set /p var=IntroduceAlgo:
+rem :: Luego el batch reconoce la variable cuando se escribe entre %
+%var%
+
+rem :: Crear un condicional if
+if "%var%" == x(
+    echo La x es igual a la variable
+)
+
+rem :: Crear un control para ver si un conjunto de caracteres (letras o palabras) se enceuntran en un string
+echo "%var%" | find "miPalabra" > nul
+if %errorlevel%==0 (
+    echo se ha encontrado la palabra
+)
+
+rem :: Cerrar la ventana actial
+exit
+
+rem :: Llamar a otro bath para que se ejecute en la misma ventana
+call elOtroBath.bat
+
+rem :: Abrir una carpeta
+start "" "C:\..\LaCarpeta"
+
+rem :: Abrir un programa
+start "" "C:\..\ElPrograma.exe"
+
+rem :: Comenzar un programa de cmd
+cd ".\La ruta del programa"
+start "" "ElPrograma.x"
+
+rem :: Comenzar el programa minimizado
+start /min "" "ElPrograma.x"
+
+rem :: Comenzar un programa de cmd
+cd ".\La ruta del programa"
+start "" "ElPrograma.x"
+
+rem :: Abrir una página
+start  http://LaPagina.com/
+
+rem :: abrir el CMD en C (ejecutando algo automaticamente al abrir el CMD)
+start cmd /k cd C:\
+
+rem :: Reemplazar un carácter por otro
+rem :: Por ejemplo reemplazarlo por un + (Usado en las URL querys de busqueda de google):
+SET /p buscar=Google: 
+set buscar=%buscar: =+%
+echo %buscar%
+rem :: Por ejemplo reemplazarlo por un % (Usado en las URLS con %20 para separar los espacios)
+setlocal enabledelayedexpansion
+SET /p buscar=URL: 
+set buscar=!buscar: =%%20!
+echo %buscar%
+
+rem :: Esperar un t ej 20s
+timeout 20
+    </code>
+</pre>
+</div>

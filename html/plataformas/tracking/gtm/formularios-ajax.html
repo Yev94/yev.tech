@@ -1,0 +1,158 @@
+<h1>Formularios AJAX</h1>
+<section>
+  <p>Creamos una etiqueta de "HTML Personalizado" con el activador "Page View" (el de Form Submit no vale porque tarda en generarlo y no llega a devolver la respuesta del AJAX) luego simplemente esperamos a la respuesta y creamos el activador según la respuesta del evento personalizado "ajax_response".</p>
+  <div class="code">
+    <pre>
+        <code class="language-js">
+&lt;script id="gtm-jq-ajax-listen" type="text/javascript"&gt;
+(function() {
+    'use strict';
+
+    var n = 0;
+
+    // Iniciar la interceptación
+    init();
+
+    // Función de inicialización
+    function init() {
+        // Intercepta las solicitudes de XMLHttpRequest si están disponibles
+        if (window.XMLHttpRequest) {
+            interceptXHR();
+        }
+
+        // Intercepta las solicitudes de Fetch si están disponibles
+        if (window.fetch) {
+            interceptFetch();
+        } else if (n &lt; 20) {
+            // Si no se encuentra, intente nuevamente en 500ms hasta 20 intentos
+            n++;
+            setTimeout(init, 500);
+        }
+    }
+
+    // Función para interceptar XMLHttpRequest
+    function interceptXHR() {
+        var originalOpenFunction = XMLHttpRequest.prototype.open;
+
+        XMLHttpRequest.prototype.open = function() {
+            this.addEventListener('readystatechange', function() {
+                if (this.readyState === 4) {
+                    var responseBody = isJSON(this.responseText) ? JSON.parse(this.responseText) : this.responseText;
+                    handleAjaxComplete(this.responseURL, this.getAllResponseHeaders(), this.status, this.statusText, responseBody);
+                }
+            }, false);
+
+            originalOpenFunction.apply(this, arguments);
+        };
+    }
+
+    // Función para interceptar Fetch
+    function interceptFetch() {
+        var originalFetch = window.fetch;
+
+        window.fetch = function() {
+            return originalFetch.apply(this, arguments)
+                .then(function(response) {
+                    var contentType = response.headers.get("content-type");
+                    // Verifica si la respuesta es JSON
+                    if (contentType && contentType.indexOf("application/json") !== -1) {
+                        return response.clone().json().then(function(json) {
+                            handleAjaxComplete(response.url, response.headers, response.status, response.statusText, json);
+                            return response;
+                        });
+                    } else {
+                        return response.clone().text().then(function(text) {
+                            handleAjaxComplete(response.url, response.headers, response.status, response.statusText, text);
+                            return response;
+                        });
+                    }
+                });
+        };
+    }
+
+    // Función para manejar las respuestas completadas de AJAX
+    function handleAjaxComplete(url, headers, statusCode, statusText, responseBody) {
+        var fullUrl = document.createElement('a');
+        fullUrl.href = url;
+
+        // Extraer diferentes partes del URL
+        var pathname = fullUrl.pathname.charAt(0) === '/' ? fullUrl.pathname : '/' + fullUrl.pathname;
+        var queryString = fullUrl.search.charAt(0) === '?' ? fullUrl.search.slice(1) : fullUrl.search;
+        var queryParameters = objMap(queryString, '&', '=', true);
+        var headersObj = typeof headers === 'string' ? objMap(headers, '\n', ':') : extractHeaders(headers);
+
+        // Envía la información a dataLayer
+        window.dataLayer.push({
+            'event': 'ajax_response',
+            'attributes': {
+                'url': fullUrl.href || '',
+                'queryParameters': queryParameters,
+                'pathname': pathname || '',
+                'hostname': fullUrl.hostname || '',
+                'protocol': fullUrl.protocol || '',
+                'fragment': fullUrl.hash || '',
+                'statusCode': statusCode || '',
+                'statusText': statusText || '',
+                'headers': headersObj,
+                'response': responseBody || ''
+            }
+        });
+    }
+
+    // Función para extraer encabezados de un objeto Headers
+    function extractHeaders(headers) {
+        var headerObj = {};
+        headers.forEach(function(value, name) {
+            headerObj[name] = value;
+        });
+        return headerObj;
+    }
+
+    // Función para mapear una cadena en un objeto
+    function objMap(data, delim, spl, decode) {
+        var obj = {};
+
+        if (!data || !delim || !spl) {
+            return {};
+        }
+
+        var arr = data.split(delim);
+
+        for (var i = 0; i &lt; arr.length; i++) {
+            var item = decode ? decodeURIComponent(arr[i]) : arr[i];
+            var pair = item.split(spl);
+            var key = trim_(pair[0]);
+            var value = trim_(pair[1]);
+
+            if (key && value) {
+                obj[key] = value;
+            }
+        }
+
+        return obj;
+    }
+
+    // Función de recorte
+    function trim_(str) {
+        if (str) {
+            return str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+        }
+    }
+
+    // Función para verificar si una cadena es JSON
+    function isJSON(str) {
+        try {
+            JSON.parse(str);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
+})();
+&lt;/script&gt;
+          </code>
+    </pre>
+  </div>
+
+</section>

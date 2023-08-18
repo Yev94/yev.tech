@@ -1,0 +1,42 @@
+<h1>Conexiones Archivos Import/Export</h1>
+<p>Importante que import arriba del archivo y en el script del HTML tenga atributo type='module'</p>
+<section>
+  <h4>Importar Todo</h4>
+  <div class="code">
+    <pre>
+        <code class="language-js">
+importScripts(s1.js, s2.js, ...);
+import * as alias from "./ruta";
+alias.funcion();
+
+//Para Extensiones chrome
+(async () => {
+      const src = chrome.runtime.getURL("your/content_main.js");
+      const contentMain = await import(src);
+      contentMain.main();
+})();
+        </code>
+    </pre>
+</div>
+</section>
+<section>
+  <h4>Importar Función en Específico</h4>
+  <div class="code">
+    <pre>
+        <code class="language-js">
+import {fun, ...} /as alias/ from "./ruta";//Alias opcional
+        </code>
+    </pre>
+</div>
+</section>
+<section>
+  <h4>Exportar Funciones</h4>
+  <div class="code">
+    <pre>
+        <code class="language-js">
+export funcion();
+export {funcion, funcion2, funcion3...}
+        </code>
+    </pre>
+</div>
+</section>

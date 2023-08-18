@@ -1,0 +1,358 @@
+<h1>MVC</h1>
+<section>
+    <h2>En PHP</h2>
+    <p>Jerarquía de directorios:</p>
+    <ul>
+        <li>Controller</li>
+        <ul>
+            <li>usuarios_controller.php</li>
+        </ul>
+        <li>Model</li>
+        <ul>
+            <li>connect.php</li>
+            <li>paginacion.php</li>
+            <li>usuarios_model.php</li>
+        </ul>
+        <li>View</li>
+        <ul>
+            <li>edit.php</li>
+            <li>usuarios_view.php</li>
+            <ul>
+                <li>index.php</li>
+                <li>comprueba_login.php</li>
+                <li>logout.php</li>
+            </ul>
+            <li>config.php</li>
+            <li>index.php</li>
+            <li>style.css</li>
+        </ul>
+        <h3>Códigos</h3>
+
+        <h4>En config.php</h4>
+        <div class="code">
+            <pre>
+            <code class="language-php">
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'tutologin');
+define('DB_CHARSET', 'utf8');
+            </code>
+        </pre>
+        </div>
+
+        <h4>En index.php</h4>
+        <div class="code">
+            <pre>
+            <code class="language-php">
+&lt?php
+
+$title = 'Modelo Vista Controlador';
+
+?&gt
+&lt!DOCTYPE html&gt
+&lthtml lang="en"&gt
+
+&lthead&gt
+    &ltmeta charset="UTF-8"&gt
+    &ltmeta http-equiv="X-UA-Compatible" content="IE=edge"&gt
+    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt
+    &lttitle&gt&lt?php echo $title; ?&gt&lt/title&gt
+    &ltlink rel="stylesheet" href="./style.css?Version: 1.0.1"&gt
+&lt/head&gt
+
+&ltbody&gt
+    &lth1&gt&lt?php echo $title; ?&gt&lt/h1&gt
+    &lt?php
+
+    require_once 'Controller/usuarios_controller.php';
+    //Al pulsar cualquier botón de acción pasamos por la URL el método que queremos ejecutar
+    $metodo = $_GET['m'] ?? '';
+    //Si existe el método dentro clase, lo ejecuta, sino, muestra el formulario
+    if (method_exists('Usuarios_Controller', $metodo)):
+        Usuarios_Controller::{$metodo}();
+    else :
+        Usuarios_Controller::index();
+    endif;
+
+    ?&gt
+&lt/body&gt
+
+&lt/html&gt
+            </code>
+        </pre>
+        </div>
+
+        <h4>En style.css</h4>
+        <div class="code">
+            <pre>
+            <code class="language-css">
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 142px);
+}
+
+.col {
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+            </code>
+        </pre>
+        </div>
+
+        <h4>En model/connect.php</h4>
+        <div class="code">
+            <pre>
+            <code class="language-php">
+class Connect {
+
+    public static function connection(){
+        require_once 'config.php';
+        try {
+            $connection = new PDO(
+                'mysql:host='. DB_HOST.
+                ';dbname='. DB_NAME.
+                ';charset='. DB_CHARSET, 
+                DB_USER, 
+                DB_PASS
+            );
+            $connection-&gtsetAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $connection-&gtexec('SET CHARACTER SET ' . DB_CHARSET);
+            return $connection;
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e-&gtgetMessage() . '&ltbr&gt';
+            echo 'Line error: ' . $e-&gtgetLine() . '&ltbr&gt';
+        }
+    }
+}
+            </code>
+        </pre>
+        </div>
+
+        <h4>En model/paginacion.php</h4>
+        <div class="code">
+            <pre>
+            <code class="language-php">
+$tamanio_paginas = 3;
+
+require_once 'connect.php';
+
+$db = Connect::connection();
+$table = array();
+//En la vista de la tabla usuario hemos creado una paginación la cual contiene las URLs que pasaremos aquí
+if (isset($_GET['pagina'])) {
+    if ($_GET['pagina'] == 1) {
+        header('Location: index.php');
+    } else {
+        $pagina = $_GET['pagina'];
+    }
+} else {
+    $pagina = 1;
+}
+
+//Usaremos esta variable en el modelo para saber desde donde crear el límite de la consulta
+$empezar_desde = ($pagina - 1) * $tamanio_paginas;
+
+$sql = "SELECT * FROM usuarios";
+$query = $db-&gtprepare($sql);
+$query-&gtexecute();
+$usuarios = $query-&gtfetchAll(PDO::FETCH_OBJ);
+$query-&gtcloseCursor();
+//Y esta otra para saber hasta dónde poner el límite
+$total_paginas = ceil(count($usuarios) / $tamanio_paginas);
+//Por lo que la función del modelo que vaya a mostrar los usuarios haremos una llamada a este archivo
+        </code>
+        </pre>
+        </div>
+
+        <h4>En model/usuarios_model.php</h4>
+        <div class="code">
+            <pre>
+            <code class="language-php">
+class usuarios_model{
+    private $db;
+    
+    public function __construct(){
+        require_once 'connect.php';
+        
+        $this-&gtdb = Connect::connection();
+        $this-&gttable = array();
+    }
+    
+    public function get_all(){
+        require 'paginacion.php';
+        $sql = "SELECT * FROM usuarios LIMIT $empezar_desde, $tamanio_paginas";
+        $query = $this-&gtdb-&gtprepare($sql);
+        $query-&gtexecute();
+        $row = $query-&gtfetchAll(PDO::FETCH_OBJ);
+        $query-&gtcloseCursor();
+        return $row;
+    }
+
+    public function insert($usuario, $password){
+        $sql = "INSERT INTO usuarios (usuario, password) VALUES (:usuario, :password)";
+        $query = $this-&gtdb-&gtprepare($sql);
+        $query-&gtbindParam(':usuario', $usuario, PDO::PARAM_STR);
+        $query-&gtbindParam(':password', $password, PDO::PARAM_STR);
+        $query-&gtexecute();
+        $query-&gtcloseCursor();
+    }
+
+    public function delete($id){
+        $sql = "DELETE FROM usuarios WHERE id = :id";
+        $query = $this-&gtdb-&gtprepare($sql);
+        $query-&gtbindParam(':id', $id);
+        $query-&gtexecute();
+        $query-&gtcloseCursor();
+    }
+
+    public function select($id){
+        $sql = "SELECT * FROM usuarios WHERE id = :id";
+        $query = $this-&gtdb-&gtprepare($sql);
+        $query-&gtbindParam(':id', $id);
+        $query-&gtexecute();
+        $row = $query-&gtfetch(PDO::FETCH_OBJ);
+        $query-&gtcloseCursor();
+        return $row;
+    }
+
+    public function update($usuario, $password, $id){
+        $sql = "UPDATE usuarios SET usuario = :usuario, password = :password WHERE id = :id";
+        $query = $this-&gtdb-&gtprepare($sql);
+        $query-&gtbindParam(':usuario', $usuario);
+        $query-&gtbindParam(':password', $password);
+        $query-&gtbindParam(':id', $id);
+        $query-&gtexecute();
+        $query-&gtcloseCursor();
+    }
+
+}
+            </code>
+        </pre>
+        </div>
+
+        <h4>En controller/usuarios_controller.php</h4>
+        <div class="code">
+            <pre>
+            <code class="language-php">
+require_once 'Model/usuarios_model.php';
+//En general hacemos una llamada a la clase usuarios_model, usamos una de sus funciones según convenga y llamamos al archivo view que queremos mostrar
+class Usuarios_Controller {
+
+    static function index() {
+        $table = new Usuarios_model();
+
+        $arrTable = $table-&gtget_all();
+        require_once 'View/usuarios_view.php';
+    }
+
+    static function insert() {
+        require_once 'View/usuarios_view.php';
+        $insertarUsuario = new Usuarios_model();
+        $insertarUsuario-&gtinsert($_POST['usuario'], $_POST['password']);
+        //A pesar que en el formulario este se hace una llamada a sí mismo, lo hacemos así para que recargue la página y se vea la actualización de la tabla
+        header('Location: index.php');
+    }
+
+    static function delete() {  
+        $deleteUsuario = new Usuarios_model();
+        $deleteUsuario-&gtdelete($_GET['id']);
+        header('Location: index.php');
+    }
+
+    static function edit() {
+        $usuario = new Usuarios_model();
+        $id = $_GET['id'];
+        $arrTable = $usuario-&gtselect($id);
+        require_once 'View/edit.php';
+    }
+
+    static function update() {
+        $updateUsuario = new Usuarios_model();
+        $updateUsuario-&gtupdate($_POST['usuario'], $_POST['password'], $_GET['id']);
+        header('Location: index.php');
+    }
+}
+            </code>
+        </pre>
+        </div>
+
+        <h4>En View/usuarios_view.php</h4>
+        <div class="code">
+            <pre>
+                <code class="language-php">
+require 'Model/paginacion.php';
+//Como hacemos la insercción en el mismo sitio, al cargar primero vemos si hemos pasado por el formulario de inserción
+if (isset($_POST['create']) && $_POST['usuario'] !== '' && $_POST['password'] !== '') {
+    Usuarios_Controller::insert();
+}
+
+?&gt
+&lth2&gtUsuarios&lt/h2&gt
+//Creamos la tabla a modo de formulario para la insercción, que cuando se ejecute, llamará a la función insert y volverá a sí misma
+&ltform action="&lt?php echo $_SERVER['PHP_SELF'] ?&gt" method="post"&gt
+    &ltdiv class="table"&gt
+        &ltdiv class="row"&gt
+            &ltdiv class="col"&gtID&lt/div&gt
+            &ltdiv class="col"&gtUsuario&lt/div&gt
+            &ltdiv class="col"&gtPassword&lt/div&gt
+        &lt/div&gt
+        &lt?php
+
+        foreach ($arrTable as $row) {
+            echo '&ltdiv class="row"&gt';
+            echo '&ltdiv class="col"&gt' . $row-&gtid . '&lt/div&gt';
+            echo '&ltdiv class="col"&gt' .  $row-&gtusuario . '&lt/div&gt';
+            echo '&ltdiv class="col"&gt' .  $row-&gtpassword . '&lt/div&gt';
+            echo "&ltdiv class='col'&gt&lta href='index.php?m=edit&id={$row-&gtid}'&gtEditar&lt/a&gt&lt/div&gt";
+            echo "&ltdiv class='col'&gt&lta href='index.php?m=delete&id={$row-&gtid}'&gtBorrar&lt/a&gt&lt/div&gt";
+            echo '&lt/div&gt';
+        }
+        ?&gt
+
+        &ltdiv class="row"&gt
+            &ltdiv class="col"&gt&lt/div&gt
+            &ltdiv class="col"&gt&ltinput type="text" name="usuario" size="10"&gt&lt/div&gt
+            &ltdiv class="col"&gt&ltinput type="text" name="password" size="10"&gt&lt/div&gt
+            &ltdiv class="col"&gt&ltinput type="submit" name="create" id="create" value="Insertar" size="10"&gt&lt/div&gt
+        &lt/div&gt
+        &lt?php
+
+        for ($i = 1; $i &lt= $total_paginas; $i++) {
+            echo "&lta href='?pagina=" . $i . "'&gt" . $i . "&lt/a&gt ";
+        }
+
+        ?&gt
+
+    &lt/div&gt
+&lt/form&gt
+                </code>
+            </pre>
+        </div>
+
+        <h4>En View/edit.php</h4>
+        <div class="code">
+            <pre>
+                <code class="language-php">
+&lth2&gtEditar Usuario&lt/h2&gt
+&ltform action='&lt?php echo "index.php?m=update&id={$id}" ?&gt' method="post"&gt
+    &lt!-- Create inputs for user edition --&gt
+    &ltdiv class="form-group"&gt
+        &ltlabel for="id"&gtID&lt/label&gt
+        &ltinput type="text" class="form-control" id="id" name="id" value="&lt?php echo $id; ?&gt" readonly&gt
+    &lt/div&gt
+    &ltdiv class="form-group"&gt
+        &ltlabel for="usuario"&gtUsuario&lt/label&gt
+        &ltinput type="text" class="form-control" id="usuario" name="usuario" value="&lt?php echo $arrTable-&gtusuario; ?&gt"&gt
+    &lt/div&gt
+    &ltdiv class="form-group"&gt
+        &ltlabel for="password"&gtPassword&lt/label&gt
+        &ltinput type="text" class="form-control" id="password" name="password" value="&lt?php echo $arrTable-&gtpassword; ?&gt"&gt
+    &lt/div&gt
+    &lta href="/"&gt&ltbutton type="submit"&gtEditar&lt/button&gt&lt/a&gt
+
+&lt/form&gt
+                </code>
+            </pre>
+        </div>
+</section>

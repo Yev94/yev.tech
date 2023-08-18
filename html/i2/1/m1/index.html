@@ -1,0 +1,37 @@
+<h1>Lógica</h1>
+<section>
+  <h2>Frases Trikies</h2>
+  <ul>
+    <li>Es cierto A a menos que sea falso B</li>
+    <p>¬A → ¬B</p>
+    <p>Viene de: No A a menos que B (A → B)</p>
+    <li> A menos que sea cierto B, es falso A, pero cierto C</li>
+    <p>¬(¬A ∧ C) → B</p>
+    <p>Viene de: No A a menos que B (A → B)</p>
+    <li>Si es cierto A y B, no lo es C ni D</li>
+    <p>A ∧ B → ¬C ∧ ¬D</p>
+    <p>Viene de: si A entonces B</p>
+    <li>Sólo si es falso A o falso B, pero cierto D, entonces es cierto B</li>
+    <p>B → ( ¬A ∨ ¬B ) ∧ D</p>
+    <p>Viene de: A solo si B</p>
+    <li>No es suficiente, pero sí necesario, que sea cierto A o B para que sea cierto C</li>
+    <p>¬ ( A ∨ B → C ) ∧ ( C → A ∨ B )</p>
+    <p>Viene de:</p>
+    <ul>
+      <li>A es suficiente para B (→)</li>
+      <li>B es necesario para A (→)</li>
+      <li>A pero B (∧)</li>
+    </ul>
+    <li>No es necesario que sea falso B, pero cierto C, para que sea cierto A</li>
+    <p>¬( A → ¬B ∧ C ) </p>
+    <p>Viene de: B es necesario para A</p>
+    <li>Si es cierto A y B entonces, si no es cierto C, pero sí lo es D tenemos que es falso A o es falso B</li>
+    <p>A ∧ B → (¬C ∧ D → ¬A ∨ ¬B)</p>
+    <p>Solo fíjate en las comas</p>
+    <li>Sólo si Ana lee, no estudia ni es novia de Miguel</li>
+    <p>Fbf-4: ¬es ∧ ¬am → le</p>
+  </ul>
+</section>
+<section>
+  <h1>Prolog</h1>
+</section>

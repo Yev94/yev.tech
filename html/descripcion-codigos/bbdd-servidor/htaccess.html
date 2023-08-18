@@ -1,0 +1,27 @@
+<h1>Archivos .htaccess</h1>
+<p>Sirven, entre otras cosas, para gestionar las entradas a nuestro servidor</p>
+<p>Este archivo viene definido por Apache</p>
+<section>
+    <h2><a href="https://www.youtube.com/watch?v=oDYkF0RS8u4&list=WL&index=36">Hacer redirecciones con Regex</a></h2>
+</section>
+<section>
+    <h2>Hacer redirecciones 301</h2>
+    <p>Al principio de la línea escribir:</p>
+    <p>redirect 301 /url-antigua-relativa https://url-nueva-absoluta</p>
+    <p>Relativa significa que es SIN el dominio y absoluta es CON el dominio</p>
+    <p>En Wordpress con Yoast se puede acceder al archivo a través del plugin en:</p>
+    <p>Herramientas > Editor de archivos</p>
+    <a href="https://www.youtube.com/watch?v=4RIc_nOizes">Vidumentación</a>
+</section>
+<section>
+    <h2>No permitir entrar en directorios</h2>
+    <p>Options All -Indexes</p>
+</section>
+<section>
+    <h2>Crear URLs amigables</h2>
+    <p>Options -MultiViews</p>
+    <p>RewriteEngine On</p>
+    <h3>Creamos una regla para que cuando ponga cualquier cosa no deseada en la URL redirecciones a index.php</h3>
+    <p>RewriteCond %{REQUEST_FILENAME} !-f</p>
+    <p>RewriteRule ^ index.php [QSA,L]</p>
+</section>

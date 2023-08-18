@@ -1,0 +1,78 @@
+<h1>Cómo ordenar un array de 1D? (Mi 1ª solución)</h1>
+<h2>En Java Script</h2>
+<div class="code">
+    <pre>
+        <code class="language-javascript">
+var arr = [];
+let l = 200000;
+for(let i = 0; i &lt l; i++){
+    arr.push(Math.floor(Math.random()*l));
+}
+
+function ordenar(arr){
+    let max = 0;
+    let min = 0;
+    let indice = 0;
+    // Empezamos a recorrer el array
+    for(let i = 0; i &lt arr.length; i++){
+        min = arr.length -i; //El minimo del indice ser a partir del final e ira moviendose a la izquiera a medida que vamos recorriendo el array principal
+        max = arr.length; // El maximo sera el ultimo indice del array
+
+        do{
+            //calculamos y nos posicionamos en la mitad entre el inidice maximo y el minimo
+            indice = min + Math.ceil((max - min) / 2);
+
+            // Si el numero que nos pasan es mayor o igual al que encuentra en la mitad pondremos el minimo = al indice para que en la siguiente vuelta busque por arriba de esta mitad
+            //En caso contrario pondremos el el maximo como indice para que en la siguiente vuelva busque entre el minimo anterior y el maximo de ahora, es decir, que buscará debajo de la mitad
+            if(arr[0] &gt= arr[indice]) {
+                min = indice;
+            }
+            else max = indice;
+        //Todo esto hasta que estemos entre los 2 indices mayores y menores al numero entre nuestro conjunto posicionado
+        }while((max - min) &gt 1)
+
+        //Si el numero a evaluar es mayor al indice, lo posicionamos por encima y, si es menor al del indice lo posiconamos por debajo de nuestro conjunto
+        if(arr[0] &gt= arr[min]) {
+            arr.splice(min +1, 0, arr[0]);
+        }
+        else arr.splice(min, 0, arr[0]);
+        arr.shift();
+        
+    }
+    return arr;
+}
+
+//Imprimimos el array
+document.write(ordenar(arr) + "");
+        </code>
+    </pre>
+</div>
+<h3>Búsqueda</h3>
+<img src="./img/2021-12-12 04-09-30.png" alt="Busqueda por mitades">
+<p>La búsqueda se realiza por mitades buscando en cada vuelta si el numero de la mitad es mayor o menor.</p>
+<p>Si es nuestro numero a ordenar (num1) es mayor al de la mitad, entonces el número de la mitad será el
+    mínimo para la siguiente vuelta.</p>
+<p>Si es nuestro numero a ordenar (num1) es menor al de la mitad, entonces el número de la mitad será el
+    máximo para la siguiente vuelta.</p>
+<p>Para posicionarnos siempre a la mitad sumaremos al minimo la mitad de la diferencia entre Max y Min.</p>
+<p>Haremos la búsqueda hasta que la diferencia ente Max - Min = 1</p>
+<img src="./img/2021-12-12 04-19-33.png" alt="Final de la búsqueda">
+<p>Para terminar veremos si el el num1 es mayor o menor para posicionarlo por encima o por debajo de este.
+</p>
+<h3>Ordenación</h3>
+<img src="./img/2021-12-12 04-20-45.png" alt="Ordenación array">
+<p>Para ordenar el array iremos uno a uno desde el principio poniendo el numero al final, y a partir del
+    final iremos buscado si el siguiente número está por encima o por debajo como se explica anteriormente.
+</p>
+<p>Por lo que la búsqueda se hará desde el final del array, empezando por el primer numero ordenado y
+    terminando al final del array la búsqueda.</p>
+<h3>Algunos números orientativos</h3>
+<img src="./img/2021-12-12 04-42-52.png" alt="Gráfico orientativo velocidad resolución">
+<h3>Consideraciones</h3>
+<p>Por otro lado, una forma de ordenar de manera muchísimo más rapido es con el algoritmo Quick Sort que
+    coge el primer elemento y pivota al resto a izquierda o derecha, y luego de cada uno de los conjuntos
+    coge el primer elemento y los vuelve a pivotar otros 2 conjuntos, y así sucesivamente</p>
+<p>La idea detrás de este algoritmo y de otros similares es fragmentar el conjunto para trabajarlos de forma
+    independiente.</p>
+<p>Este divide el Array por la mitad, según el número a ordenar, y ello lo hace de manera iterativa.</p>
+<img src="./img/2021-12-11 04-25-16.png" alt="Ordenación con algoritmo Quick Sort">

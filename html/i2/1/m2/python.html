@@ -1,0 +1,40 @@
+<h1>Python para M2</h1>
+<section>
+  <h2>A saber</h2>
+  <h3>Enumerate</h3>
+  <p>Un objeto enumerate es un iterador que devuelve una secuencia de pares (índice, valor) a partir de otro iterable</p>
+  <p>Para acceder al mismo se puede convertir en una lista o una tupla con las funciones list() o tuple()</p>
+  <p>Pero es más eficaz recorrerlo con un for</p>
+</section>
+<section>
+  <h2>Librerías</h2>
+  <ul>
+    <li><b>Math</b>: Librería primitivas matemáticas nativas de Python.</li>
+
+    <li><b>Sympy</b>: Librería para facilitar la realización de cálculos matemáticos con variables sin necesidad de definir funciones nativas de Python.</li>
+    <ul>
+      <li>from sympy.plotting import plot as symplot # Librería para las gráficas</li>
+      <li>from sympy.abc import x, y, h # Carga de un simbólico "x"</li>
+      <li>from sympy.plotting.pygletplot import PygletPlot as Plot # Librería para las gráficas</li>
+    </ul>
+    <li><b>Scipy</b>: Librería con diversas funciones para matemáticas e ingeniería.</li>
+
+    <li><b>Numpy</b>: Librería para realizar cálculos y manipulación numérica.</li>
+
+    <li><b>Matplotlib</b>: Librería para gráficos.</li>
+  </ul>
+</section>
+<section>
+  <h2>Para que se vea mejor jupyter</h2>
+<div class="code">
+  <pre>
+    <code class="language-python">
+# Para imprimir todas las líneas
+from IPython.core.interactiveshell import InteractiveShell
+#InteractiveShell.ast_node_interactivity = "all"
+# Solo la última
+InteractiveShell.ast_node_interactivity = "last_expr"
+    </code>
+  </pre>
+</div>
+</section>
