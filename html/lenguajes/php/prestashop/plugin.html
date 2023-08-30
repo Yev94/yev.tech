@@ -1,0 +1,170 @@
+<h1>Crear Plugin PrestaShop</h1>
+<section>
+  <p>Crear carpeta con el mismo nombre que el archivo PHP</p>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+&lt;?php
+if (!defined('_PS_VERSION_')) {
+exit;
+}
+
+class NombreModulo extends Module
+{
+  public function __construct()
+  {
+    // El nombre del módulo debe de ser igual que del archivo PHP
+    $this-&gt;name = 'nombremodulo';
+    $this-&gt;tab = 'front_office_features';
+    $this-&gt;version = '1.0.0';
+    $this-&gt;author = 'Yev Tech from NDC';
+    $this-&gt;need_instance = 0;
+
+    parent::__construct();
+
+    $this-&gt;displayName = $this-&gt;l('Título Módulo');
+    $this-&gt;description = $this-&gt;l('Descripción Módulo');
+
+    $this-&gt;confirmUninstall = $this-&gt;l('¿Estás seguro de querer desinstalar?');
+  }
+
+  public function install()
+  {
+    // Registramos todos los Hooks que vamos a usar
+    return parent::install() &&
+      $this-&gt;registerHook('displayHeader') &&
+      $this-&gt;registerHook('displayAfterBodyOpeningTag');// && $this-&gt;registerHook('siguienteHook') &&...
+  }
+
+  // Las funciones de flecha no pueden acceder a $this directamente en versiones anteriores a PHP 8.0. 
+  // Sin embargo, a partir de PHP 8.0, las funciones de flecha pueden acceder a $this
+
+  // Las funciones de flecha no pueden tener modificadores de acceso (como public, private...) por eso pondrían como: 
+  // $miFuncion = fn() => '&lt;div class="mensaje-desarrollo"> Heey &lt;/div&gt;';
+  // Y pasarían a ser propiedades y no métodos
+
+  // Por todo esto se tiene que mantener como está
+
+  public function uninstall()
+  {
+    return parent::uninstall();
+  }
+
+  private function miFuncion()
+  {
+    return '&lt;div class="mensaje-desarrollo"&gt; Heey &lt;/div&gt;';
+  }
+
+  private function rutaCSS()
+  {
+    return $this-&gt;_path . 'views/css/estilo.css';
+  }
+
+  public function hookDisplayHeader()
+  {
+    $this-&gt;context-&gt;controller-&gt;addCSS($this-&gt;rutaCSS());   
+  }
+
+  public function hookDisplayAfterBodyOpeningTag(){
+    return $this-&gt;miFuncion();
+  }
+}
+        </code>
+    </pre>
+  </div>
+</section>
+
+<section>
+  <h2>Hooks</h2>
+  <h3>Instalación</h3>
+  <p>Registramos todos los Hooks que vamos a usar (las funciones hook deben ser públicas).</p>
+  <p>En la instalación tendrán el nombre normal y en la función iran con el prefijo hook al estilo camel case.</p>
+  <p>En el ejemplo se registra el hook "displayHeader" que tendrá la función "public function hookDisplayHeader()".</p>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+public function install()
+{
+  // Registramos todos los Hooks que vamos a usar
+  return parent::install() &&
+    $this-&gt;registerHook('displayHeader') &&
+    $this-&gt;registerHook('displayAfterBodyOpeningTag');// && $this-&gt;registerHook('siguienteHook') &&...
+}
+        </code>
+    </pre>
+  </div>
+  
+  <h4>Ejemplo de Función</h4>
+  <p>Las funciones de Hook tienen que ser públicas</p>
+  <div class="code">
+    <pre>
+      <code class="language-php">
+public function hookDisplayHeader()
+{
+  $this-&gt;context-&gt;controller-&gt;addCSS($this-&gt;rutaCSS());   
+}
+private function rutaCSS(){
+  return $this-&gt;_path . 'views/css/estilo.css';
+}
+      </code>
+    </pre>
+  </div>
+
+  <h3>Hooks</h3>
+  <div class="code">
+    <pre>
+      <code class="language-php">
+public function hookDisplayHeader(){};                  // head front
+public function hookDisplayAdminAfterHeader(){};        // head back
+public function hookDisplayAfterBodyOpeningTag(){};     // body front
+public function hookActionAdminControllerSetMedia()
+{$this->context->controller->addCSS($this->rutaCSS());} // CSS y JS back
+      </code>
+    </pre>
+  </div>
+  
+</section>
+
+<h1>Cosas interesantes que se ha inventado Copilot</h1>
+<section>
+  <h2>Crear archivo de configuración</h2>
+  <p>Crear archivo config.xml en la carpeta del módulo</p>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;module>
+  &lt;name>Nombre del Módulo&lt;/name>
+  &lt;displayName><![CDATA[Título Módulo]]></displayName>
+  &lt;description><![CDATA[Descripción Módulo]]></description>
+  &lt;version>1.0.0&lt;/version>
+  &lt;author><![CDATA[Yev Tech from NDC]]></author>
+  &lt;tab>front_office_features&lt;/tab>
+  &lt;confirmUninstall>¿Estás seguro de querer desinstalar?&lt;/confirmUninstall>
+  &lt;ps_version_compliancy min="
+  &lt;ps_version_compliancy max="
+  &lt;dependencies>
+    &lt;php>
+      &lt;min>5.6.0&lt;/min>
+      &lt;max>7.1.99&lt;/max>
+    &lt;/php>
+  &lt;/dependencies>
+&lt;/module>
+        </code>
+    </pre>
+  </div>
+</section>
+<section>
+  <h2>Crear archivo de traducción</h2>
+  <p>Crear archivo es.php en la carpeta translations</p>
+  <div class="code">
+    <pre>
+        <code class="language-php">
+&lt;?php
+$_MODULE = array();
+$_MODULE['<{nombremodulo}prestashop>nombremodulo_1.0.0_1d1b0d6d4b1e4daba6b3c8baa8a7d6d6'] = 'Título Módulo';
+$_MODULE['<{nombremodulo}prestashop>nombremodulo_1.0.0_8b2e38b1190fe7c4546f89769cfae7d3'] = 'Descripción Módulo';
+        </code>
+    </pre>
+  </div>
+</section>
