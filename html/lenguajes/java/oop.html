@@ -1,0 +1,78 @@
+<h1>OOP</h1>
+<h2>Creación de Objetos</h2>
+<p>La visibilidad por defecto es a nivel de paquete (protected)</p>
+<section>
+  <p>En Main.java</p>
+  <div class="code">
+    <pre>
+        <code class="language-java">
+public class Main {
+  public static void main(String[] args) {
+    // Definimos un objeto (c1) del tipo Circle
+    // Instanciamos la clase Circle (es decir que la llamamos) y reservamos espacio en memoria
+    Circle c1 = new Circle(2); // Reserva espacio en memoria para los ATRIBUTOS del objeto
+    // Luego se inicializa el contructor del objeto
+    // y por último devuelve el valor de la primera posición reservada en memoria del objeto
+    // y se guarda en c1
+    
+    Circle c2 = new Circle(4);
+    
+    Circle c3 = c1; // Apunta al objeto c1 ( c3->c1 )
+    // Diremos que son el mismo objeto (Comparte identidad y estado)
+    // Identidad: Las carcteristicas del objeto que se encuentran en memoria (si se comparte identidad se comparte estado)
+    // Estado: El valor de la clase en la inicialziación
+    
+    Circle c4 = new Circle(); // instanciamos el objeto con el contructor sobrecargado que no recibe parámetros
+    
+    System.out.println(c1.getRadius());
+    System.out.println(Circle.PI); // Como es un atributo de clase, tenemos que acceder al mismo desde el nombre de la clase y no de la instancia
+    System.out.println(c2.getRadius());
+    System.out.println(c3.getRadius());
+    System.out.println(c4.getRadius());
+  }
+}
+        </code>
+    </pre>
+</div>
+  <p>En Circle.java</p>
+<div class="code">
+    <pre>
+        <code class="language-java">
+// Esta clase es una abstracción de lo que es un circulo
+// Encapsula los atributos y métodos que manipulan la entidad (encapsula los elementos necesarios de esta abstracción en una sola clase)
+public class Circle {
+  private double r; // Creamos un atributo de instancia (es decir, un atributo que será una copia, en contraposición a los objetos de clase que son referencias)
+  // Usamos final como constante
+  // Usamos static para que solo se cree una ve en memoria y luego ya se usa en todos lados
+  public final static double PI = 3.141592;
+  // Creamos el método constructor de la clase
+  public Circle(double radius) {
+    if (radius >= 0)
+      r = radius;
+    else 
+      //TODO: Throw new exception
+      r = 1.0;
+  }
+  
+  // Vamos a sobrecargar el método contrstructor (Overloading)
+  public Circle() {
+      r = 1.0;
+  }
+  
+  public double getRadius() {
+    return r;
+  }
+  
+  public double getArea() {
+    return PI * r * r;
+  }
+  
+  // El modificador static en una función solo funciona con variables estáticas
+  public static double sqrtPI() {
+    return Math.sqrt(PI);
+  }
+}          
+        </code>
+    </pre>
+</div>
+</section>

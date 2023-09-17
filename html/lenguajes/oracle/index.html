@@ -1,0 +1,112 @@
+<h1>⭕ Oracle</h1>
+<style>
+  @media screen and (min-width:750px) {
+    tr td:first-child {
+      width: 350px;
+    }
+  }
+</style>
+<h3>BBDD</h3>
+<table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Mostrar las BBDD (instancias)</td>
+      <td>SELECT * FROM v$instance; -- ó gv$instance para las del cluster</td>
+    </tr>
+</table>
+
+<h3>Ver info Tablas</h3>
+<table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Ver todas las tablas de todos los esquemas</td>
+      <td>SELECT <b>owner, table_name</b> FROM <b>all_tables</b>;</td>
+    </tr>
+    <tr>
+      <td>Ver todas las tablas del esquema actual</td>
+      <td>SELECT <b>table_name</b> FROM <b>user_tables</b>;</td>
+    </tr>
+    <tr>
+      <td>Ver info columnas de tabla</td>
+      <td>
+        SELECT <b>OWNER, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, NULLABLE, DATA_DEFAULT</b></br>
+        FROM <b>ALL_TAB_COLUMNS</b></br>
+        WHERE <b>TABLE_NAME</b> = <i>'USUARIO'</i>;
+      </td>
+    </tr>
+</table>
+
+<h3>Ver Datos</h3>
+<h5>Según Campos</h5>
+<table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Seleccionar campos tabla</td>
+      <td><b>SELECT</b> <i>camp</i> <b>FROM</b> <i>nomTab</i></td>
+    </tr>
+    <tr>
+      <td>Todos los campos</td>
+      <td>camp = *</td>
+    </tr>
+    <tr>
+      <td>Varios campos concretos</td>
+      <td>camp = <i>nomCamp1</i>, <i>nomCamp2</i>...</td>
+    </tr>
+    <tr>
+      <td>Ver campo con fórmula</td>
+      <td>camp = <i>nomCamp</i>*2 <b>AS</b> <i>campDoble</i></td>
+    </tr>
+    <tr>
+      <td>Ver campo sin repetir val</td>
+      <td>camp = <b>DISTINCT</b> <i>nomCamp</i></td>
+    </tr>
+</table>
+
+<h5>Según Valor (Where)</h5>
+<table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Seleccionar campos tabla</td>
+      <td>SELECT <i>camp</i> FROM <i>nomTab</i> <b>WHERE</b> <i>condiW</i></td>
+    </tr>
+    <tr>
+      <td>Que val campo > x</td>
+      <td>condiW = <i>nomCamp </i> > x</td>
+    </tr>
+    <tr>
+      <td>Que val camp esté entre x,y</td>
+      <td>condiW = <i>nomCamp </i> <b>BETWEEN</b> x <b>AND</b> y</td>
+    </tr>
+    <tr>
+      <td>Que val camp NO entre x,y</td>
+      <td>condiW = <i>nomCamp </i> <b>NOT</b> BETWEEN x AND y</td>
+    </tr>
+    <tr>
+      <td>Que val camp sea x ó y</td>
+      <td>condiW: <i>nomCamp </i> = x <b>OR</b> <i>nomCamp </i> = y</td>
+    </tr>
+    <tr>
+      <td>Que val camp sea x ó y ó z ó...</td>
+      <td>condiW = <i>nomCamp </i> <b>IN</b> (x, y, z ...)</td>
+    </tr>
+    <tr>
+      <td>Algún campo termine en z</td>
+      <td>condiW = <i>nomCamp1</i> <b>LIKE</b> '<b>%</b><i>z</i>'  <b>OR</b> <i>nomCamp2</i> <b>LIKE</b> '<b>%</b><i>z</i>';</td>
+    </tr>
+    <tr>
+      <td>Cualquier char anterior-post</td>
+      <td>CharComodin = %</td>
+    </tr>
+    <tr>
+      <td>Cualquier char del indice</td>
+      <td>CharComodin = _</td>
+    </tr>
+    <tr>
+      <td>Que el valor sea null/No null</td>
+      <td>condiW = nomCamp <b>IS NULL</b> / <b>NOT NULL</b></td>
+    </tr>
+</table>
+
+<h5>Agrupando</h5>
+<table class="table table-hover table-dark" style="max-width: 1000px">
+  <tr>
+    <td>Columnas</td>
+    <td><b>SELECT</b> <i>nombre</i> <b>||</b> ' ' <b>||</b> <i>apellidos</i> AS <i>nombre_completo</i> FROM  <i>usuario</i></td>
+  </tr>
+</table>

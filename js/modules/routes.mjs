@@ -77,6 +77,9 @@ export let pages = {
     './html/descripcion-codigos/recursividad.html',
 
   '#/lenguajes': './html/lenguajes',
+  '#/lenguajes/java': './html/lenguajes/java',
+  '#/lenguajes/java/oop': './html/lenguajes/java/oop.html',
+  '#/lenguajes/java/estructuras': './html/lenguajes/java/estructuras.html',
   '#/lenguajes/js': './html/lenguajes/js',
   '#/lenguajes/js/funciones': './html/lenguajes/js/funciones.html',
   '#/lenguajes/js/conexiones-servidor': './html/lenguajes/js/conexiones-servidor.html',
@@ -95,7 +98,8 @@ export let pages = {
   '#/lenguajes/php/wordpress/insertar-redireccion-cf7': './html/lenguajes/php/wordpress/insertar-redireccion-cf7.html',
   '#/lenguajes/php/wordpress/plugin': './html/lenguajes/php/wordpress/plugin.html',
 
-  '#/lenguajes/sql': './html/lenguajes/sql',
+  '#/lenguajes/mysql': './html/lenguajes/mysql',
+  '#/lenguajes/oracle': './html/lenguajes/oracle',
   '#/lenguajes/bash-linux': './html/lenguajes/bash-linux',
   '#/lenguajes/bash-mac': './html/lenguajes/bash-mac',
   '#/lenguajes/cmd': './html/lenguajes/cmd',
@@ -104,6 +108,7 @@ export let pages = {
   '#/lenguajes/mips': './html/lenguajes/mips',
 
   '#/i2': './html/i2',
+  '#/i2/2/p3': './html/i2/2/p3',
   '#/i2/1/ec': './html/i2/1/ec',
   '#/i2/1/ec/tipos-instruccion': './html/i2/1/ec/tipos-instruccion.html',
   '#/i2/1/ec/elementos': './html/i2/1/ec/elementos',
