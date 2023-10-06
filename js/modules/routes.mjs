@@ -82,6 +82,7 @@ export let pages = {
   '#/lenguajes/java/estructuras': './html/lenguajes/java/estructuras.html',
   '#/lenguajes/js': './html/lenguajes/js',
   '#/lenguajes/js/funciones': './html/lenguajes/js/funciones.html',
+  '#/lenguajes/js/mutation': './html/lenguajes/js/mutation.html',
   '#/lenguajes/js/conexiones-servidor': './html/lenguajes/js/conexiones-servidor.html',
   '#/lenguajes/js/asincronia': './html/lenguajes/js/asincronia.html',
   '#/lenguajes/js/conexiones-archivos': './html/lenguajes/js/conexiones-archivos.html',
@@ -109,6 +110,8 @@ export let pages = {
 
   '#/i2': './html/i2',
   '#/i2/2/p3': './html/i2/2/p3',
+  '#/i2/2/so': './html/i2/2/so',
+  '#/i2/2/dbd': './html/i2/2/dbd',
   '#/i2/1/ec': './html/i2/1/ec',
   '#/i2/1/ec/tipos-instruccion': './html/i2/1/ec/tipos-instruccion.html',
   '#/i2/1/ec/elementos': './html/i2/1/ec/elementos',

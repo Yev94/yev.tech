@@ -1,0 +1,32 @@
+<h1>Mutation Observer</h1>
+<section>
+  <div class="code">
+    <pre>
+        <code class="language-js">
+function waitForElm(selector) {
+  return new Promise(resolve => {
+    if (document.querySelector(selector)) {
+      return resolve(document.querySelector(selector));
+    }
+
+    const observer = new MutationObserver(mutations => {
+      if (document.querySelector(selector)) {
+        resolve(document.querySelector(selector));
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(document, {
+      childList: true,
+      subtree: true
+    });
+  });
+}
+
+waitForElm('#loader img').then((elm) => {
+    document.querySelector("#loader img").setAttribute("src",'https://media.tenor.com/od9KTThn64oAAAAM/adventure-time-jake-the-dog.gif');
+
+});
+        </code>
+    </pre>
+</section>

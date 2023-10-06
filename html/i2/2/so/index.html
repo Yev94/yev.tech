@@ -1,0 +1,53 @@
+<h1>Sistemas Operativos</h1>
+
+<h2>Gestión de Procesos</h2>
+<section>
+  <img src="./img/23-09-23-14-26-29.png">
+  <p>Ref: <a target="_blank" href="https://www.youtube.com/watch?v=IAissu9rlqU&ab_channel=imesinet">Gestión de procesos (ISO - 3.2)</a></p>
+  <img src="./img/23-09-23-23-34-49.png">
+  
+</section>
+
+<h2>Bloque de Control de Procesos</h2>
+<section>
+  <img src="./img/23-09-23-16-22-43.png">
+  
+  <p>Estructura de datos del sistema que mantiene toda la información sobre un proceso.</p>
+  <p>Se crea cuando se crea un proceso y se destruye cuando el proceso termina.</p>
+  <p>Info que contiene:</p>
+  <ul>
+    <li>Identificador del proceso: PID, PPID (Nª del proceso padre)…</li>
+    <li>Estado de un proceso:</li>
+    <ul>
+      <li>Espera</li>
+      <li>Preparado</li>
+      <li>Ejecución</li>
+      <li>Bloqueado ó en Espera (La impresora se queda sin papel y toca es esperar a imprimir)</li>
+      <li>Espera</li>
+      </ul>
+    </ul>
+    <li>Registros de la CPU: CP, flags</li>
+    <li>Info de planificación de la CPU: prioridad, …</li>
+    <li>Info de gestión de memoria: punteros, tablas, registros, …</li>
+    <li>Información contable: tiempo consumido, límites de tiempo, …</li>
+    <li>Información de estado de E/S: lista de dispositivos de E/S, lista de archivos abiertos</li>
+  </ul>
+</section><p>Ref: <a target="_blank" href="https://www.youtube.com/watch?v=ewovrPs_PNw&ab_channel=SistemasOperativos">Bloques de Control de Procesos (BCP)</a></p>
+  <img src="./img/23-09-23-15-34-29.png">
+  
+</section>
+<section>
+  <p>Ref: <a target="_blank" href="https://www.youtube.com/watch?v=hQHHEz5Gv20&ab_channel=imesinet">Gestión de memoria RAM (ISO - 3.3)</a></p>
+</section>
+
+<h2>Cambio de Contexto</h2>
+<section>
+  <p>Esto es pasar de un proceso A a un Proceso B</p>
+  <p>Ello requiere Salvar el contenido del proceso a en ejecución a su PCB</p>
+  <p>Y cargar el contenido del PCB del proceso B en ejecución</p>
+  <img src="./img/23-09-24-00-03-37.png">
+  <p>Ref: <a target="_blank" href="https://www.youtube.com/watch?v=1PyrTTJ8seM&ab_channel=CursoSistemasOperativos">02 06 PCB y cambios de contexto
+  </a></p>
+  <img src="./img/23-09-24-00-05-29.png">
+  
+</section>
