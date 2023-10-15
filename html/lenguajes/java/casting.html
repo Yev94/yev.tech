@@ -1,0 +1,88 @@
+<h1>Casting (Conversión de objetos)</h1>
+<section>
+  <div class="code">
+    <pre>
+        <code class="language-java">
+public class Casting {
+  public static void main(String[] args) {
+    // Casting de primitivos
+    int edad = 25;
+    double edadDouble = edad; // Se puede hacer
+    System.out.println(edadDouble);
+
+    // Casting de enteros
+    int a = 5;
+    double b = 3.0;
+    // a = b; // No se puede hacer
+    a = (int) b; // Se puede hacer
+    System.out.println(a);
+
+    // Casting de flotantes
+    float c = 3.0f;
+    double d = 3.0;
+    // c = d; // No se puede hacer
+    c = (float) d; // Se puede hacer
+    System.out.println(c);
+
+    // Casting de objetos
+    Object obj = "Hola";
+    String str = (String) obj;
+    System.out.println(str);
+
+    // Casting de clases
+    Animal animal = new Perro();
+    Perro perro = (Perro) animal;
+    perro.hacerSonido();
+    
+    // Casting de arreglos
+    Integer [] arrInt = {(Integer)2,4};
+    Number [] arrNum = arrInt;
+    arrNum[0] = 3.14;
+    System.out.println(arrNum[0]);
+  }
+}
+        </code>
+    </pre>
+  </div>
+</section>
+<section>
+  <div class="code">
+    <pre>
+        <code class="language-java">
+class Animal {
+  public void hacerSonido() {
+      System.out.println("Algún sonido genérico de animal");
+  }
+}
+
+class Perro extends Animal {
+  public void hacerSonido() {
+      System.out.println("Ladrido");
+  }
+
+  public void perseguirCola() {
+      System.out.println("El perro está persiguiendo su cola");
+  }
+}
+
+public class EjemploCasting {
+  public static void main(String[] args) {
+      // Crear una referencia de tipo Animal que apunta a un objeto de tipo Perro
+      Animal animalRef = new Perro();
+
+      // Verificar si animalRef es realmente un Perro antes de hacer el casting
+      if (animalRef instanceof Perro) {
+          // Hacer el casting de manera segura
+          Perro perroRef = (Perro) animalRef;
+
+          // Ahora puedes acceder a los métodos específicos de Perro
+          perroRef.perseguirCola();
+      } else {
+          System.out.println("El objeto no es un Perro, no se puede hacer el casting");
+      }
+  }
+}
+        </code>
+    </pre>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+<h1>C para Sistemas Operativos</h1>
+<h2>Fork()</h2>
+<iframe src="https://www.youtube.com/embed/gs8Imm9blEM?si=VF4pi2Oc3zeamLog" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<section>
+  <div class="code">
+    <pre>
+        <code class="c">
+#include <unistd.h> // UNIX. Para el fork()
+#include <stdio.h> // I/O. Para printf()
+#include <stdlib.h> // Asignación de memoria y Control de procesos. Para exit()
+int main()
+{
+  pid_t pid; // pid_t: tipo de dato para representar IDs de proceso
+  pid = fork(); // pid <- PID del fork
+  // PID = -1 si - NO crea hijo
+  // PID = 0  si - SI crea hijo
+
+  // Caso hijo:  pid  = 0,       getpid() = pid hijo,  getppid() = pid padre
+  // Caso padre: pid = pid hijo, getpid() = pid padre, getppid() = pid abuelo
+  switch (pid)
+  {
+  case -1:
+    printf("No he podido crear el proceso hijo \n");
+    break;
+  case 0:
+    // %d devuelve dígito parámetro printf
+    // getpid() return PID (PID hijo en este caso)
+    // getppid() return PPID (PID padre en este caso)
+    printf("Soy el hijo, mi PID es %d y mi PPID es %d \n", getpid(), getppid());
+    sleep(20);
+    break;
+  default:
+    // getpid() return PID (PID padre en este caso)
+    // pid <- PID del hijo
+    printf("Soy el padre, mi PID es %d y el PID de mi hijo es %d \n", getpid(), pid);
+    sleep(30);
+  }
+  printf("Final de ejecución de %d \n", getpid());
+  exit(0);
+}
+        </code>
+    </pre>
+  </div>
+</section>

@@ -77,15 +77,30 @@ export let pages = {
     './html/descripcion-codigos/recursividad.html',
 
   '#/lenguajes': './html/lenguajes',
+  '#/lenguajes/c': './html/lenguajes/c',
+  '#/lenguajes/c/so': './html/lenguajes/c/so.html',
+  '#/lenguajes/c/flujo': './html/lenguajes/c/flujo.html',
+  '#/lenguajes/c/funciones': './html/lenguajes/c/funciones.html',
+  '#/lenguajes/c/tiposvar': './html/lenguajes/c/tiposvar.html',
+  '#/lenguajes/c/punteros': './html/lenguajes/c/punteros.html',
+  
   '#/lenguajes/java': './html/lenguajes/java',
+  '#/lenguajes/java/terminal': './html/lenguajes/java/terminal.html',
+  '#/lenguajes/java/casting': './html/lenguajes/java/casting.html',
   '#/lenguajes/java/oop': './html/lenguajes/java/oop.html',
+  '#/lenguajes/java/funciones': './html/lenguajes/java/funciones.html',
+  '#/lenguajes/java/tiposvar': './html/lenguajes/java/tiposvar.html',
+  '#/lenguajes/java/equals': './html/lenguajes/java/equals.html',
+  '#/lenguajes/java/operadores': './html/lenguajes/java/operadores.html',
   '#/lenguajes/java/estructuras': './html/lenguajes/java/estructuras.html',
+  
   '#/lenguajes/js': './html/lenguajes/js',
   '#/lenguajes/js/funciones': './html/lenguajes/js/funciones.html',
   '#/lenguajes/js/mutation': './html/lenguajes/js/mutation.html',
   '#/lenguajes/js/conexiones-servidor': './html/lenguajes/js/conexiones-servidor.html',
   '#/lenguajes/js/asincronia': './html/lenguajes/js/asincronia.html',
   '#/lenguajes/js/conexiones-archivos': './html/lenguajes/js/conexiones-archivos.html',
+  
   '#/lenguajes/html': './html/lenguajes/html',
   '#/lenguajes/css': './html/lenguajes/css',
   '#/lenguajes/python': './html/lenguajes/python',
@@ -112,6 +127,8 @@ export let pages = {
   '#/i2/2/p3': './html/i2/2/p3',
   '#/i2/2/so': './html/i2/2/so',
   '#/i2/2/dbd': './html/i2/2/dbd',
+  '#/i2/2/es': './html/i2/2/es',
+  
   '#/i2/1/ec': './html/i2/1/ec',
   '#/i2/1/ec/tipos-instruccion': './html/i2/1/ec/tipos-instruccion.html',
   '#/i2/1/ec/elementos': './html/i2/1/ec/elementos',
@@ -127,6 +144,7 @@ export let pages = {
   '#/i2/1/ec/mars': './html/i2/1/ec/mars.html',
   '#/i2/1/ec/mars': './html/i2/1/ec/mars.html',
   '#/i2/1/ec/saber-general': './html/i2/1/ec/saber-general.html',
+  
   '#/i2/1/ffi': './html/i2/1/ffi',
   '#/i2/1/ffi/saber-general': './html/i2/1/ffi/saber-general.html',
   '#/i2/1/ffi/laboratorio/calc-error': './html/i2/1/ffi/laboratorio/calc-error.html',
@@ -135,15 +153,18 @@ export let pages = {
   '#/i2/1/ffi/t1-cargas-puntuales/fuerza-campo': './html/i2/1/ffi/t1-cargas-puntuales/fuerza-campo.html',
   '#/i2/1/ffi/t2-distribuciones-carga/cargas-superficie': './html/i2/1/ffi/t2-distribuciones-carga/cargas-superficie.html',
   '#/i2/1/ffi/t4-campo-magnetico/': './html/i2/1/ffi/t4-campo-magnetico/',
+  
   '#/i2/1/m1': './html/i2/1/m1',
   '#/i2/1/m1/logica': './html/i2/1/m1/logica.html',
   '#/i2/1/m1/prolog': './html/i2/1/m1/prolog.html',
+  
   '#/i2/1/m2': './html/i2/1/m2',
   '#/i2/1/m2/funciones': './html/i2/1/m2/funciones.html',
   '#/i2/1/m2/limites': './html/i2/1/m2/limites',
   '#/i2/1/m2/derivadas': './html/i2/1/m2/derivadas',
   '#/i2/1/m2/python': './html/i2/1/m2/python.html',
   '#/i2/1/m2/saber-general': './html/i2/1/m2/saber-general.html',
+  
   '#/i2/1/md': './html/i2/1/md',
 
   '#/plataformas': './html/plataformas',

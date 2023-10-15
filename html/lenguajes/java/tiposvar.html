@@ -1,0 +1,96 @@
+<h1>Tipos de Variable</h1>
+<style>
+  @media screen and (min-width:750px) {
+    tr td:first-child {
+      width: 400px;
+    }
+  }
+</style>
+<h2>Funciones</h2>
+<section>
+  <table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Función (void) que NO devuelve valor</td>
+      <td>public <b>void</b> <i>miFuncion(){}</i></td>
+    </tr>
+    <tr>
+      <td>Función que Sí devuelve valor</td>
+      <td>public <i><b>int</b></i> <i>miFuncion(<b>int</b> a){return a}</i> // Si declaro que fun es int debe devolver int</td>
+    </tr>
+    <tr>
+      <td>Función (estática) que se puede llamar desde clase u objeto</td>
+      <td>public <b>static</b> miFuncion(){}; // puede ser llamada desde: <br>
+        // miClase.miFuncion(); <br>
+        // miOBjeto.miFuncion(); </td>
+    </tr>
+  </table>
+</section>
+<h2>General</h2>
+<section>
+  <table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Objeto padre de todos que permite apuntar a cualquier objeto</td>
+      <td><b>Object</b> <i>bar = new MiObjeto1(10)</i> 
+        <br>// Luego podríamos hacer: bar = new MiObjeto2();
+      <br> // De normal sería: MiObjeto1 bar = new MiObjeto1(10);
+      <br> // Luego siempre: bar = new MiObjeto1(2);
+    
+    </td>
+    </tr>
+    <tr>
+      <td>Constante</td>
+      <td><b>final</b> double <i>bar = 8.123456789012345</i></td>
+    </tr>
+    <tr>
+      <td>Estáticos</td>
+      <td><b>static</b> int <i>bar = 2,147,483,647</i></td>
+    </tr>
+    <tr>
+      <td>Booleano escalar (no objeto)(tipo primitivo)</td>
+      <td><b>boolean</b> <i>bar = true</i></td>
+    </tr>
+  </table>
+</section>
+<h2>Numéricos (escalares (no objetos)(tipos primitivos))</h2>
+<section>
+  <table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Entero (4 bytes)</td>
+      <td><b>int</b> <i>bar = 2,147,483,647</i></td>
+    </tr>
+    <tr>
+      <td>Corto (2 bytes)</td>
+      <td><b>short</b> <i>bar = 32,767</i></td>
+    </tr>
+    <tr>
+      <td>Largo (8 bytes)</td>
+      <td><b>long</b> <i>bar = 2,147,483,648</i>// se puede poner una l al final</td>
+    </tr>
+    <tr>
+      <td>Byte (1 byte = 8 bits)</td>
+      <td><b>byte</b> <i>bar = -127</i></td>
+    </tr>
+    <tr>
+      <td>Flotante (4 byte (aprox 6 decimales))</td>
+      <td><b>float</b> <i>bar = 8.123456f</i></td>
+    </tr>
+    <tr>
+      <td>Flotante Extendida (8 byte (aprox 15 decimales))</td>
+      <td><b>double</b> <i>bar = 8.123456789012345</i> // se puede poner un d al final</td>
+    </tr>
+  </table>
+  <p>Ref: <a target="_blank" href="https://youtu.be/OS1F6VNA6hs?si=2Vr2SZ0UkjkG4M2p&t=645">Curso Java. Estructuras principales II. Vídeo 5</a></p>
+</section>
+<h2>Caracteres</h2>
+<section>
+  <table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Carácter (tipo primitivo)</td>
+      <td><b>char</b> <i>bar = 'a' // Siempre entre comillas simples</i></td>
+    </tr>
+    <tr>
+      <td>String (Clase Objeto Predefinido)</td>
+      <td><b>String</b> <i>bar = "a"</i></td>
+    </tr>
+  </table>
+</section>

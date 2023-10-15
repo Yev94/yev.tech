@@ -1,0 +1,46 @@
+<h1>Equals</h1>
+
+<section>
+  <table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Permite Comparar el valor de 2 objetos</td>
+    </tr>
+    <tr>
+      <td> Si comparamos 2 objeto a y b como a == b -> out: false //Porque son referencias que contienen direcciones de memoria !=s</td>
+    </tr>
+    <tr>
+      <td>a.equals(b) // Es bueno para comparar Strings</td>
+    </tr>
+    <tr>
+      <td>No sirve para comparar otros objetos propios, porque por defecto usa el método Equals de Object (objeto padre de todos)</td>
+    </tr>
+    <tr>
+      <td>Para usar el método equals con nuestros objetos, tendremos que crear nuestro propio equals</td>
+    </tr>
+  </table>
+</section>
+<h2>Implementar nuestro equals</h2>
+<section>
+  <div class="code">
+    <pre>
+          <code class="language-java">
+@Override
+public boolean equals(Object obj) {
+  if (obj == this) return true; // las dos referencias apuntan al mismo objeto (siendo this este objeto)
+
+  if (obj == null || getClass() != obj.getClass()) return false; // Si la referencia apunta a un null -> falso
+
+  if (!(obj instanceof MiClase)) return false; // Si el objeto que llega no es una instancia de mi clase -> falso
+  MiClase elotro = (MiClase) obj;
+
+  // A partir de aquí comparar los atributos(variables de la clase) de ambos objetos ('this' y 'elotro') para determinar si son iguales o no.
+  // Por ejemplo, podría tener la clase Persona, y decidir que son iguales si tienen el mismo DNI
+  Persona persona = (Persona) obj;
+  return this.id == persona.id; // o id == persona.id
+  // !OJO! si los atributos son referencias a objetos,hay que usar 'equals' para compararlos.
+}
+          </code>
+      </pre>
+  </div>
+</section>
+<iframe src="https://www.youtube.com/embed/AoUVdLWLFQw?si=6P_EBD2ID9OH_Ge8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

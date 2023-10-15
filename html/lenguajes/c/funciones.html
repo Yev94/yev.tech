@@ -1,0 +1,57 @@
+<h1>Funciones</h1>
+<style>
+  @media screen and (min-width:750px) {
+    tr td:first-child {
+      width: 400px;
+    }
+  }
+</style>
+<h2>Sistema Operativo</h2>
+<p>Usando: #include &lt;<b>unistd.h</b>&gt;</p>
+<section>
+  <table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Crear un proceso</td>
+      <td><b>pid_t <i>pid</i> = fork()</b> // devuelve -1 si error y 0 si correcto</td>
+    </tr>
+    <tr>
+      <td>Saber PID proceso</td>
+      <td><b>getpid();</b></td>
+    </tr>
+    <tr>
+      <td>Saber PPID (PID del padre)</td>
+      <td><b>getppid();</b></td>
+    </tr>
+    <tr>
+      <td>Dormir x segundos</td>
+      <td><b>sleep(<i>x</i>);</b></td>
+    </tr>
+  </table>
+</section>
+<h2>Consola</h2>
+<section>
+  <h3>Imprimir</h3>
+  <p>Usando: #include &lt;<b>cstdio</b>&gt;</p>
+  <table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Imprimir</td>
+      <td><b>printf()</b>;</td>
+    </tr>
+    <tr>
+      <td>Imprimir int</td>
+      <td>printf("<i>miInt</i> = <b>%d</b>", <i>bar_int</i>);</td>
+    </tr>
+    <tr>
+      <td>Imprimir puntero</td>
+      <td>printf("<i>miPunt</i> = <b>%p</b>", <i>bar_punt</i>);</td>
+    </tr>
+  </table>
+  <h3>General</h3>
+  <p>Usando: #include &lt;<b>stdlib.h</b>&gt;</p>
+  <table class="table table-hover table-dark" style="max-width: 1000px">
+    <tr>
+      <td>Salir</td>
+      <td><b>exit()</b>;</td>
+    </tr>
+  </table>
+</section>

@@ -2,16 +2,27 @@
 <section>
   <table class="table table-hover table-dark" style="max-width: 700px">
     <tr>
+      <td><a href="#/lenguajes/java/terminal">Comandos Terminal</a></td>
+    </tr>
+    <tr>
+      <td><a href="#/lenguajes/java/casting">Casting</a></td>
+    </tr>
+    <tr>
       <td><a href="#/lenguajes/java/oop">OOP</a></td>
+    </tr>
+    <tr>
+      <td><a href="#/lenguajes/java/funciones">Funciones</a></td>
+    </tr>
+    <td><a href="#/lenguajes/java/tiposvar">Tipos de Variable</a></td>
+    </tr>
+    <tr>
+      <td><a href="#/lenguajes/java/operadores">Operadores</a></td>
     </tr>
     <tr>
       <td><a href="#/lenguajes/java/estructuras">Estructuras</a></td>
     </tr>
     <tr>
-      <td><a href="#/lenguajes/java/funciones">Funciones</a></td>
-    </tr>
-    <tr>
-      <td><a href="#/lenguajes/java/conexiones-servidor">Conexiones con Servidor</a></td>
+      <td><a href="#/lenguajes/java/equals">La función <b>equals</b> y sus rollos</a></td>
     </tr>
     <tr>
       <td><a href="#/lenguajes/java/conexiones-archivos">Conexiones entre Archivos Import/Export</a></td>
@@ -19,13 +30,19 @@
     <tr>
       <td><a href="#/lenguajes/java/asincronia">Asincronía</a></td>
     </tr>
+    <tr>
+      <td><a target="_blank" href="https://youtu.be/Bj9Mx_Lx3q4?si=o1iz64olHn_gFQcA">Porqué los Strings son inmutables y cómo funcionan las referencias en JAVA</a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-20-04">Instalar JAVa en Linux</a></td>
+    </tr>
   </table>
 </section>
 
 <h2>Primeros Pasos</h2>
 <section>
-    <div class="code">
-      <pre>
+  <div class="code">
+    <pre>
           <code class="language-java">
 public class PrimeraClase {
   public static void main(String[] args) {
@@ -35,6 +52,7 @@ public class PrimeraClase {
           </code>
       </pre>
   </div>
+  <iframe src="https://www.youtube.com/embed/j4v-bK3y6Sk?si=fR-g1AlXL6p--6I_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </section>
 
 <h2>Eclipse</h2>
@@ -44,22 +62,168 @@ public class PrimeraClase {
       <td><a target="_blank" href="https://youtu.be/PT8AziBfrdQ?si=U_gED0mDcktXcSNu&t=837">Empezar un proyecto</a></td>
     </tr>
     <tr>
-      <td><a href="https://youtu.be/Lj97ujkeUXc?si=CV-HV4zoL-2JbgLc&t=1776" target="_blank">Al guardar Eclipse ya guarda en bin el archivo "miNombre.class" sin haber compilado</a></td>
+      <td><a href="https://youtu.be/Lj97ujkeUXc?si=CV-HV4zoL-2JbgLc&t=1776" target="_blank">Al guardar Eclipse ya guarda
+          en bin el archivo "miNombre.class" sin haber compilado</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://youtu.be/P-_Nzi_mCRo?si=flA6OwlmOaOOBs2P&t=292" target="_blank">Pasar argumentos al main al ejecutar</a></td>
     </tr>
   </table>
+  <h3>Atajos de teclado</h3>
+  <h4>Importantes Para Mi</h4>
+  <table class="table table-hover table-dark" style="max-width: 700px">
+    <tr>
+      <td>Mover línea</td>
+      <td>Alt + Up/Down Arrow</td>
+    </tr>
+    <tr>
+      <td>Duplicar línea</td>
+      <td>Alt + Shift + Up/Down Arrow</td>
+    </tr>
+    <tr>
+      <td>Eliminar línea</td>
+      <td>Ctrl + D</td>
+    </tr>
+    <tr>
+      <td>Ejecutar programa</td>
+      <td>Ctrl + F11</td>
+    </tr>
+    <tr>
+      <td>Comentar/descomentar líneas</td>
+      <td>'Ctrl + /' <br> 'Ctrl + Shift + /' para bloque</td>
+    </tr>
+    <tr>
+      <td>Renombrar variable</td>
+      <td>Alt + Shift + R</td>
+    </tr>
+    <tr>
+      <td>Formatear código</td>
+      <td>Ctrl + Shift + F</td>
+    </tr>
+    <tr>
+      <td>Buscar y abrir archivo</td>
+      <td>Ctrl + Shift + R</td>
+    </tr>
+    <tr>
+      <td>Autocompletar</td>
+      <td>Ctrl + Space</td>
+    </tr>
+    <tr>
+      <td>Autocompletar - System.out.println</td>
+      <td>'sysout' y Autocompletar</td>
+    </tr>
+  </table>
+  <h4>Resto</h4>
+  <table class="table table-hover table-dark" style="max-width: 700px">
+    <tr>
+      <td>Autocompletar - método principal</td>
+      <td>'main' y Autocompletar</td>
+    </tr>
+    <tr>
+      <td>Autocompletar - bucles</td>
+      <td>'for' y Autocompletar</td>
+    </tr>
+    <tr>
+      <td>Autocompletar - if, while, do while...</td>
+      <td>(if, while, do while) y Autocompletar</td>
+    </tr>
+    <tr>
+      <td>Convertir texto a mayúsculas/minúsculas</td>
+      <td>'Ctrl + Shift + X' / 'Ctrl + Shift + Y'</td>
+    </tr>
+    <tr>
+      <td>Encerrar código en try-catch</td>
+      <td>'Alt + Shift + Z'</td>
+    </tr>
+    <tr>
+      <td>Generar getters y setters</td>
+      <td>'Alt + Shift + S' y 'R'</td>
+    </tr>
+    <tr>
+      <td>Generar constructor</td>
+      <td>'Alt + Shift + S' y 'O'</td>
+    </tr>
+    <tr>
+      <td>Importar clases automáticamente</td>
+      <td>Ctrl + Shift + O</td>
+    </tr>
+    <tr>
+      <td>Ir a línea específica</td>
+      <td>Ctrl + L</td>
+    </tr>
+    <tr>
+      <td>Ver esquema de archivo</td>
+      <td>Ctrl + O</td>
+    </tr>
+    <tr>
+      <td>Extraer método</td>
+      <td>Alt + Shift + M</td>
+    </tr>
+    <tr>
+      <td>Ver jerarquía de llamadas</td>
+      <td>Ctrl + Alt + H</td>
+    </tr>
+    <tr>
+      <td>Ver jerarquía de clases</td>
+      <td>F4</td>
+    </tr>
+    <tr>
+      <td>Ir al principio/fin de bloque</td>
+      <td>Ctrl + Shift + P</td>
+    </tr>
+    <tr>
+      <td>Cambiar tamaño de fuente</td>
+      <td>'Ctrl + +' o 'Ctrl + -'</td>
+    </tr>
+    <tr>
+      <td>Navegar a implementación de método/declaración de variable</td>
+      <td>F3 <br> Ctrl + Click</td>
+    </tr>
+    <tr>
+      <td>Cambiar entre pestañas de archivos</td>
+      <td>Ctrl + Page Up/Page Down</td>
+    </tr>
+    <tr>
+      <td>Navegar hacia atrás/adelante en ediciones</td>
+      <td>Alt + Left/Right Arrow</td>
+    </tr>
+    <tr>
+      <td>Ver todos los atajos</td>
+      <td>Ctrl + Shift + L</td>
+    </tr>
+  </table>
+  <p>Ref: <a target="_blank"
+      href="https://www.youtube.com/watch?v=LIGkIGdmHII&list=WL&index=1&t=293s&ab_channel=CodingwithJohn">30+ Eclipse
+      Shortcuts Every Java Programmer Should Know</a></p>
 </section>
 
 <h2>Normas</h2>
 <section>
   <table class="table table-hover table-dark" style="max-width: 700px">
     <tr>
-      <td><a href="https://youtu.be/Lj97ujkeUXc?si=ToEFKicFNgQfesO6&t=1375" target="_blank">El nombre de la clase debe tener el mismo nombre que el archivo en el que se guarda</a></td>
+      <td><a href="https://youtu.be/Lj97ujkeUXc?si=ToEFKicFNgQfesO6&t=1375" target="_blank">El nombre de la clase debe
+          tener el mismo nombre que el archivo en el que se guarda</a></td>
     </tr>
     <tr>
-      <td><a href="https://youtu.be/Lj97ujkeUXc?si=CV-HV4zoL-2JbgLc&t=1776" target="_blank">El programa java debe ser compilado e interpretado por lo que se escribe en "miNombre.java" y se compila a "miNombre.class" que es el que se puede pasar a cualquiera para ejecutar</a></td>
+      <td><a href="https://youtu.be/Lj97ujkeUXc?si=CV-HV4zoL-2JbgLc&t=1776" target="_blank">El programa java debe ser
+          compilado e interpretado por lo que se escribe en "miNombre.java" y se compila a "miNombre.class" que es el
+          que se puede pasar a cualquiera para ejecutar</a></td>
+    </tr>
+    <tr>
+      <td>El constructor no devuelve ningún return</td>
     </tr>
   </table>
+  <h3>Creación de Objetos</h3>
+  <img src="./img/23-10-14-01-15-44.png">
+
+  <h3>Asignación de referencias</h3>
+  <img src="./img/23-10-14-01-16-32.png">
+
+  <h3>Copia de Objetos</h3>
+  <img src="./img/23-10-14-01-17-00.png">
+
 </section>
+
 
 <h2>Usos</h2>
 <section>
